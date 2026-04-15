@@ -1,0 +1,577 @@
+<mvc:View
+    controllerName="ui5app.controller.vendorList"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+>
+    <Page
+        title="Vendor List"
+        showNavButton="true"
+        navButtonPress="onNavBack"
+    >
+        <content>
+            <!-- ✅ Move IconTabBar here -->
+            <VBox class="mainContainer">
+                <!-- HEADER ROW -->
+                <HBox
+                    alignItems="Center"
+                    justifyContent="SpaceBetween"
+                    width="100%"
+                >
+                    <!-- LEFT: TITLE + TABS -->
+                    <HBox alignItems="Center">
+                        <Title
+                            text="Pending PC"
+                            level="H2"
+                            class="titleMargin"
+                        />
+
+                        <IconTabBar
+                            selectedKey="{view>/selectedBU}"
+                            select="onBUChange"
+                            items="{view>/businessDivision}"
+                            class="customTabBar"
+                            expandable="false"
+                        >
+                            <items>
+                                <IconTabFilter
+                                    key="{view>key}"
+                                    text="{view>text}"
+                                />
+                            </items>
+                        </IconTabBar>
+                    </HBox>
+
+                    <!-- RIGHT: FILTERS + ACTIONS -->
+                    <HBox
+                        alignItems="Center"
+                        class="filterBar"
+                    >
+                        <Input
+                            width="12rem"
+                            placeholder="Supplier Name"
+                            class="roundedInput"
+                        />
+
+                        <ComboBox
+                            width="12rem"
+                            placeholder="Supplier Location"
+                            class="roundedInput"
+                        />
+
+                        <Input
+                            width="14rem"
+                            value="{filter>/partNumber}"
+                            placeholder="Part number/Name"
+                            class="roundedInput"
+                        />
+
+                        <Input
+                            width="10rem"
+                            value="{filter>/pcNo}"
+                            placeholder="PC No"
+                            class="roundedInput"
+                        />
+
+                        <!-- ACTION BUTTONS -->
+                        <Button
+                            icon="sap-icon://search"
+                            class="actionBtn"
+                        />
+                        <Button
+                            icon="sap-icon://refresh"
+                            class="actionBtn"
+                        />
+                        <Button
+                            icon="sap-icon://filter"
+                            class="actionBtn"
+                            press="onOpenDialog"
+                        />
+                        <Button
+                            icon="sap-icon://download"
+                            class="actionBtn"
+                            press="onDownloadExcel"
+                        />
+                    </HBox>
+                </HBox>
+            </VBox>
+
+            <!-- TABLE -->
+
+            <Panel class="sapUiResponsiveMargin">
+                <Table
+                    id="myTable"
+                    items="{table>/data}"
+                    growing="true"
+                    growingThreshold="20"
+                    sticky="ColumnHeaders"
+                >
+                    <columns>
+                        <!-- <Column>
+                <header>
+                    <Button text="HCIL Location" press="onSort">
+                        <customData>
+                            <core:CustomData key="field" value="hcilLocation"/>
+                        </customData>
+                    </Button>
+                </header>
+            </Column> -->
+                        <Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="HCIL Location" />
+
+                                        <core:Icon
+                                            src="{= ${view>/sortState/hcilLocation} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/hcilLocation} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="hcilLocation"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+                       
+                         <Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="Delivery Date" />
+
+                                        <core:Icon
+                                           src="{= ${view>/sortState/deliveryDate} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/deliveryDate} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="deliveryDate"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+                       
+                         <Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="PC No" />
+
+                                        <core:Icon
+                                             src="{= ${view>/sortState/pcNumber} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/pcNumber} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="pcNumber"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+                      
+
+                         <Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="PC Line" />
+
+                                        <core:Icon
+                                           src="{= ${view>/sortState/pcLine} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/pcLine} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="pcLine"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+                       
+                        <Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="Seq No" />
+
+                                        <core:Icon
+                                            src="{= ${view>/sortState/seqNo} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/seqNo} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="seqNo"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+                       
+
+                        <Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="PC Type" />
+
+                                        <core:Icon
+                                            src="{= ${view>/sortState/pcType} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/pcType} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="pcType"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+
+                       
+
+                         <Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="PART Number" />
+
+                                        <core:Icon
+                                            src="{= ${view>/sortState/partNumber} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/partNumber} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="partNumber"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+                      
+
+ <Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="PART Name" />
+
+                                        <core:Icon
+                                            src="{= ${view>/sortState/partName} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/partName} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="partName"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+                     
+
+ <Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="Scheduled Qty" />
+
+                                        <core:Icon
+                                        src="{= ${view>/sortState/scheduledQty} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/scheduledQty} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="scheduledQty"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+                       
+
+<Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="Pending Qty" />
+
+                                        <core:Icon
+                                             src="{= ${view>/sortState/pendingQty} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/pendingQty} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="pendingQty"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+                      
+                        <Column>
+                            <header>
+                                <HBox alignItems="Center">
+                                    <items>
+                                        <Text text="Status" />
+
+                                        <core:Icon
+                                             src="{= ${view>/sortState/status} === 'asc' ? 'sap-icon://sort-ascending' :
+                           ${view>/sortState/status} === 'desc' ? 'sap-icon://sort-descending' :
+                           'sap-icon://sort' }"
+                                            press="onSort"
+                                            class="sapUiTinyMarginBegin"
+                                        >
+                                            <core:customData>
+                                                <core:CustomData
+                                                    key="field"
+                                                    value="status"
+                                                />
+                                            </core:customData>
+                                        </core:Icon>
+                                    </items>
+                                </HBox>
+                            </header>
+                        </Column>
+
+                    </columns>
+
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{table>hcilLocation}" />
+                                <Text text="{table>deliveryDate}" />
+                                <Text text="{table>pcNumber}" />
+                                <Text text="{table>pcLine}" />
+                                <Text text="{table>seqNo}" />
+                                <Text text="{table>pcType}" />
+                                <Text text="{table>partNumber}" />
+                                <Text text="{table>partName}" />
+                                <Text text="{table>scheduledQty}" />
+                                <Text text="{table>pendingQty}" />
+                                <ObjectStatus
+                                    text="{table>status}"
+                                    state="{table>statusState}"
+                                />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                <!-- <Table
+    items="{table>/data}"
+    growing="true"
+    growingThreshold="20"
+    sticky="ColumnHeaders">
+
+    <columns>
+        <Column><Text text="HCIL Location" /></Column>
+        <Column><Text text="Delivery Date" /></Column>
+        <Column><Text text="PC No" /></Column>
+        <Column><Text text="Line No" /></Column>
+        <Column><Text text="Seq No" /></Column>
+        <Column><Text text="PC Type" /></Column>
+        <Column><Text text="Part No" /></Column>
+        <Column><Text text="Part Name" /></Column>
+        <Column><Text text="Scheduled Qty" /></Column>
+        <Column><Text text="Pending Qty" /></Column>
+        <Column><Text text="Status" /></Column>
+    </columns>
+
+    <items>
+        <ColumnListItem>
+            <cells>
+                <Text text="{table>hcilLocation}" />
+                <Text text="{table>deliveryDate}" />
+                <Text text="{table>pcNumber}" />
+                <Text text="{table>pcLine}" />
+                <Text text="{table>seqNo}" />
+                <Text text="{table>pcType}" />
+                <Text text="{table>partNumber}" />
+                <Text text="{table>partName}" />
+                <Text text="{table>scheduledQty}" />
+                <Text text="{table>pendingQty}" />
+                <ObjectStatus
+                    text="{table>status}"
+                    state="{table>statusState}" />
+            </cells>
+        </ColumnListItem>
+    </items>
+
+</Table> -->
+            </Panel>
+        </content>
+    </Page>
+
+    <!--     
+<Dialog
+    id="filterDialog"
+    title="Filters"
+    stretch="true"
+    contentWidth="320px"
+    class="slideFromRight slideInRight">
+
+    <VBox class="sapUiSmallMargin">
+        <Label text="Delivery Date Range" />
+        <DateRangeSelection />
+        <Label text="Part Number" />
+        <Input />
+    </VBox>
+
+
+    <footer>
+        <Toolbar class="footerToolbar">
+            <ToolbarSpacer />
+
+            <Button
+                icon="sap-icon://search"
+                press="onSearch"
+                class="footerIconBtn" />
+
+            <Button
+                icon="sap-icon://refresh"
+                press="onReset"
+                class="footerIconBtn" />
+
+            <Button
+                icon="sap-icon://decline"
+                press="onClear"
+                class="footerIconBtn" />
+
+            <Button
+                icon="sap-icon://download"
+                press="onDownload"
+                class="footerIconBtn" />
+
+            <ToolbarSpacer />
+        </Toolbar>
+    </footer>
+
+</Dialog> -->
+    <Dialog
+        id="filterDialog"
+        title="Filters"
+        contentWidth="340px"
+        draggable="false"
+        resizable="false"
+        class="rightEndDialog sapUiResponsivePadding"
+    >
+        <VBox
+            class="filterContent"
+            width="100%"
+        >
+            <Label text="Delivery Date Range" />
+            <DateRangeSelection width="100%" />
+
+            <Label text="HCIL Location" />
+            <ComboBox width="100%" />
+
+            <Label text="Part Number" />
+            <Input width="100%" />
+
+            <Label text="Part Color" />
+            <Input width="100%" />
+        </VBox>
+
+        <footer>
+            <Toolbar class="footerToolbar">
+                <ToolbarSpacer />
+
+                <Button
+                    icon="sap-icon://search"
+                    type="Emphasized"
+                    press="onSearch"
+                />
+                <Button
+                    icon="sap-icon://refresh"
+                    type="Transparent"
+                    press="onReset"
+                />
+                <Button
+                    icon="sap-icon://decline"
+                    type="Transparent"
+                    press="onCloseDialog"
+                />
+                <Button
+                    icon="sap-icon://download"
+                    type="Transparent"
+                    press="onDownload"
+                />
+            </Toolbar>
+        </footer>
+    </Dialog>
+</mvc:View>

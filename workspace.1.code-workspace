@@ -1,0 +1,14 @@
+{
+    "folders": [
+        {
+            "path": "CAP_10_04_2026"
+        },
+        {
+            "name": "cap",
+            "path": "cap"
+        }
+    ],
+    "settings": {
+        "SAP HANA Database Explorer.ShowXsAdvancedConnections": true
+    }
+}

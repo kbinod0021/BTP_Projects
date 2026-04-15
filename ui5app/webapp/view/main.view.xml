@@ -1,0 +1,5 @@
+<mvc:View controllerName="ui5app.controller.main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+   
+</mvc:View>

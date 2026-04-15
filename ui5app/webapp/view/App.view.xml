@@ -1,0 +1,107 @@
+<mvc:View controllerName="ui5app.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+     xmlns:tnt="sap.tnt"
+    xmlns="sap.m"
+    >
+     <tnt:ToolPage id="toolPage">
+    <tnt:header>
+    <tnt:ToolHeader class="customHeader">
+
+        <!-- ☰ MENU -->
+        <Button
+            icon="sap-icon://menu2"
+            type="Transparent"
+            class="sapUiSmallMarginBegin"
+            press="onToggleSideNav"/>
+
+        <!-- HONDA LOGO (IMAGE RECOMMENDED) -->
+        <Image
+            src="../images/brand_logo.png"
+            height="28px"
+            alt="Honda"
+            class="sapUiSmallMarginBegin sapUiSmallMarginEnd"/>
+
+        <!-- VERTICAL SEPARATOR -->
+        <ToolbarSeparator/>
+
+        <!-- APPLICATION TITLE -->
+        <Title
+            text="Honda Supplier Collaboration Portal"
+            level="H4"
+            class="sapUiSmallMarginBegin"/>
+
+        <!-- PUSH CONTENT RIGHT -->
+        <ToolbarSpacer/>
+
+        <!-- WELCOME TEXT -->
+        <Text
+            text="Welcome : 100238 - Mr. Binod Kumar"
+            class="sapUiSmallMarginEnd headerWelcome"/>
+
+        <!-- FULL SCREEN -->
+        <Button
+            icon="sap-icon://full-screen"
+            type="Transparent"
+            tooltip="Full Screen"/>
+
+        <!-- USER -->
+        <Button
+            icon="sap-icon://account"
+            type="Transparent"
+            tooltip="User Profile"/>
+
+        <!-- NOTIFICATION -->
+        <Button
+            icon="sap-icon://bell"
+            type="Transparent"
+            tooltip="Notifications"/>
+
+        <!-- LOGOUT -->
+        <Button
+            icon="sap-icon://log"
+            type="Transparent"
+            tooltip="Logout"
+            press="onLogout"/>
+
+    </tnt:ToolHeader>
+</tnt:header>
+
+
+      <tnt:sideContent>
+   <tnt:SideNavigation
+    id="sideNav"
+    expanded="true"
+    itemSelect="onItemSelect">
+
+    <tnt:NavigationList items="{menu>/menu}">
+
+        <!-- PARENT MENU -->
+        <tnt:NavigationListItem
+            key="{menu>key}"
+            text="{menu>text}"
+            icon="{menu>icon}"
+            expanded="false"
+            items="{menu>items}">
+
+            <!-- SUB MENU -->
+            <tnt:NavigationListItem
+                key="{menu>key}"
+                text="{menu>text}"
+                icon="{menu>icon}" />
+        </tnt:NavigationListItem>
+
+    </tnt:NavigationList>
+
+</tnt:SideNavigation>
+</tnt:sideContent>
+
+
+<tnt:mainContents>
+            <App id="app"/>
+        </tnt:mainContents>
+
+    </tnt:ToolPage>
+
+    
+</mvc:View>

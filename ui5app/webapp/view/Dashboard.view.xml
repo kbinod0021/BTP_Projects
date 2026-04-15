@@ -1,0 +1,160 @@
+<mvc:View
+    controllerName="ui5app.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout">
+
+   
+<Page
+    title="Dashboard"
+    busy="{view>/busy}"
+    busyIndicatorDelay="0">
+
+     
+<content>
+
+            <l:Grid
+                defaultSpan="L3 M6 S12"
+                class="sapUiResponsiveMargin">
+
+                <!-- ===== CARD : VENDORS ===== -->
+                <Panel class="sapUiResponsiveMargin">
+
+                    <!-- HEADER WITH ICONS -->
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Vendors" level="H4"/>
+                            <ToolbarSpacer/>
+
+                            <!-- POPUP -->
+                            <Button
+                                icon="sap-icon://hint"
+                                type="Transparent"
+                                press="onVendorInfo"/>
+
+                            <!-- NAVIGATE -->
+                            <Button
+                                icon="sap-icon://navigation-right-arrow"
+                                type="Transparent"
+                                press="onVendorNav"/>
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <!-- CONTENT -->
+                    <VBox class="sapUiSmallMargin">
+                        <Text text="Total Vendors"/>
+                        <Title text="245" level="H2"/>
+                    </VBox>
+
+                </Panel>
+
+                <!-- ===== CARD : ORDERS ===== -->
+                <Panel class="sapUiResponsiveMargin">
+
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Orders" level="H4"/>
+                            <ToolbarSpacer/>
+
+                            <Button
+                                icon="sap-icon://hint"
+                                type="Transparent"
+                                press="onOrdersInfo"/>
+
+                            <Button
+                                icon="sap-icon://navigation-right-arrow"
+                                type="Transparent"
+                                press="onOrdersNav"/>
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <VBox class="sapUiSmallMargin">
+                        <Text text="Open Orders"/>
+                        <Title text="56" level="H2"/>
+                    </VBox>
+
+                </Panel>
+                <Panel class="sapUiResponsiveMargin">
+
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Orders" level="H4"/>
+                            <ToolbarSpacer/>
+
+                            <Button
+                                icon="sap-icon://hint"
+                                type="Transparent"
+                                press="onOrdersInfo"/>
+
+                            <Button
+                                icon="sap-icon://navigation-right-arrow"
+                                type="Transparent"
+                                press="onOrdersNav"/>
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <VBox class="sapUiSmallMargin">
+                        <Text text="Open Orders"/>
+                        <Title text="56" level="H2"/>
+                    </VBox>
+
+                </Panel>
+                <Panel class="sapUiResponsiveMargin">
+
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Orders" level="H4"/>
+                            <ToolbarSpacer/>
+
+                            <Button
+                                icon="sap-icon://hint"
+                                type="Transparent"
+                                press="onOrdersInfo"/>
+
+                            <Button
+                                icon="sap-icon://navigation-right-arrow"
+                                type="Transparent"
+                                press="onOrdersNav"/>
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <VBox class="sapUiSmallMargin">
+                        <Text text="Open Orders"/>
+                        <Title text="56" level="H2"/>
+                    </VBox>
+
+                </Panel>
+                <Panel class="sapUiResponsiveMargin">
+
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Orders" level="H4"/>
+                            <ToolbarSpacer/>
+
+                            <Button
+                                icon="sap-icon://hint"
+                                type="Transparent"
+                                press="onOrdersInfo"/>
+
+                            <Button
+                                icon="sap-icon://navigation-right-arrow"
+                                type="Transparent"
+                                press="onOrdersNav"/>
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <VBox class="sapUiSmallMargin">
+                        <Text text="Open Orders"/>
+                        <Title text="56" level="H2"/>
+                    </VBox>
+
+                </Panel>
+
+            </l:Grid>
+
+        </content>
+
+
+    </Page>
+
+</mvc:View>

@@ -1,0 +1,188 @@
+
+.customHeader {
+    height: 56px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.headerWelcome {
+    font-size: 0.875rem;
+    color: #32363a;
+}
+
+/* .sapTntToolHeader:not(.sapUshellShellToolHeader).sapMTB
+ {
+    background-color: #b8bdb8 !important;
+    padding: 0 1rem 0 0.875rem;
+     color: white; 
+} 
+*/
+
+
+/* ===========================
+   Classic Professional Header
+   =========================== */
+.customHeader {
+    background-color: #1f2a33 !important;   /* SAP classic dark blue-grey */
+    border-bottom: 1px solid #2f3c48 !important;
+}
+
+/* Title text */
+.customHeader .sapMTitle,
+.customHeader .sapMText {
+    color: #ffffff !important;
+}
+
+/* Buttons (icons) */
+.customHeader .sapMBtnIcon {
+    color: #ffffff !important;
+}
+
+/* Image alignment (logo) */
+.customHeader .sapMImage {
+    filter: brightness(1);
+}
+
+/* Toolbar separator */
+.customHeader .sapMTBSeparator {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Hover effect for buttons */
+.customHeader .sapMBtn:hover .sapMBtnIcon {
+    color: #f0ab00; /* SAP gold hover */
+}
+
+/* Optional: Welcome text style */
+.headerWelcome {
+    color: #ffffff;
+    font-weight: 500;
+}
+
+
+.mainContainer {
+    padding: 1rem;
+}
+
+/* Title spacing */
+.titleMargin {
+    margin-right: 1rem;
+}
+
+/* Tabs styling (pill look) */
+.customTabBar .sapMITBHead {
+    border: none;
+}
+
+.customTabBar .sapMITBFilter {
+    border-radius: 20px;
+    margin-right: 0.5rem;
+    padding: 0 0.75rem;
+}
+
+/* Filters alignment */
+.filterBar > * {
+    margin-left: 0.5rem;
+}
+
+/* Rounded inputs */
+.roundedInput .sapMInputBaseInner {
+    border-radius: 20px;
+}
+
+/* Red circular buttons */
+.actionBtn {
+    background-color: #d32f2f !important;
+    color: white !important;
+    border-radius: 50% !important;
+    width: 2.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+    padding: 0;
+}
+
+.actionBtn .sapMBtnInner {
+    border: none;
+        background: #d32f2f;
+    border-radius: 50% !important;
+}
+.actionBtn .sapMBtnInner:hover {
+    border: none;
+        background: #d32f2f;
+    border-radius: 50% !important;
+}
+
+.actionBtn:hover {
+    background-color: #b71c1c !important;
+}
+
+.footerToolbar {
+    justify-content: center;
+}
+/* ===== Right Side Panel Look ===== */
+.rightEndDialog.sapMDialog {
+    width: 340px !important;
+    max-width: 90%;
+    border-radius: 12px 0 0 12px;
+     right: 0 !important;
+    top: 174px !important;
+    left: 1256px !important;
+
+}
+
+/* Align dialog to right */
+.sapMDialogSection {
+    justify-content: flex-end !important;
+}
+
+/* Smooth slide animation */
+.rightEndDialog.sapMDialog.sapMDialogOpen {
+    animation: slideInRight 0.25s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* ===== Content Styling ===== */
+.filterContent {
+    padding: 1rem;
+    gap: 0.5rem;
+}
+
+/* Labels */
+.filterContent .sapMLabel {
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+/* Inputs spacing */
+.filterContent .sapMInput,
+.filterContent .sapMComboBox,
+.filterContent .sapMDateRangeSelection {
+    margin-bottom: 0.5rem;
+}
+
+/* ===== Footer ===== */
+.footerToolbar {
+    border-top: 1px solid #e0e0e0;
+    padding: 0.5rem;
+}
+
+/* Buttons spacing */
+.footerToolbar .sapMBtn {
+    margin-left: 0.25rem;
+}
+
+.sapUiIcon {
+    cursor: pointer;
+}
+
+
