@@ -4,47 +4,275 @@
     xmlns="sap.m"
     xmlns:l="sap.ui.layout">
     </mvc:View> -->
-
-
-
-    <core:FragmentDefinition
-     controllerName="ui5app.controller.VendorDialog"
+<core:FragmentDefinition
+    controllerName="ui5app.controller.VendorDialog"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:core="sap.ui.core">
-
+    xmlns:core="sap.ui.core"
+>
     <Dialog
         id="vendorDialog"
         title="Vendor Information"
         stretchOnPhone="true"
         draggable="true"
         resizable="true"
-        contentWidth="450px">
-
+        contentWidth="600px"
+    >
         <content>
             <VBox class="sapUiMediumMargin">
+                <!-- <Label
+                    text="Vendor ID"
+                    required="true"
+                />
+                <Input placeholder="Enter Vendor ID" id="vendorId" required="true"/>
 
-                <Label text="Vendor ID" required="true"/>
-                <Input placeholder="Enter Vendor ID"/>
+                <Label
+                    text="Vendor Name"
+                    required="true"
+                    class="sapUiSmallMarginTop"
+                />
+                <Input placeholder="Enter Vendor Name" id="vendorName" /> -->
+                <HBox class="sapUiSmallMarginBottom" justifyContent="SpaceBetween">
 
-                <Label text="Vendor Name" required="true"
-                       class="sapUiSmallMarginTop"/>
-                <Input placeholder="Enter Vendor Name"/>
+    <VBox width="48%">
+        <Label text="Vendor ID" required="true"/>
+        <Input id="vendorId" placeholder="Enter Vendor ID" required="true"/>
+    </VBox>
 
-                <Label text="Email"
-                       class="sapUiSmallMarginTop"/>
-                <Input type="Email"
-                       placeholder="vendor@email.com"/>
+    <VBox width="48%">
+        <Label text="Vendor Name" required="true"/>
+        <Input id="vendorName" placeholder="Enter Vendor Name" required="true"/>
+    </VBox>
 
-                <Label text="Phone Number"
-                       class="sapUiSmallMarginTop"/>
-                <Input type="Tel"
-                       placeholder="+91 XXXXX XXXXX"/>
+</HBox>
 
-                <Label text="City"
-                       class="sapUiSmallMarginTop"/>
-                <Input placeholder="City"/>
+                <!-- <Label
+                    text="Email"
+                    class="sapUiSmallMarginTop" required="true"
+                />
+                <Input
+                    type="Email"
+                    placeholder="vendor@email.com" id="email" required="true"
+                />
 
+                <Label
+                    text="Phone Number"
+                    class="sapUiSmallMarginTop" required="true"
+                />
+                <Input
+                    type="Tel"
+                    placeholder="+91 XXXXX XXXXX" id="phone" required="true"
+                /> -->
+                <HBox class="sapUiSmallMarginBottom" justifyContent="SpaceBetween">
+
+    <VBox width="48%">
+        <Label text="Email" required="true"/>
+        <Input id="email" type="Email" placeholder="vendor@email.com" required="true"/>
+    </VBox>
+
+    <VBox width="48%">
+        <Label text="Phone Number" required="true"/>
+        <Input id="phone" type="Tel" placeholder="+91 XXXXX XXXXX" required="true"/>
+    </VBox>
+
+</HBox>
+                <!-- <Label
+                    text="Selected Date"
+                    class="sapUiSmallMarginTop" required="true"
+                />
+                <DatePicker
+                    id="dpDate"
+                    value="{/selectedDate}"
+                    displayFormat="dd.MM.yyyy"
+                    valueFormat="yyyy-MM-dd"
+                    required="true"
+                    change="onDateChange"
+                    
+                />
+                <Label
+                    text="Date Range"
+                    class="sapUiSmallMarginTop" required="true"
+                />
+                <DateRangeSelection
+                    id="drsDate"
+                    delimiter=" - "
+                    displayFormat="dd.MM.yyyy"
+                    valueFormat="yyyy-MM-dd"
+                    change="onDateRangeChange" required="true"
+                /> -->
+
+                <HBox class="sapUiSmallMarginBottom" justifyContent="SpaceBetween">
+
+    <VBox width="48%">
+        <Label text="Selected Date" required="true"/>
+        <DatePicker
+            id="dpDate"
+            displayFormat="dd.MM.yyyy"
+            valueFormat="yyyy-MM-dd"
+            required="true"
+            change="onDateChange"/>
+    </VBox>
+
+    <VBox width="48%">
+        <Label text="Date Range" required="true"/>
+        <DateRangeSelection
+            id="drsDate"
+            displayFormat="dd.MM.yyyy"
+            valueFormat="yyyy-MM-dd"
+            required="true"
+            change="onDateRangeChange"/>
+    </VBox>
+
+</HBox>
+
+                
+
+                <!-- <Label
+                    text="Country Auto Select"
+                    class="sapUiSmallMarginTop" required="true"
+                />
+                <Input
+                   id="countryInput"
+                    showSuggestion="true"
+                    suggest="onSuggest"
+                    suggestionItemSelected="onCountrySelected"
+                    required="true"
+                    suggestionItems="{
+                path: '/countries',
+                templateShareable: false
+            }"
+                >
+                    <suggestionItems>
+                        <core:Item
+                            key="{code}"
+                            text="{name}"
+                        />
+                    </suggestionItems>
+                </Input>
+
+
+              
+
+<Label text="Country" required="true"/>
+    <ComboBox
+      id="countryCombo"
+      selectedKey="{/selectedCountry}"
+      selectionChange="onCountryChange"
+      placeholder="Select Country"
+      required="true"
+      items="{
+        path: '/countries',
+        templateShareable: false
+      }">
+      <items>
+        <core:Item key="{code}" text="{name}" />
+      </items>
+    </ComboBox> -->
+
+    <HBox class="sapUiSmallMarginBottom" justifyContent="SpaceBetween">
+
+    <VBox width="48%">
+        <Label text="Country Auto Select" required="true"/>
+        <Input
+            id="countryInput"
+            showSuggestion="true"
+            suggest="onSuggest"
+            suggestionItemSelected="onCountrySelected"
+            required="true"
+            suggestionItems="{
+                path: '/countries',
+                templateShareable: false
+            }">
+            <suggestionItems>
+                <core:Item key="{code}" text="{name}" />
+            </suggestionItems>
+        </Input>
+    </VBox>
+
+    <VBox width="48%">
+        <Label text="Country" required="true"/>
+        <ComboBox width="100%"
+            id="countryCombo"
+            selectedKey="{/selectedCountry}"
+            selectionChange="onCountryChange"
+            items="{ path: '/countries', templateShareable: false }"
+            required="true">
+            <items>
+                <core:Item key="{code}" text="{name}" />
+            </items>
+        </ComboBox>
+    </VBox>
+
+</HBox>
+
+    <!-- State -->
+    <!-- <Label text="State" class="sapUiSmallMarginTop" required="true"/>
+    <ComboBox
+      id="stateCombo"
+      enabled="{/stateEnabled}"
+      selectedKey="{/selectedState}"
+      selectionChange="onStateChange"
+      placeholder="Select State"
+      required="true"
+      items="{
+        path: '/filteredStates',
+        templateShareable: false
+      }">
+      <items>
+        <core:Item key="{code}" text="{name}" />
+      </items>
+    </ComboBox>
+
+    
+    <Label text="City" class="sapUiSmallMarginTop" required="true"/>
+    <ComboBox
+      id="cityCombo"
+      enabled="{/cityEnabled}"
+      placeholder="Select City"
+      required="true"
+      items="{
+        path: '/filteredCities',
+        templateShareable: false
+      }">
+      <items>
+        <core:Item key="{code}" text="{name}" />
+      </items>
+    </ComboBox> -->
+
+<HBox class="sapUiSmallMarginBottom" justifyContent="SpaceBetween">
+
+    <VBox width="48%">
+        <Label text="State" required="true"/>
+        <ComboBox
+            id="stateCombo" width="100%"
+            enabled="{/stateEnabled}"
+            selectedKey="{/selectedState}"
+            selectionChange="onStateChange"
+            required="true"
+            items="{ path: '/filteredStates', templateShareable: false }">
+            <items>
+                <core:Item key="{code}" text="{name}" />
+            </items>
+        </ComboBox>
+    </VBox>
+
+    <VBox width="48%">
+        <Label text="City" required="true"/>
+        <ComboBox width="100%"
+            id="cityCombo"
+            enabled="{/cityEnabled}"
+            required="true"
+            items="{ path: '/filteredCities', templateShareable: false }">
+            <items>
+                <core:Item key="{code}" text="{name}" />
+            </items>
+        </ComboBox>
+    </VBox>
+
+</HBox>
+
+
+                
             </VBox>
         </content>
 
@@ -52,15 +280,15 @@
             <Button
                 text="Save"
                 type="Emphasized"
-                press="onVendorSave"/>
+                press="onVendorSave"
+            />
         </beginButton>
 
         <endButton>
             <Button
                 text="Cancel"
-                press="onVendorClose"/>
+                press="onVendorClose"
+            />
         </endButton>
-
     </Dialog>
-
 </core:FragmentDefinition>
