@@ -1,0 +1,101 @@
+<mvc:View
+    controllerName="ui5demo.controller.main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:core="sap.ui.core">
+
+    <tnt:ToolPage id="toolPage">
+
+        <!-- =================== HEADER =================== -->
+        <tnt:header>
+            <Bar class="hondaHeader">
+                <contentLeft>
+                    <Button
+                        icon="sap-icon://menu2"
+                        type="Transparent"
+                        press="onMenuToggle"/>
+
+                    <!-- <Text text="HONDA" class="hondaLogo"/> -->
+                    <Image src="images/brand_logo.png" class="logo-image"></Image>
+                    <Text text="|" class="dividerText"/>
+                    <Text
+                        text="Honda Supplier Collaboration Portal"
+                        class="portalTitle"/>
+                </contentLeft>
+
+                <contentRight>
+                    <Text
+                        text="Welcome : 100238 - Mr. Saarim Zaid"
+                        class="welcomeText"/>
+                    <Button
+                        icon="sap-icon://log"
+                        type="Transparent"/>
+                </contentRight>
+            </Bar>
+        </tnt:header>
+
+        <!-- =================== SIDE MENU =================== -->
+        <tnt:sideContent>
+            <tnt:SideNavigation
+                id="sideNav"
+                expanded="true">
+
+                <tnt:NavigationList
+                    itemSelect="onItemSelect">
+
+                    <!-- Dashboard -->
+                    <tnt:NavigationListItem
+                        text="Dashboard"
+                        icon="sap-icon://home"
+                        key="dashboard"/>
+
+                    <!-- Purchase -->
+                    <tnt:NavigationListItem
+                        text="Purchase"
+                        icon="sap-icon://cart">
+
+                        <tnt:NavigationListItem
+                            text="PO Creation"
+                            key="poCreate"/>
+
+                        <tnt:NavigationListItem
+                            text="PO Status"
+                            key="poStatus"/>
+
+                    </tnt:NavigationListItem>
+
+                    <!-- Invoice -->
+                    <tnt:NavigationListItem
+                        text="Invoice"
+                        icon="sap-icon://receipt">
+
+                        <tnt:NavigationListItem
+                            text="Create Invoice"
+                            key="invCreate"/>
+
+                        <tnt:NavigationListItem
+                            text="Invoice History"
+                            key="invHistory"/>
+
+                    </tnt:NavigationListItem>
+
+                    <!-- Settings -->
+                    <tnt:NavigationListItem
+                        text="Settings"
+                        icon="sap-icon://action-settings"
+                        key="settings"/>
+
+                </tnt:NavigationList>
+            </tnt:SideNavigation>
+        </tnt:sideContent>
+
+        <!-- =================== MAIN CONTENT =================== -->
+        <tnt:mainContents>
+            <VBox class="contentArea">
+                <Title text="Welcome Screen"/>
+            </VBox>
+        </tnt:mainContents>
+
+    </tnt:ToolPage>
+</mvc:View>

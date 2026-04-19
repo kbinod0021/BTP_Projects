@@ -1,0 +1,12 @@
+<mvc:View
+    controllerName="ui5demo.controller.Dashboard"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page title="Dashboard">
+        <content>
+            <Text text="Dashboard loaded"/>
+        </content>
+    </Page>
+
+</mvc:View>
