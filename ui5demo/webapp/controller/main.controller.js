@@ -1,47 +1,39 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller"
-], (Controller) => {
+], function (Controller) {
     "use strict";
 
     return Controller.extend("ui5demo.controller.main", {
-        onInit() {
+
+        onInit: function () {
+            this._loadPage("Dashboard");
         },
-        
-onMenuToggle: function () {
-    var oSideNav = this.byId("sideNav");
-    oSideNav.setExpanded(!oSideNav.getExpanded());
-},
 
-onItemSelect: function (oEvent) {
-    var sKey = oEvent.getParameter("item").getKey();
+        onItemSelect: function (oEvent) {
+            const sKey = oEvent.getParameter("item").getKey();
+            this._loadPage(sKey);
+        },
 
-    switch (sKey) {
-        case "dashboard":
-            // this.getRouter().navTo("dashboard");
-            break;
+        _loadPage: function (sPage) {
+            const oNav = this.byId("mainNav");
+            const sViewId = this.getView().getId() + "--" + sPage;
 
-        case "poCreate":
-            // this.getRouter().navTo("poCreate");
-            break;
+            let oPage = sap.ui.getCore().byId(sViewId);
 
-        case "poStatus":
-            // this.getRouter().navTo("poStatus");
-            break;
+            if (!oPage) {
+                oPage = sap.ui.xmlview({
+                    id: sViewId,
+                    viewName: "ui5demo.view." + sPage
+                });
+                oNav.addPage(oPage);
+            }
 
-        case "invCreate":
-            // this.getRouter().navTo("invCreate");
-            break;
+            oNav.to(oPage);
+        },
 
-        case "invHistory":
-            // this.getRouter().navTo("invHistory");
-            break;
-
-        case "settings":
-            // this.getRouter().navTo("settings");
-            break;
-    }
-}
-
-
+        onMenuToggle: function () {
+            const oSideNav = this.byId("sideNav");
+            oSideNav.setExpanded(!oSideNav.getExpanded());
+        }
     });
 });

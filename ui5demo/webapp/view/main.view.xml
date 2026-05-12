@@ -7,7 +7,7 @@
 
     <tnt:ToolPage id="toolPage">
 
-        <!-- =================== HEADER =================== -->
+        <!-- ================= HEADER ================= -->
         <tnt:header>
             <Bar class="hondaHeader">
                 <contentLeft>
@@ -16,8 +16,7 @@
                         type="Transparent"
                         press="onMenuToggle"/>
 
-                    <!-- <Text text="HONDA" class="hondaLogo"/> -->
-                    <Image src="images/brand_logo.png" class="logo-image"></Image>
+                    <Image src="images/brand_logo.png" class="logo-image"/>
                     <Text text="|" class="dividerText"/>
                     <Text
                         text="Honda Supplier Collaboration Portal"
@@ -35,22 +34,16 @@
             </Bar>
         </tnt:header>
 
-        <!-- =================== SIDE MENU =================== -->
+        <!-- ================= SIDE MENU ================= -->
         <tnt:sideContent>
-            <tnt:SideNavigation
-                id="sideNav"
-                expanded="true">
+            <tnt:SideNavigation id="sideNav" expanded="true">
+                <tnt:NavigationList itemSelect="onItemSelect">
 
-                <tnt:NavigationList
-                    itemSelect="onItemSelect">
-
-                    <!-- Dashboard -->
                     <tnt:NavigationListItem
                         text="Dashboard"
                         icon="sap-icon://home"
-                        key="dashboard"/>
+                        key="Dashboard"/>
 
-                    <!-- Purchase -->
                     <tnt:NavigationListItem
                         text="Purchase"
                         icon="sap-icon://cart">
@@ -62,39 +55,15 @@
                         <tnt:NavigationListItem
                             text="PO Status"
                             key="poStatus"/>
-
                     </tnt:NavigationListItem>
-
-                    <!-- Invoice -->
-                    <tnt:NavigationListItem
-                        text="Invoice"
-                        icon="sap-icon://receipt">
-
-                        <tnt:NavigationListItem
-                            text="Create Invoice"
-                            key="invCreate"/>
-
-                        <tnt:NavigationListItem
-                            text="Invoice History"
-                            key="invHistory"/>
-
-                    </tnt:NavigationListItem>
-
-                    <!-- Settings -->
-                    <tnt:NavigationListItem
-                        text="Settings"
-                        icon="sap-icon://action-settings"
-                        key="settings"/>
 
                 </tnt:NavigationList>
             </tnt:SideNavigation>
         </tnt:sideContent>
 
-        <!-- =================== MAIN CONTENT =================== -->
+        <!-- ================= MAIN CONTENT ================= -->
         <tnt:mainContents>
-            <VBox class="contentArea">
-                <Title text="Welcome Screen"/>
-            </VBox>
+            <NavContainer id="mainNav"/>
         </tnt:mainContents>
 
     </tnt:ToolPage>

@@ -6,6 +6,8 @@
     <Page title="Dashboard">
         <content>
             <Text text="Dashboard loaded"/>
+            <Text class="loader"/>
+
         </content>
     </Page>
 

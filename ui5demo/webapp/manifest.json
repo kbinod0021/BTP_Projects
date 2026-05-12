@@ -8,35 +8,10 @@
       "version": "0.0.1"
     },
     "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
-    "resources": "resources.json",
-    "sourceTemplate": {
-      "id": "@sap/generator-fiori:basic",
-      "version": "1.22.0",
-      "toolsId": "5c6c7db3-1a3f-43cb-8c61-2fc02bf20d24"
-    },
-    "dataSources": {
-      "mainService": {
-        "uri": "/odata/v4/geo/",
-        "type": "OData",
-        "settings": {
-          "annotations": [],
-          "localUri": "localService/mainService/metadata.xml",
-          "odataVersion": "4.01"
-        }
-      }
-    }
+    "description": "{{appDescription}}"
   },
   "sap.ui": {
     "technology": "UI5",
-    "icons": {
-      "icon": "",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
-    },
     "deviceTypes": {
       "desktop": true,
       "tablet": true,
@@ -44,32 +19,25 @@
     }
   },
   "sap.ui5": {
-    "flexEnabled": false,
+    "rootView": {
+      "viewName": "ui5demo.view.App",
+      "type": "XML",
+      "async": true,
+      "id": "App"
+    },
     "dependencies": {
       "minUI5Version": "1.147.0",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.tnt": {}
       }
-    },
-    "contentDensities": {
-      "compact": true,
-      "cozy": true
     },
     "models": {
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
           "bundleName": "ui5demo.i18n.i18n"
-        }
-      },
-      "": {
-        "dataSource": "mainService",
-        "preload": true,
-        "settings": {
-          "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true
         }
       }
     },
@@ -81,38 +49,30 @@
       ]
     },
     "routing": {
-      "config": {
-        "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "transition": "slide",
-        "type": "View",
-        "viewType": "XML",
-        "path": "ui5demo.view",
-        "async": true,
-        "viewPath": "ui5demo.view"
-      },
-      "routes": [
-        {
-          "name": "Routemain",
-          "pattern": ":?query:",
-          "target": [
-            "Targetmain"
-          ]
-        }
-      ],
-      "targets": {
-        "Targetmain": {
-          "id": "main",
-          "name": "main"
-        }
-      }
-    },
-    "rootView": {
-      "viewName": "ui5demo.view.App",
-      "type": "XML",
-      "id": "App",
-      "async": true
+  "config": {
+    "routerClass": "sap.m.routing.Router",
+    "viewType": "XML",
+    "viewPath": "ui5demo.view",
+    "async": true,
+    "controlId": "app",
+    "controlAggregation": "pages"
+  },
+
+  "routes": [
+    {
+      "name": "main",
+      "pattern": "",
+      "target": "main"
     }
+  ],
+
+  "targets": {
+    "main": {
+      "viewName": "main",
+      "viewLevel": 0
+    }
+  }
+}
+
   }
 }
