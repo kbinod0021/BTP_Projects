@@ -1,0 +1,10 @@
+<mvc:View controllerName="project.controller.Orders"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="Orders" class="sapUiContentPadding">
+        <content>
+            <Text text="This is the Orders view." />
+        </content>
+    </Page>
+</mvc:View>
