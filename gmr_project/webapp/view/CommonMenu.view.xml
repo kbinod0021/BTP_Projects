@@ -1,0 +1,141 @@
+<mvc:View
+    controllerName="gmrproject.controller.CommonMenu"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <!-- ✅ MAIN BAR -->
+    <HBox
+        class="menuBar"
+        justifyContent="SpaceBetween"
+    >
+        <!-- ✅ LEFT MENU (ROW FIX) -->
+        <HBox class="menuLeft">
+            <!-- ITEM 1 -->
+            <HBox
+                id="studioItem"
+                class="menuItem active" 
+            >
+                <customData>
+                    <core:CustomData
+                        key="route"
+                        value="studio"
+                    />
+                </customData>
+
+                <Text
+                    text="C"
+                    class="iconCircle"
+                />
+
+                <VBox>
+                    <Text
+                        text="PPA Configuration Studio"
+                        class="title"
+                    />
+                    <Text
+                        text="setup"
+                        class="subText"
+                    />
+                </VBox>
+            </HBox>
+
+            <!-- ITEM 2 -->
+            <HBox
+                id="inputItem"
+                class="menuItem"
+            >
+                <customData>
+                    <core:CustomData
+                        key="route"
+                        value="input"
+                    />
+                </customData>
+                <Text
+                    text="1"
+                    class="badge"
+                />
+
+                <VBox>
+                    <Text
+                        text="Input for Calculation"
+                        class="title"
+                    />
+                    <Text
+                        text="DC • SE • Screen"
+                        class="subText"
+                    />
+                </VBox>
+            </HBox>
+
+            <!-- ITEM 3 -->
+            <HBox
+                id="outputItem"
+                class="menuItem"
+            >
+                <customData>
+                    <core:CustomData
+                        key="route"
+                        value="output"
+                    />
+                </customData>
+                <Text
+                    text="0"
+                    class="badge"
+                />
+
+                <VBox>
+                    <Text
+                        text="Output Center"
+                        class="title"
+                    />
+                    <Text
+                        text="documents"
+                        class="subText"
+                    />
+                </VBox>
+            </HBox>
+
+            <!-- ITEM 4 -->
+            <HBox
+                id="appsItem"
+                class="menuItem"
+            >
+                <customData>
+                    <core:CustomData
+                        key="route"
+                        value="more"
+                    />
+                </customData>
+                <Text
+                    text="+"
+                    class="plusIcon"
+                />
+
+                <VBox>
+                    <Text
+                        text="More Apps"
+                        class="title"
+                    />
+                    <Text
+                        text="8 supporting apps"
+                        class="subText"
+                    />
+                </VBox>
+            </HBox>
+        </HBox>
+
+        <!-- ✅ RIGHT SIDE -->
+        <HBox class="menuRight">
+            <Text
+                text="PPA GRIDCO"
+                class="tag"
+            />
+            <Text
+                text="FY 2025-26"
+                class="tag"
+            />
+        </HBox>
+    </HBox>
+    
+</mvc:View>

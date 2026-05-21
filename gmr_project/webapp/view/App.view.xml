@@ -1,0 +1,11 @@
+<mvc:View
+    controllerName="gmrproject.controller.App"
+    displayBlock="true"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <App id="appContainer">
+       
+    </App>
+
+</mvc:View>

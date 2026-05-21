@@ -1,0 +1,503 @@
+/* BACKGROUND (MATCH IMAGE1) */
+.customHeader {
+  padding: 10px 24px;
+  background: linear-gradient(90deg,
+    #0b2239 0%,
+    #12304a 40%,
+    #1a3d5f 60%,
+    #0b2239 100%);
+  color: white;
+}
+
+/* SECTIONS */
+.leftSection { gap: 12px; }
+.centerSection { gap: 14px; }
+.rightSection { gap: 10px; }
+
+/* TITLE */
+.mainTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.subTitle {
+  font-size: 12px;
+  color: #aab6c4;
+}
+
+/* LOGO */
+.logoCircle {
+    width: 58px !important;
+    height: 52px !important;
+    background: #eaf1f7 !important;
+    color: #0b3c6f !important;
+    border-radius: 50%;
+    padding: 0px;
+    margin: 0px;
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+  color: #9fb3c8;
+}
+
+.breadcrumbSep {
+  color: #7f95ab;
+}
+
+.breadcrumbBold {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* SEARCH (MATCH DARK STYLE) */
+.searchBox .sapMInputBaseInner {
+  background: rgba(255,255,255,0.08) !important;
+  border-radius: 22px !important;
+  color: white !important;
+  border: 1px solid rgba(255,255,255,0.15) !important;
+  padding-left: 16px;
+}
+
+/* PILLS (GLASS STYLE FIX) */
+.pill {
+  border-radius: 999px !important;
+  padding: 5px 16px !important;
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  color: #7ec8ff !important;
+}
+
+/* PERIOD */
+.pillYellow {
+  border-radius: 999px !important;
+  padding: 5px 16px !important;
+  background: rgba(255, 204, 0, 0.12) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  color: #ffd166 !important;
+}
+
+
+/* ✅ ICON (STAR) */
+.jouleBtn .sapUiIcon {
+  color: white !important;
+  font-size: 14px;
+}
+
+
+
+/* MAIN BUTTON */
+.jouleBtn .sapMBtnInner {
+  border-radius: 999px !important;
+  height: 36px !important;
+  padding: 0 18px !important;
+
+  /* ✅ Purple gradient background */
+  background: linear-gradient(
+    135deg,
+    #5f5cff 0%,
+    #7a5cff 50%,
+    #8e44ad 100%
+  ) !important;
+
+  border: none !important;
+  color: white !important;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ✅ ICON (sparkle/star) */
+.jouleBtn .sapUiIcon {
+  color: white !important;
+  font-size: 14px;
+}
+
+/* ✅ TEXT */
+.jouleBtn .sapMBtnContent {
+  color: white !important;
+  font-weight: 600;
+}
+
+/* ✅ glow effect (like image) */
+.jouleBtn .sapMBtnInner:hover {
+  box-shadow: 0 0 10px rgba(122,92,255,0.8);
+}
+
+
+
+
+/* ICONS */
+.iconBtn {
+  border-radius: 50% !important;
+  background: rgba(255,255,255,0.08) !important;
+  border: 1px solid rgba(255,255,255,0.2) !important;
+  color: white !important;
+  width: 34px !important;
+  height: 34px !important;
+}
+
+/* NOTIFICATION */
+.notifWrapper { position: relative; }
+
+.notifBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #ff3b30;
+  color: white;
+  border-radius: 50%;
+  font-size: 10px;
+  padding: 2px 5px;
+}
+
+/* AVATAR */
+.avatar {
+  background: #4a6cf7 !important;
+  width: 38px !important;
+  height: 38px !important;
+}
+
+
+
+/* ICON CONTAINER (MAIN FIX) */
+.iconBox {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ICON BUTTON RESET */
+.iconBtn {
+  background: transparent !important;
+  border: none !important;
+  color: white !important;
+  width: 100%;
+  height: 100%;
+}
+
+/* ICON SIZE */
+.iconBtn .sapUiIcon {
+  font-size: 16px;
+}
+
+/* NOTIFICATION BADGE (FIXED POSITION) */
+.notifWrapper {
+  position: relative;
+}
+
+.notifBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #ff3b30;
+  color: white;
+  font-size: 10px;
+  border-radius: 50%;
+      padding: 3px 10px !important;
+  font-weight: bold;
+}
+
+
+.tb-btn.joule {
+    background: linear-gradient(135deg, #5d36ff, #9269ff);
+    border-color: rgba(157, 128, 255, .4);
+    width: auto;
+    padding: 0 12px;
+    height: 34px;
+    display: inline-flex;
+    gap: 6px;
+    font: 700 11.5px var(--ff-body);
+    color: #fff;
+}
+.tb-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, .06);
+    border: 1px solid rgba(255, 255, 255, .10);
+    display: grid;
+    place-items: center;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    transition: var(--t-fast);
+}
+
+
+
+/* MAIN PILL CONTAINER */
+.pillBox {
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  /* ✅ Dark glass background */
+  background: rgba(255,255,255,0.06);
+
+  /* ✅ Soft border */
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* LEFT GLOW DOT */
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  background: #7ec8ff;
+
+  box-shadow: 0 0 6px #7ec8ff;
+}
+
+/* SMALL LABEL (T-CODE) */
+.pillLabel {
+  color: #7f95ab;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+/* MAIN TEXT */
+.pillValue {
+  color: #9fd3ff;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/*Menu css*/
+
+/* MAIN BAR */
+
+.menuBar {
+  height: 64px;
+  background: #ffffff;
+  padding: 0 24px;
+  border-bottom: 1px solid #ddd;
+  align-items: center;
+}
+
+/* ✅ FIX: HORIZONTAL LAYOUT */
+.menuLeft {
+  display: flex;
+  flex-direction: row;     /* ✅ KEY FIX */
+  align-items: center;
+  gap: 40px;              /* spacing between tabs */
+}
+
+/* MENU ITEM */
+.menuItem {
+  display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    position: relative;
+    border-right: 1px solid;
+    padding-right: 48px;
+    border-width: thin;
+    border-collapse: separate;
+    border-spacing: 15px;
+    border-color: rgba(50, 115, 220, 0.3);
+}
+
+/* TITLE */
+.title {
+  font-weight: 600;
+  font-size: 25px;
+    color: #5f6b7a;
+    cursor: pointer;
+    font: 700 50px var(--ff-display) !important;
+    padding-right: 26px;
+}
+
+/* SUBTEXT */
+.subText {
+  font-size: 12px;
+  color: #9aa6b2;
+   cursor: pointer;
+}
+
+/* ACTIVE TAB */
+.menuItem.active::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #6a5cff;
+   cursor: pointer;
+}
+
+/* ICON */
+.iconCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  background: #6a5cff;
+  color: white;
+  text-align: center !important;
+  line-height: 32px;
+}
+
+/* BADGE */
+.badge {
+  width: 28px;
+  height: 28px;
+  background: #e5e7eb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PLUS */
+.plusIcon {
+  width: 28px;
+  height: 28px;
+  background: #6a5cff;
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* RIGHT */
+.menuRight {
+  display: flex;
+  gap: 12px;
+}
+
+/* TAG */
+.tag {
+  padding: 6px 14px;
+  border-radius: 16px;
+  background: rgba(59,91,219,0.08);
+  border: 1px solid rgba(59,91,219,0.3);
+  color: #2563eb;
+  font-size: 12px;
+}
+
+
+/*studio css*/
+/* PANEL */
+.leftPanel {
+    background: #f6f8fb;
+    padding: 12px;
+}
+
+/* HEADER */
+.panelHeader {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 10px;
+}
+
+.sectionTitle {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.countBadge {
+    background: #e7ddff;
+    color: #5b3df5;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-weight: 600;
+}
+
+/* CARD */
+.contextItem {
+    background: #ffffff;
+    padding: 14px;
+    margin: 5px 0;
+    border-radius: 14px;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* ACTIVE CARD */
+.contextItem.active {
+    background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #2b7cff;
+}
+
+/* LEFT CONTENT ALIGN */
+.leftContent {
+    gap: 12px;
+}
+
+/* ICON */
+.circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    text-align: center;
+    line-height: 44px;
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    text-align: center !important;
+}
+
+.blue {
+    background: linear-gradient(135deg, #1f6feb, #4c8dff);
+}
+
+.purple {
+    background: linear-gradient(135deg, #6a5cff, #8b7bff);
+}
+
+
+
+.subText {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* STATUS TAG */
+.tag {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* GREEN TAG */
+.tag.green {
+    background: #d1f4d8;
+    color: #2e7d32;
+}
+
+/* ORANGE TAG */
+.tag.orange {
+    background: #ffe3c2;
+    color: #b45309;
+}
+
+/* PROGRESS TEXT */
+.progress {
+    font-size: 13px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+
+
+/*21-05-2026*/
+
+
+

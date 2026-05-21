@@ -1,0 +1,19 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="gmrproject.controller.Input"
+    xmlns:layout="sap.ui.layout"
+>
+    <layout:VerticalLayout
+        class="inputLayout"
+        width="100%"
+    >
+        <layout:content>
+            <Text
+                text="Input View"
+                class="inputTitle"
+            />
+            <!-- Your input content goes here -->
+        </layout:content>
+    </layout:VerticalLayout>
+</mvc:View>

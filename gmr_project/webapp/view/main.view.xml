@@ -1,0 +1,124 @@
+<mvc:View
+    controllerName="gmrproject.controller.main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+>
+    <Page
+        showHeader="false"
+        xmlns="sap.m"
+        xmlns:f="sap.f"
+        xmlns:mvc="sap.ui.core.mvc"
+    >
+        <content>
+            <!-- <HBox> -->
+                <VBox class="customHeader">
+                    <HBox
+                        justifyContent="SpaceBetween"
+                        alignItems="Center"
+                        width="100%"
+                    >
+                        <!-- LEFT -->
+                        <HBox
+                            alignItems="Center"
+                            class="leftSection"
+                        >
+                            <!-- <Avatar initials="GMR" class="logoCircle"/> -->
+
+                            <Image
+                                src="/images/gmr.jpg"
+                                class="logoCircle"
+                            />
+
+                            <VBox>
+                                <Text
+                                    text="SD‑PPA Cockpit"
+                                    class="mainTitle"
+                                />
+                                <Text
+                                    text="S/4HANA 2023 PCE · FPS03 · V8"
+                                    class="subTitle"
+                                />
+                            </VBox>
+                        </HBox>
+
+                        <HBox
+                            alignItems="Center"
+                            class="rightSection"
+                        >
+                            <HBox class="pillBox">
+                                <HBox class="statusDot" />
+
+                                <Text
+                                    text="T-CODE"
+                                    class="pillLabel"
+                                />
+
+                                <Text
+                                    text="ZSDTC_PPA_STUDIO"
+                                    class="pillValue"
+                                />
+                            </HBox>
+                            <HBox class="pillBox">
+                                <HBox class="statusDot" />
+
+                                <Text
+                                    text="PERIOD"
+                                    class="pillLabel"
+                                />
+
+                                <Text
+                                    text="Dec 2025"
+                                    class="pillValue"
+                                />
+                            </HBox>
+
+                            <Button
+                                text="Joule"
+                                icon="sap-icon://favorite"
+                                class="jouleBtn"
+                            />
+
+                            <HBox class="notifWrapper">
+                                <Button
+                                    icon="sap-icon://bell"
+                                    class="iconBtn"
+                                />
+                                <Text
+                                    text="3"
+                                    class="notifBadge"
+                                />
+                            </HBox>
+
+                            <Button
+                                icon="sap-icon://sys-help"
+                                class="iconBtn"
+                            />
+                            <Button
+                                icon="sap-icon://history"
+                                class="iconBtn"
+                            />
+
+                            <Avatar
+                                initials="AK"
+                                class="avatar"
+                            />
+                        </HBox>
+                    </HBox>
+                </VBox>
+
+                <VBox>
+                    <VBox>
+                        <mvc:XMLView viewName="gmrproject.view.CommonMenu" />
+                        <!-- <mvc:XMLView viewName="gmrproject.view.Studio" /> -->
+                        <!-- your inner content -->
+                    </VBox>
+                    <VBox width="100%">
+                        <App id="innerApp" />
+                    </VBox>
+                    <!-- ✅ Common Menu (STATIC) -->
+                </VBox>
+            <!-- </HBox> -->
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,404 @@
+.mainContainer {
+    background: #f5f6f7;
+    padding: 1rem;
+    width: 100%;
+}
+
+/* HEADER */
+.headerBar {
+    background: linear-gradient(90deg, #1e2a38, #2c3e50);
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: white;
+}
+
+.logoBox {
+    width: 60px;
+    height: 60px;
+    background: #3b4b5c;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.headerTitles {
+    margin-left: 10px;
+    color: white;
+}
+
+.headerRight .infoItem {
+    margin-left: 25px;
+}
+
+.label {
+    font-size: 10px;
+    color: #cbd5e1;
+}
+
+.value {
+    font-weight: bold;
+}
+
+.valueGreen {
+    color: #4ade80;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.valueYellow {
+    color: #facc15;
+    font-weight: bold;
+    font-size: 16px;
+
+}
+
+/* BOARD */
+.boardHeader {
+    margin-top: 15px;
+}
+
+.badgeGrey {
+    margin-left: 10px;
+    padding: 2px 8px;
+    background: #e5e7eb;
+    border-radius: 12px;
+}
+
+/* ACTION BAR */
+.actionBar {
+    margin-top: 10px;
+}
+
+.tag {
+    padding: 4px 10px;
+    background: #ddd;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.tagBlue {
+    background: #bfdbfe;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.tagRed {
+    background: #fecaca;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.tagGreen {
+    background: #bbf7d0;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.tagGrey {
+    background: #e5e7eb;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.tagOrange {
+    background: #fed7aa;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+/* SECTION */
+.sectionHeader {
+    margin-top: 20px;
+}
+
+/* TILES */
+.tileContainer {
+    margin-top: 15px;
+}
+
+.tileCard {
+    width: 300px;
+    padding: 15px;
+    border-radius: 14px;
+    margin: 10px;
+    background: white;
+}
+
+.tileCard.success {
+    border: 2px solid #86efac;
+}
+
+.tileCard.warning {
+    border: 2px solid #fdba74;
+}
+
+.tileIcon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+    font-weight: bold;
+}
+
+.tileIcon.green {
+    background: #166534;
+}
+
+.tileIcon.orange {
+    background: #ea580c;
+}
+
+.badgeGreen {
+    background: #22c55e;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: white;
+}
+
+.badgeOrange {
+    background: #fb923c;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: white;
+}
+
+.studio-hero {
+    font-size: 17px;
+    font-weight: 700;
+    color: #b8c9d8;
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.logo-text {
+    color: white !important;
+    width: 63px !important;
+    height: 62px !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, .12) !important;
+    display: grid !important;
+    place-items: center !important;
+    font: 800 16px var(--ff-display) !important;
+    flex-shrink: 0 !important;
+    border: 1px solid rgba(255, 255, 255, .2) !important;
+}
+
+.header-text {
+    font-size: 22px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: #fff;
+}
+
+.right-side-text {
+   color: #94a3b8 !important;
+    letter-spacing: .5px;
+    text-transform: uppercase !important;
+    margin-bottom: 3px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+}
+
+.right-side-value {
+    text-align: left;
+    display: block;
+    /* font: 700 14px var(--ff-mono); */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+
+/* PAGE */
+.pageWrapper {
+       padding: 16px;
+    background: #fff !important;
+    font-family: "72", Arial;
+    /* background: var(--paper); */
+    border: 1px solid #dde3eb;
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(10, 25, 41, .06);
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+/* BOARD HEADER */
+.boardHeader {
+     align-items: center;
+    margin-bottom: 12px;
+    padding: 15px 0px;
+    border-bottom: 1px solid #dde3eb;
+    display: flex;
+    /* align-items: center; */
+    gap: 10px;
+}
+
+.boardIcon {
+    margin-right: 8px;
+    color: #334155;
+}
+
+.boardTitle {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.pillGrey {
+    margin-left: 10px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: #475569;
+}
+
+/* SECTION */
+.sectionHeader {
+  margin-top: 10px;
+    margin-bottom: 14px;
+    padding: 20px 18px 17px;
+    background: #f9fafb;
+    border-top: 1px solid #dde3eb;
+    border-bottom: 1px solid #dde3eb;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 11px;
+}
+
+.sectionTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    letter-spacing: 0.5px;
+}
+
+.pillLight {
+    margin-left: 10px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 12px;
+}
+
+/* GRID */
+.tileGrid {
+    gap: 18px;
+}
+
+/* TILE */
+.tile {
+    width: 372px;
+    padding: 16px;
+    border-radius: 16px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* BORDER COLORS */
+.tile.success {
+    border: 2px solid #86efac;
+}
+
+.tile.warning {
+    border: 2px solid #fbbf24;
+}
+
+/* ICON */
+.tileIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    text-align: center !important;
+    line-height: 48px;
+    font-size: 18px;
+}
+
+.tileIcon.green {
+    background: #166534;
+}
+
+.tileIcon.orange {
+    background: #d97706;
+}
+
+/* TITLE + DESC */
+.tileTitle {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.tileDesc {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* BADGES */
+.badgeSuccess {
+    background: #166534;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 15px;
+}
+
+.badgeWarning {
+    background: #fed7aa;
+    color: #92400e;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 15px;
+}
+
+/* CHIPS */
+.chip {
+    background: #e2e8f0;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+.chipWarning {
+    background: #fed7aa;
+    color: #92400e;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+
+/* ✅ HOVER EFFECT */
+.tile:hover {
+    transform: translateY(-6px);   /* lift up */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* shadow like modern UI */
+}
+
+/* ✅ BORDER ENHANCE ON HOVER */
+.tile.success:hover {
+    border-color: #22c55e;
+}
+
+.tile.warning:hover {
+    border-color: #f97316;
+}
+
+/* ✅ OPTIONAL: Slight zoom for icon */
+.tile:hover .tileIcon {
+    transform: scale(1.08);
+    transition: 0.2s;
+}

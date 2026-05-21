@@ -1,0 +1,395 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="gmrproject.controller.Studio"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+>
+    <HBox width="100%">
+        <!-- ✅ LEFT PANEL -->
+        <VBox
+            width="25%"
+            class="leftPanel"
+        >
+            <!-- HEADER -->
+            <HBox
+                justifyContent="SpaceBetween"
+                class="panelHeader"
+            >
+                <Text
+                    text="PPA Context"
+                    class="sectionTitle"
+                />
+                <Text
+                    text="5"
+                    class="countBadge"
+                />
+            </HBox>
+
+            <!-- ITEM 1 (ACTIVE) -->
+            <HBox
+                class="contextItem active"
+                justifyContent="SpaceBetween"
+            >
+                <HBox
+                    alignItems="Center"
+                    class="leftContent"
+                >
+                    <Text
+                        text="GR"
+                        class="circle blue"
+                    />
+                    <VBox>
+                        <Text
+                            text="GRIDCO"
+                            class="title"
+                        />
+                        <Text
+                            text="Kamalanga · GKEL"
+                            class="subText"
+                        />
+                    </VBox>
+                </HBox>
+
+                <VBox alignItems="End">
+                    <Text
+                        text="S62"
+                        class="tag green"
+                    />
+                    <Text
+                        text="10/15"
+                        class="progress"
+                    />
+                </VBox>
+            </HBox>
+
+            <!-- ITEM 2 -->
+            <HBox
+                class="contextItem"
+                justifyContent="SpaceBetween"
+            >
+                <HBox
+                    alignItems="Center"
+                    class="leftContent"
+                >
+                    <Text
+                        text="BI"
+                        class="circle purple"
+                    />
+                    <VBox>
+                        <Text
+                            text="Bihar"
+                            class="title"
+                        />
+                        <Text
+                            text="Kamalanga · GKEL"
+                            class="subText"
+                        />
+                    </VBox>
+                </HBox>
+
+                <VBox alignItems="End">
+                    <Text
+                        text="S63"
+                        class="tag orange"
+                    />
+                    <Text
+                        text="12/17"
+                        class="progress"
+                    />
+                </VBox>
+            </HBox>
+            <!-- ITEM 3 -->
+            <HBox
+                class="contextItem"
+                justifyContent="SpaceBetween"
+            >
+                <HBox
+                    alignItems="Center"
+                    class="leftContent"
+                >
+                    <Text
+                        text="BI"
+                        class="circle purple"
+                    />
+                    <VBox>
+                        <Text
+                            text="Bihar"
+                            class="title"
+                        />
+                        <Text
+                            text="Kamalanga · GKEL"
+                            class="subText"
+                        />
+                    </VBox>
+                </HBox>
+
+                <VBox alignItems="End">
+                    <Text
+                        text="S63"
+                        class="tag orange"
+                    />
+                    <Text
+                        text="12/17"
+                        class="progress"
+                    />
+                </VBox>
+            </HBox>
+            <!-- ITEM 4 -->
+            <HBox
+                class="contextItem"
+                justifyContent="SpaceBetween"
+            >
+                <HBox
+                    alignItems="Center"
+                    class="leftContent"
+                >
+                    <Text
+                        text="BI"
+                        class="circle purple"
+                    />
+                    <VBox>
+                        <Text
+                            text="Bihar"
+                            class="title"
+                        />
+                        <Text
+                            text="Kamalanga · GKEL"
+                            class="subText"
+                        />
+                    </VBox>
+                </HBox>
+
+                <VBox alignItems="End">
+                    <Text
+                        text="S63"
+                        class="tag orange"
+                    />
+                    <Text
+                        text="12/17"
+                        class="progress"
+                    />
+                </VBox>
+            </HBox>
+            <!-- ITEM 5 -->
+            <HBox
+                class="contextItem"
+                justifyContent="SpaceBetween"
+            >
+                <HBox
+                    alignItems="Center"
+                    class="leftContent"
+                >
+                    <Text
+                        text="BI"
+                        class="circle purple"
+                    />
+                    <VBox>
+                        <Text
+                            text="Bihar"
+                            class="title"
+                        />
+                        <Text
+                            text="Kamalanga · GKEL"
+                            class="subText"
+                        />
+                    </VBox>
+                </HBox>
+
+                <VBox alignItems="End">
+                    <Text
+                        text="S63"
+                        class="tag orange"
+                    />
+                    <Text
+                        text="12/17"
+                        class="progress"
+                    />
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- ✅ RIGHT PANEL -->
+        <VBox
+            width="75%"
+            class="rightPanel"
+        >
+            <!-- HEADER CARD -->
+            <HBox
+                class="headerCard"
+                justifyContent="SpaceBetween"
+            >
+                <VBox class="mainContainer">
+                    <!-- HEADER -->
+                    <HBox
+                        class="headerBar"
+                        justifyContent="SpaceBetween"
+                        alignItems="Center"
+                    >
+                        <HBox
+                            alignItems="Center"
+                            class="headerLeft"
+                        >
+                            <VBox
+                                class="logoBox "
+                                justifyContent="Center"
+                                alignItems="Center"
+                            >
+                                <Text
+                                    text="GR"
+                                    class="logo-text"
+                                />
+                            </VBox>
+
+                            <VBox class="headerTitles">
+                                <Title
+                                    class="header-text"
+                                    text="GRIDCO — Configuration Studio"
+                                />
+                                <Text
+                                    class="studio-hero"
+                                    text="Kamalanga · GKEL · Section 62 · Pricing Proc: ZKELGR"
+                                />
+                            </VBox>
+                        </HBox>
+
+                        <HBox
+                            class="headerRight"
+                            alignItems="Center"
+                            justifyContent="End"
+                        >
+                            <VBox class="infoItem">
+                                <Text
+                                    text="SECTION"
+                                    class="label right-side-text"
+                                />
+                                <Text
+                                    text="S62"
+                                    class="value right-side-value"
+                                />
+                            </VBox>
+
+                            <VBox class="infoItem">
+                                <Text
+                                    text="PLANT"
+                                    class="label right-side-text"
+                                />
+                                <Text
+                                    text="Kamalanga"
+                                    class="value right-side-value"
+                                />
+                            </VBox>
+
+                            <VBox class="infoItem">
+                                <Text
+                                    text="ACTIVE"
+                                    class="label right-side-text"
+                                />
+                                <Text
+                                    text="10/15"
+                                    class="valueGreen"
+                                />
+                            </VBox>
+
+                            <VBox class="infoItem">
+                                <Text
+                                    text="SAVED"
+                                    class="label right-side-text"
+                                />
+                                <Text
+                                    text="0/8"
+                                    class="valueYellow"
+                                />
+                            </VBox>
+                        </HBox>
+                    </HBox>
+                </VBox>
+            </HBox>
+            <HBox  class="headerCard"
+                justifyContent="SpaceBetween">
+             <VBox class="pageWrapper">
+
+        <!-- HEADER -->
+        <HBox class="boardHeader" alignItems="Center">
+
+            <core:Icon src="sap-icon://grid" size="1.2rem" class="boardIcon"/>
+
+            <Title text="Configuration Tile Board" class="boardTitle"/>
+
+            <Text text="15 features · 4 groups" class="pillGrey"/>
+        </HBox>
+
+        <!-- SECTION -->
+        <HBox class="sectionHeader">
+            <Title text="DATA UPLOAD" class="sectionTitle"/>
+            <Text text="4 features" class="pillLight"/>
+        </HBox>
+
+        <!-- GRID -->
+        <FlexBox wrap="Wrap" class="tileGrid">
+
+            <!-- TILE 1 -->
+            <VBox class="tile success">
+                <HBox justifyContent="SpaceBetween">
+                    <Text text="DC" class="tileIcon green"/>
+                    <Text text="✓Saved" class="badgeSuccess"/>
+                </HBox>
+
+                <Title text="DC Upload" class="tileTitle"/>
+                <Text text="Declared Capacity · plant ops manual upload (96 blocks × N days)." class="tileDesc"/>
+
+                <Text text="MAIN" class="chip"/>
+            </VBox>
+
+            <!-- TILE 2 -->
+            <VBox class="tile success">
+                <HBox justifyContent="SpaceBetween">
+                    <Text text="SE" class="tileIcon green"/>
+                    <Text text="✓Saved" class="badgeSuccess"/>
+                </HBox>
+
+                <Title text="SE Upload (auto)" class="tileTitle"/>
+                <Text text="Scheduled Energy · auto-fetched from SLDC WBES API (D-1 nightly)." class="tileDesc"/>
+
+                <Text text="MAIN" class="chip"/>
+            </VBox>
+
+            <!-- TILE 3 -->
+            <VBox class="tile warning">
+                <HBox justifyContent="SpaceBetween">
+                    <Text text="F15" class="tileIcon orange"/>
+                    <Text text="Sub-config required" class="badgeWarning"/>
+                </HBox>
+
+                <Title text="Form–15 Coal" class="tileTitle"/>
+                <Text text="Monthly coal cost from FI/MM close. Sources, GCV, landed price." class="tileDesc"/>
+
+                <HBox>
+                    <Text text="MAIN" class="chip"/>
+                    <Text text="popup needed" class="chipWarning"/>
+                </HBox>
+            </VBox>
+
+            <!-- TILE 4 -->
+            <VBox class="tile warning">
+                <HBox justifyContent="SpaceBetween">
+                    <Text text="F15" class="tileIcon orange"/>
+                    <Text text="Sub-config required" class="badgeWarning"/>
+                </HBox>
+
+                <Title text="Form–15 Oil" class="tileTitle"/>
+                <Text text="Monthly oil cost (LDO/HFO). Density, CV, freight, duty." class="tileDesc"/>
+
+                <HBox>
+                    <Text text="MAIN" class="chip"/>
+                    <Text text="popup needed" class="chipWarning"/>
+                </HBox>
+            </VBox>
+
+        </FlexBox>
+
+    </VBox>
+            </HBox>
+        </VBox>
+    </HBox>
+</mvc:View>
