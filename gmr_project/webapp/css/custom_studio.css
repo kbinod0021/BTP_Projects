@@ -304,6 +304,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+     cursor: pointer;
 }
 
 /* BORDER COLORS */
@@ -334,6 +335,26 @@
 .tileIcon.orange {
     background: #d97706;
 }
+
+
+.tileIcon.purple {
+  
+       background: linear-gradient(135deg, #6a5cff, #8b7bff);
+
+}
+
+
+.tileIcon.Haryana {
+
+    background: #0e8a8a;
+   
+}
+
+.tileIcon.Maharashtra {
+   
+    background: #b25300;
+}
+
 
 /* TITLE + DESC */
 .tileTitle {
@@ -383,9 +404,17 @@
 
 
 /* ✅ HOVER EFFECT */
+
+
 .tile:hover {
-    transform: translateY(-6px);   /* lift up */
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* shadow like modern UI */
+    box-shadow: 0 4px 16px rgba(34, 54, 77, .12);
+    transform: translateY(-1px);
+    border-color: var(--ink-3);
+}
+
+.tile.on {
+    border-color: #9fd9a9;
+    background: linear-gradient(180deg, #fff 50%, #f3fbf5 280%);
 }
 
 /* ✅ BORDER ENHANCE ON HOVER */
@@ -402,3 +431,60 @@
     transform: scale(1.08);
     transition: 0.2s;
 }
+
+
+/*22-05-2026*/
+.contextItem {
+    padding: 16px !important;
+    border-radius: 16px !important;
+    margin: 10px 0 !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+     cursor: pointer;
+}
+
+
+
+.sapMLIBFocusable:focus,
+.sapMTblCellFocusable:focus {
+    outline: none !important;
+}
+
+.activeMah {
+
+
+      background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #b25300 !important;
+}
+.activeBI {
+  
+
+    background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #8b7bff !important;
+}
+.activeGR {
+   
+
+     background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #166534 !important;
+}
+.activeHR {
+ 
+         background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #0e8a8a !important;
+}
+.activeTN {
+
+
+      background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #ea580c !important;
+}
+
+
+
+

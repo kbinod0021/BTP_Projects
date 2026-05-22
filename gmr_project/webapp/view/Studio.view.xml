@@ -26,187 +26,59 @@
                 />
             </HBox>
 
-            <!-- ITEM 1 (ACTIVE) -->
-            <HBox
-                class="contextItem active"
-                justifyContent="SpaceBetween"
-            >
-                <HBox
-                    alignItems="Center"
-                    class="leftContent"
-                >
-                    <Text
-                        text="GR"
-                        class="circle blue"
-                    />
-                    <VBox>
-                        <Text
-                            text="GRIDCO"
-                            class="title"
-                        />
-                        <Text
-                            text="Kamalanga · GKEL"
-                            class="subText"
-                        />
-                    </VBox>
-                </HBox>
+            <VBox>
+                <VBox items="{tileModel>/items}">
+                    <items>
+                    
+        <CustomListItem type="Active"  class="noBorderItem" press="onItemPress">
 
-                <VBox alignItems="End">
-                    <Text
-                        text="S62"
-                        class="tag green"
-                    />
-                    <Text
-                        text="10/15"
-                        class="progress"
-                    />
+                        <HBox
+                            class="contextItem"
+                            justifyContent="SpaceBetween"
+                        >
+                            <!-- LEFT -->
+                            <HBox
+                                alignItems="Center"
+                                class="leftContent"
+                            >
+                                <!-- Circle -->
+                                <Text
+                                    text="{tileModel>code}"
+                                    class="circle"
+                                />
+
+                                <!-- Text -->
+                                <VBox>
+                                    <Text
+                                        text="{tileModel>name}"
+                                        class="title"
+                                    />
+                                    <Text
+                                        text="{tileModel>location}"
+                                        class="subText"
+                                    />
+                                </VBox>
+                            </HBox>
+
+                            <!-- RIGHT -->
+                            <VBox alignItems="End">
+                                <Text
+                                    text="{tileModel>section}"
+                                    class="tag green"
+                                />
+
+                                <Text
+                                    text="{tileModel>count}"
+                                    class="progress"
+                                />
+                            </VBox>
+                        </HBox>
+                        
+        </CustomListItem>
+
+                    </items>
                 </VBox>
-            </HBox>
-
-            <!-- ITEM 2 -->
-            <HBox
-                class="contextItem"
-                justifyContent="SpaceBetween"
-            >
-                <HBox
-                    alignItems="Center"
-                    class="leftContent"
-                >
-                    <Text
-                        text="BI"
-                        class="circle purple"
-                    />
-                    <VBox>
-                        <Text
-                            text="Bihar"
-                            class="title"
-                        />
-                        <Text
-                            text="Kamalanga · GKEL"
-                            class="subText"
-                        />
-                    </VBox>
-                </HBox>
-
-                <VBox alignItems="End">
-                    <Text
-                        text="S63"
-                        class="tag orange"
-                    />
-                    <Text
-                        text="12/17"
-                        class="progress"
-                    />
-                </VBox>
-            </HBox>
-            <!-- ITEM 3 -->
-            <HBox
-                class="contextItem"
-                justifyContent="SpaceBetween"
-            >
-                <HBox
-                    alignItems="Center"
-                    class="leftContent"
-                >
-                    <Text
-                        text="BI"
-                        class="circle purple"
-                    />
-                    <VBox>
-                        <Text
-                            text="Bihar"
-                            class="title"
-                        />
-                        <Text
-                            text="Kamalanga · GKEL"
-                            class="subText"
-                        />
-                    </VBox>
-                </HBox>
-
-                <VBox alignItems="End">
-                    <Text
-                        text="S63"
-                        class="tag orange"
-                    />
-                    <Text
-                        text="12/17"
-                        class="progress"
-                    />
-                </VBox>
-            </HBox>
-            <!-- ITEM 4 -->
-            <HBox
-                class="contextItem"
-                justifyContent="SpaceBetween"
-            >
-                <HBox
-                    alignItems="Center"
-                    class="leftContent"
-                >
-                    <Text
-                        text="BI"
-                        class="circle purple"
-                    />
-                    <VBox>
-                        <Text
-                            text="Bihar"
-                            class="title"
-                        />
-                        <Text
-                            text="Kamalanga · GKEL"
-                            class="subText"
-                        />
-                    </VBox>
-                </HBox>
-
-                <VBox alignItems="End">
-                    <Text
-                        text="S63"
-                        class="tag orange"
-                    />
-                    <Text
-                        text="12/17"
-                        class="progress"
-                    />
-                </VBox>
-            </HBox>
-            <!-- ITEM 5 -->
-            <HBox
-                class="contextItem"
-                justifyContent="SpaceBetween"
-            >
-                <HBox
-                    alignItems="Center"
-                    class="leftContent"
-                >
-                    <Text
-                        text="BI"
-                        class="circle purple"
-                    />
-                    <VBox>
-                        <Text
-                            text="Bihar"
-                            class="title"
-                        />
-                        <Text
-                            text="Kamalanga · GKEL"
-                            class="subText"
-                        />
-                    </VBox>
-                </HBox>
-
-                <VBox alignItems="End">
-                    <Text
-                        text="S63"
-                        class="tag orange"
-                    />
-                    <Text
-                        text="12/17"
-                        class="progress"
-                    />
-                </VBox>
-            </HBox>
+            </VBox>
         </VBox>
 
         <!-- ✅ RIGHT PANEL -->
@@ -305,90 +177,175 @@
                     </HBox>
                 </VBox>
             </HBox>
-            <HBox  class="headerCard"
-                justifyContent="SpaceBetween">
-             <VBox class="pageWrapper">
+            <HBox
+                class="headerCard"
+                justifyContent="SpaceBetween"
+            >
+                <VBox class="pageWrapper">
+                    <!-- HEADER -->
+                    <HBox
+                        class="boardHeader"
+                        alignItems="Center"
+                    >
+                        <core:Icon
+                            src="sap-icon://grid"
+                            size="1.2rem"
+                            class="boardIcon"
+                        />
 
-        <!-- HEADER -->
-        <HBox class="boardHeader" alignItems="Center">
+                        <Title
+                            text="Configuration Tile Board"
+                            class="boardTitle"
+                        />
 
-            <core:Icon src="sap-icon://grid" size="1.2rem" class="boardIcon"/>
+                        <Text
+                            text="15 features · 4 groups"
+                            class="pillGrey"
+                        />
+                    </HBox>
 
-            <Title text="Configuration Tile Board" class="boardTitle"/>
+                    <!-- SECTION -->
+                    <HBox class="sectionHeader">
+                        <Title
+                            text="DATA UPLOAD"
+                            class="sectionTitle"
+                        />
+                        <Text
+                            text="4 features"
+                            class="pillLight"
+                        />
+                    </HBox>
 
-            <Text text="15 features · 4 groups" class="pillGrey"/>
-        </HBox>
+                    <!-- GRID -->
+                    <FlexBox
+                        wrap="Wrap"
+                        class="tileGrid"
+                    >
+                        <!-- TILE 1 -->
+                        <VBox class="tile success">
+                            <HBox justifyContent="SpaceBetween">
+                                <Text
+                                    text="DC"
+                                    class="tileIcon green"
+                                />
+                                <Text
+                                    text="✓Saved"
+                                    class="badgeSuccess"
+                                />
+                            </HBox>
 
-        <!-- SECTION -->
-        <HBox class="sectionHeader">
-            <Title text="DATA UPLOAD" class="sectionTitle"/>
-            <Text text="4 features" class="pillLight"/>
-        </HBox>
+                            <Title
+                                text="DC Upload"
+                                class="tileTitle"
+                            />
+                            <Text
+                                text="Declared Capacity · plant ops manual upload (96 blocks × N days)."
+                                class="tileDesc"
+                            />
 
-        <!-- GRID -->
-        <FlexBox wrap="Wrap" class="tileGrid">
+                            <Text
+                                text="MAIN"
+                                class="chip"
+                            />
+                        </VBox>
 
-            <!-- TILE 1 -->
-            <VBox class="tile success">
-                <HBox justifyContent="SpaceBetween">
-                    <Text text="DC" class="tileIcon green"/>
-                    <Text text="✓Saved" class="badgeSuccess"/>
-                </HBox>
+                        <!-- TILE 2 -->
+                        <VBox class="tile success">
+                            <HBox justifyContent="SpaceBetween">
+                                <Text
+                                    text="SE"
+                                    class="tileIcon green"
+                                />
+                                <Text
+                                    text="✓Saved"
+                                    class="badgeSuccess"
+                                />
+                            </HBox>
 
-                <Title text="DC Upload" class="tileTitle"/>
-                <Text text="Declared Capacity · plant ops manual upload (96 blocks × N days)." class="tileDesc"/>
+                            <Title
+                                text="SE Upload (auto)"
+                                class="tileTitle"
+                            />
+                            <Text
+                                text="Scheduled Energy · auto-fetched from SLDC WBES API (D-1 nightly)."
+                                class="tileDesc"
+                            />
 
-                <Text text="MAIN" class="chip"/>
-            </VBox>
+                            <Text
+                                text="MAIN"
+                                class="chip"
+                            />
+                        </VBox>
 
-            <!-- TILE 2 -->
-            <VBox class="tile success">
-                <HBox justifyContent="SpaceBetween">
-                    <Text text="SE" class="tileIcon green"/>
-                    <Text text="✓Saved" class="badgeSuccess"/>
-                </HBox>
+                        <!-- TILE 3 -->
+                        <VBox class="tile warning">
+                            <HBox justifyContent="SpaceBetween">
+                                <Text
+                                    text="F15"
+                                    class="tileIcon orange"
+                                />
+                                <Text
+                                    text="Sub-config required"
+                                    class="badgeWarning"
+                                />
+                            </HBox>
 
-                <Title text="SE Upload (auto)" class="tileTitle"/>
-                <Text text="Scheduled Energy · auto-fetched from SLDC WBES API (D-1 nightly)." class="tileDesc"/>
+                            <Title
+                                text="Form–15 Coal"
+                                class="tileTitle"
+                            />
+                            <Text
+                                text="Monthly coal cost from FI/MM close. Sources, GCV, landed price."
+                                class="tileDesc"
+                            />
 
-                <Text text="MAIN" class="chip"/>
-            </VBox>
+                            <HBox>
+                                <Text
+                                    text="MAIN"
+                                    class="chip"
+                                />
+                                <Text
+                                    text="popup needed"
+                                    class="chipWarning"
+                                />
+                            </HBox>
+                        </VBox>
 
-            <!-- TILE 3 -->
-            <VBox class="tile warning">
-                <HBox justifyContent="SpaceBetween">
-                    <Text text="F15" class="tileIcon orange"/>
-                    <Text text="Sub-config required" class="badgeWarning"/>
-                </HBox>
+                        <!-- TILE 4 -->
+                        <VBox class="tile warning">
+                            <HBox justifyContent="SpaceBetween">
+                                <Text
+                                    text="F15"
+                                    class="tileIcon orange"
+                                />
+                                <Text
+                                    text="Sub-config required"
+                                    class="badgeWarning"
+                                />
+                            </HBox>
 
-                <Title text="Form–15 Coal" class="tileTitle"/>
-                <Text text="Monthly coal cost from FI/MM close. Sources, GCV, landed price." class="tileDesc"/>
+                            <Title
+                                text="Form–15 Oil"
+                                class="tileTitle"
+                            />
+                            <Text
+                                text="Monthly oil cost (LDO/HFO). Density, CV, freight, duty."
+                                class="tileDesc"
+                            />
 
-                <HBox>
-                    <Text text="MAIN" class="chip"/>
-                    <Text text="popup needed" class="chipWarning"/>
-                </HBox>
-            </VBox>
-
-            <!-- TILE 4 -->
-            <VBox class="tile warning">
-                <HBox justifyContent="SpaceBetween">
-                    <Text text="F15" class="tileIcon orange"/>
-                    <Text text="Sub-config required" class="badgeWarning"/>
-                </HBox>
-
-                <Title text="Form–15 Oil" class="tileTitle"/>
-                <Text text="Monthly oil cost (LDO/HFO). Density, CV, freight, duty." class="tileDesc"/>
-
-                <HBox>
-                    <Text text="MAIN" class="chip"/>
-                    <Text text="popup needed" class="chipWarning"/>
-                </HBox>
-            </VBox>
-
-        </FlexBox>
-
-    </VBox>
+                            <HBox>
+                                <Text
+                                    text="MAIN"
+                                    class="chip"
+                                />
+                                <Text
+                                    text="popup needed"
+                                    class="chipWarning"
+                                />
+                            </HBox>
+                        </VBox>
+                    </FlexBox>
+                </VBox>
             </HBox>
         </VBox>
     </HBox>

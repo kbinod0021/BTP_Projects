@@ -8,6 +8,11 @@ sap.ui.define([
 
     this._attachMenuClick();
 
+const oModel = this.getOwnerComponent().getModel("appModel");
+const sCode = oModel.getProperty("/selectedCode");
+
+console.log(sCode);
+
 //   var oRouter = this.getOwnerComponent().getRouter();
 
 //     oRouter.getRoute("Routemain").attachPatternMatched(function () {
