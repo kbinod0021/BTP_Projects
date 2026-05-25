@@ -1,0 +1,112 @@
+<core:FragmentDefinition
+    xmlns="sap.m" 
+    xmlns:core="sap.ui.core"
+>
+
+    <Dialog
+        id="coalDialog"
+        title="Form‑15 Coal Configuration"
+        contentWidth="950px"
+        contentHeight="650px"
+        stretchOnPhone="true"
+        draggable="true"
+        resizable="true"
+        class="sapUiContentPadding"
+    >
+
+        <content>
+            <VBox>
+
+                <!-- Info Banner -->
+                <MessageStrip
+                    text="Coal cost build-up: Weighted average from 3 sources. Feeds ECR via routine 940."
+                    type="Information"
+                    showIcon="true"
+                    class="sapUiSmallMarginBottom"
+                />
+
+                <!-- Section 1 -->
+                <Title text="1 Coal sources" level="H4" class="sapUiSmallMarginBottom"/>
+
+                <VBox class="sapUiSmallMarginBottom">
+
+                    <HBox class="tileRow sapUiSmallMarginBottom" alignItems="Center">
+                        <Input value="Shakti" width="30%"/>
+                        <Input value="39.2" width="12%"/>
+                        <Input value="52807" width="15%"/>
+                        <Input value="3605" width="12%"/>
+                        <Input value="1895" width="15%"/>
+                        <Button icon="sap-icon://decline" type="Transparent"/>
+                    </HBox>
+
+                    <HBox class="tileRow sapUiSmallMarginBottom" alignItems="Center">
+                        <Input value="MCL Rail" width="30%"/>
+                        <Input value="29.6" width="12%"/>
+                        <Input value="40184" width="15%"/>
+                        <Input value="3750" width="12%"/>
+                        <Input value="1720" width="15%"/>
+                        <Button icon="sap-icon://decline" type="Transparent"/>
+                    </HBox>
+
+                    <HBox class="tileRow sapUiSmallMarginBottom" alignItems="Center">
+                        <Input value="IB Valley" width="30%"/>
+                        <Input value="31.5" width="12%"/>
+                        <Input value="42904" width="15%"/>
+                        <Input value="3610" width="12%"/>
+                        <Input value="1860" width="15%"/>
+                        <Button icon="sap-icon://decline" type="Transparent"/>
+                    </HBox>
+
+                    <Button
+                        text="+ Add coal source"
+                        type="Transparent"
+                        class="sapUiTinyMarginTop"
+                    />
+
+                </VBox>
+
+                <!-- Section 2 -->
+                <Title text="2 Discounts &amp; tolerances" level="H4" class="sapUiSmallMarginTop"/>
+
+                <HBox justifyContent="SpaceBetween" class="sapUiSmallMarginTop">
+
+                    <VBox width="30%">
+                        <Label text="Shakti discount"/>
+                        <Input value="0.03" description="₹/kWh"/>
+                    </VBox>
+
+                    <VBox width="30%">
+                        <Label text="GCV tolerance"/>
+                        <Input value="3" description="±%"/>
+                    </VBox>
+
+                    <VBox width="30%">
+                        <Label text="Landed tolerance"/>
+                        <Input value="5" description="±%"/>
+                    </VBox>
+
+                </HBox>
+
+                <!-- Result -->
+                <MessageStrip
+                    text="Weighted GCV: 3654 kcal/kg | Landed: ₹1831.20/MT | Shares sum: 100%"
+                    type="Success"
+                    showIcon="true"
+                    class="sapUiMediumMarginTop"
+                />
+
+                <Text text="• Unsaved" class="sapUiSmallMarginTop"/>
+
+            </VBox>
+        </content>
+
+        <!-- Buttons -->
+        <buttons>
+            <Button text="Cancel" press=".onCloseDialog"/>
+            <Button text="Validate"/>
+            <Button text="Save" type="Emphasized" press=".onSaveCoal"/>
+        </buttons>
+
+    </Dialog>
+
+</core:FragmentDefinition>

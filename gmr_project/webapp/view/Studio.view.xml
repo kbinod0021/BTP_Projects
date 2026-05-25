@@ -29,53 +29,53 @@
             <VBox>
                 <VBox items="{tileModel>/items}">
                     <items>
-                    
-        <CustomListItem type="Active"  class="noBorderItem" press="onItemPress">
-
-                        <HBox
-                            class="contextItem"
-                            justifyContent="SpaceBetween"
+                        <CustomListItem
+                            type="Active"
+                            class="noBorderItem"
+                            press="onItemPress"
                         >
-                            <!-- LEFT -->
                             <HBox
-                                alignItems="Center"
-                                class="leftContent"
+                                class="contextItem"
+                                justifyContent="SpaceBetween"
                             >
-                                <!-- Circle -->
-                                <Text
-                                    text="{tileModel>code}"
-                                    class="circle"
-                                />
-
-                                <!-- Text -->
-                                <VBox>
+                                <!-- LEFT -->
+                                <HBox
+                                    alignItems="Center"
+                                    class="leftContent"
+                                >
+                                    <!-- Circle -->
                                     <Text
-                                        text="{tileModel>name}"
-                                        class="title"
+                                        text="{tileModel>code}"
+                                        class="circle"
                                     />
+
+                                    <!-- Text -->
+                                    <VBox>
+                                        <Text
+                                            text="{tileModel>name}"
+                                            class="title"
+                                        />
+                                        <Text
+                                            text="{tileModel>location}"
+                                            class="subText"
+                                        />
+                                    </VBox>
+                                </HBox>
+
+                                <!-- RIGHT -->
+                                <VBox alignItems="End">
                                     <Text
-                                        text="{tileModel>location}"
-                                        class="subText"
+                                        text="{tileModel>section}"
+                                        class="tag green"
+                                    />
+
+                                    <Text
+                                        text="{tileModel>count}"
+                                        class="progress"
                                     />
                                 </VBox>
                             </HBox>
-
-                            <!-- RIGHT -->
-                            <VBox alignItems="End">
-                                <Text
-                                    text="{tileModel>section}"
-                                    class="tag green"
-                                />
-
-                                <Text
-                                    text="{tileModel>count}"
-                                    class="progress"
-                                />
-                            </VBox>
-                        </HBox>
-                        
-        </CustomListItem>
-
+                        </CustomListItem>
                     </items>
                 </VBox>
             </VBox>
@@ -109,6 +109,7 @@
                             >
                                 <Text
                                     text="GR"
+                                    id="code"
                                     class="logo-text"
                                 />
                             </VBox>
@@ -116,10 +117,12 @@
                             <VBox class="headerTitles">
                                 <Title
                                     class="header-text"
+                                    id="title"
                                     text="GRIDCO — Configuration Studio"
                                 />
                                 <Text
                                     class="studio-hero"
+                                    id="subtitle"
                                     text="Kamalanga · GKEL · Section 62 · Pricing Proc: ZKELGR"
                                 />
                             </VBox>
@@ -137,6 +140,7 @@
                                 />
                                 <Text
                                     text="S62"
+                                    id="section"
                                     class="value right-side-value"
                                 />
                             </VBox>
@@ -148,6 +152,7 @@
                                 />
                                 <Text
                                     text="Kamalanga"
+                                    id="plant"
                                     class="value right-side-value"
                                 />
                             </VBox>
@@ -159,6 +164,7 @@
                                 />
                                 <Text
                                     text="10/15"
+                                    id="active"
                                     class="valueGreen"
                                 />
                             </VBox>
@@ -170,6 +176,7 @@
                                 />
                                 <Text
                                     text="0/8"
+                                    id="saved"
                                     class="valueYellow"
                                 />
                             </VBox>
@@ -218,135 +225,336 @@
 
                     <!-- GRID -->
                     <FlexBox
+                        id="dataUploadFlexboxid"
                         wrap="Wrap"
                         class="tileGrid"
+                        items="{
+        path: 'fileUpload>/tiles'
+    }"
                     >
-                        <!-- TILE 1 -->
-                        <VBox class="tile success">
-                            <HBox justifyContent="SpaceBetween">
-                                <Text
-                                    text="DC"
-                                    class="tileIcon green"
-                                />
-                                <Text
-                                    text="✓Saved"
-                                    class="badgeSuccess"
-                                />
-                            </HBox>
+                        <items >
+                        
+                            <VBox class="tile success" >
+                                <!-- Header -->
+                                <HBox justifyContent="SpaceBetween">
+                                    <Text
+                                        id="iconText"
+                                        text="{fileUpload>icon/text}"
+                                    />
 
-                            <Title
-                                text="DC Upload"
-                                class="tileTitle"
-                            />
-                            <Text
-                                text="Declared Capacity · plant ops manual upload (96 blocks × N days)."
-                                class="tileDesc"
-                            />
+                                    <Text
+                                        text="{= ${fileUpload>state} === 'ready' ? '✓Saved' : 'Sub-config required' }"
+                                        class="{= ${fileUpload>state} === 'ready' ? 'badgeSuccess' : 'badgeWarning' }"
+                                    />
+                                </HBox>
 
-                            <Text
-                                text="MAIN"
-                                class="chip"
-                            />
-                        </VBox>
+                                <!-- Title -->
+                                <Title
+                                    text="{fileUpload>name}"
+                                    class="tileTitle"
+                                />
 
-                        <!-- TILE 2 -->
-                        <VBox class="tile success">
-                            <HBox justifyContent="SpaceBetween">
+                                <!-- Description -->
                                 <Text
-                                    text="SE"
-                                    class="tileIcon green"
+                                    text="{fileUpload>description}"
+                                    class="tileDesc"
+                                    wrapping="true"
                                 />
-                                <Text
-                                    text="✓Saved"
-                                    class="badgeSuccess"
-                                />
-                            </HBox>
 
-                            <Title
-                                text="SE Upload (auto)"
-                                class="tileTitle"
-                            />
-                            <Text
-                                text="Scheduled Energy · auto-fetched from SLDC WBES API (D-1 nightly)."
-                                class="tileDesc"
-                            />
+                                <!-- Chips -->
+                                <HBox items="{fileUpload>badges}">
+                                    <items>
+                                        <Text
+                                            text="{fileUpload>.}"
+                                            class="{
+                            = ${fileUpload>.} === 'popup needed'
+                            ? 'chipWarning'
+                            : 'chip'
+                        }"
+                                        />
+                                    </items>
+                                </HBox>
+                            </VBox>
+                        </items>
+                    </FlexBox>
 
-                            <Text
-                                text="MAIN"
-                                class="chip"
-                            />
-                        </VBox>
+                    <HBox class="sectionHeader">
+                        <Title
+                            text="Calculation"
+                            class="sectionTitle"
+                        />
+                        <Text
+                            text="3 features"
+                            class="pillLight"
+                        />
+                    </HBox>
+                    <FlexBox
+                        id="CalculationFlexboxid"
+                        wrap="Wrap"
+                        class="tileGrid"
+                        items="{
+        path: 'calculation>/tiles'
+    }"
+                    >
+                        <items>
+                            <VBox class="tile success">
+                                <!-- Header -->
+                                <HBox justifyContent="SpaceBetween">
+                                    <Text
+                                        id="iconCalculationText"
+                                        text="{calculation>icon/text}"
+                                    />
 
-                        <!-- TILE 3 -->
-                        <VBox class="tile warning">
-                            <HBox justifyContent="SpaceBetween">
-                                <Text
-                                    text="F15"
-                                    class="tileIcon orange"
-                                />
-                                <Text
-                                    text="Sub-config required"
-                                    class="badgeWarning"
-                                />
-                            </HBox>
+                                    <Text
+                                        text="{= ${calculation>state} === 'ready' ? '✓Saved' : 'Sub-config required' }"
+                                        class="{= ${calculation>state} === 'ready' ? 'badgeSuccess' : 'badgeWarning' }"
+                                    />
+                                </HBox>
 
-                            <Title
-                                text="Form–15 Coal"
-                                class="tileTitle"
-                            />
-                            <Text
-                                text="Monthly coal cost from FI/MM close. Sources, GCV, landed price."
-                                class="tileDesc"
-                            />
+                                <!-- Title -->
+                                <Title
+                                    text="{calculation>name}"
+                                    class="tileTitle"
+                                />
 
-                            <HBox>
+                                <!-- Description -->
                                 <Text
-                                    text="MAIN"
-                                    class="chip"
+                                    text="{calculation>description}"
+                                    class="tileDesc"
+                                    wrapping="true"
                                 />
-                                <Text
-                                    text="popup needed"
-                                    class="chipWarning"
-                                />
-                            </HBox>
-                        </VBox>
 
-                        <!-- TILE 4 -->
-                        <VBox class="tile warning">
-                            <HBox justifyContent="SpaceBetween">
-                                <Text
-                                    text="F15"
-                                    class="tileIcon orange"
-                                />
-                                <Text
-                                    text="Sub-config required"
-                                    class="badgeWarning"
-                                />
-                            </HBox>
+                                <!-- Chips -->
+                                <HBox items="{calculation>badges}">
+                                    <items>
+                                        <Text
+                                            text="{calculation>.}"
+                                            class="{
+                            = ${calculation>.} === 'popup needed'
+                            ? 'chipWarning'
+                            : 'chip'
+                        }"
+                                        />
+                                    </items>
+                                </HBox>
+                            </VBox>
+                        </items>
+                    </FlexBox>
 
-                            <Title
-                                text="Form–15 Oil"
-                                class="tileTitle"
-                            />
-                            <Text
-                                text="Monthly oil cost (LDO/HFO). Density, CV, freight, duty."
-                                class="tileDesc"
-                            />
+                    <HBox class="sectionHeader">
+                        <Title
+                            text="Master Inputs"
+                            class="sectionTitle"
+                        />
+                        <Text
+                            text="1 features"
+                            class="pillLight"
+                        />
+                    </HBox>
+                    <FlexBox
+                        id="MasterInputsFlexboxid"
+                        wrap="Wrap"
+                        class="tileGrid"
+                        items="{
+        path: 'masterInput>/tiles'
+    }"
+                    >
+                        <items>
+                            <VBox class="tile success">
+                                <!-- Header -->
+                                <HBox justifyContent="SpaceBetween">
+                                    <Text
+                                        id="iconMasterInputsText"
+                                        text="{masterInput>icon/text}"
+                                    />
 
-                            <HBox>
-                                <Text
-                                    text="MAIN"
-                                    class="chip"
+                                    <Text
+                                        text="{= ${masterInput>state} === 'ready' ? '✓Saved' : 'Sub-config required' }"
+                                        class="{= ${masterInput>state} === 'ready' ? 'badgeSuccess' : 'badgeWarning' }"
+                                    />
+                                </HBox>
+
+                                <!-- Title -->
+                                <Title
+                                    text="{masterInput>name}"
+                                    class="tileTitle"
                                 />
+
+                                <!-- Description -->
                                 <Text
-                                    text="popup needed"
-                                    class="chipWarning"
+                                    text="{masterInput>description}"
+                                    class="tileDesc"
+                                    wrapping="true"
                                 />
-                            </HBox>
-                        </VBox>
+
+                                <!-- Chips -->
+                                <HBox items="{masterInput>badges}">
+                                    <items>
+                                        <Text
+                                            text="{masterInput>.}"
+                                            class="{
+                            = ${masterInput>.} === 'popup needed'
+                            ? 'chipWarning'
+                            : 'chip'
+                        }"
+                                        />
+                                    </items>
+                                </HBox>
+                            </VBox>
+                        </items>
+                    </FlexBox>
+
+                    <HBox class="sectionHeader">
+                        <Title
+                            text="Rates"
+                            class="sectionTitle"
+                        />
+                        <Text
+                            text="0 features"
+                            class="pillLight"
+                        />
+                    </HBox>
+                    <FlexBox
+                        id="ratesFlexboxid"
+                        wrap="Wrap"
+                        class="tileGrid"
+                        items="{
+        path: 'rates>/tiles'
+    }"
+                    >
+                        <items>
+                            <VBox class="tile success">
+                                <!-- Header -->
+                                <HBox justifyContent="SpaceBetween">
+                                    <Text
+                                        id="iconratesText"
+                                        text="{rates>icon/text}"
+                                    />
+
+                                    <Text
+                                        text="{= ${rates>state} === 'ready' ? '✓Saved' : 'Sub-config required' }"
+                                        class="{= ${rates>state} === 'ready' ? 'badgeSuccess' : 'badgeWarning' }"
+                                    />
+                                </HBox>
+
+                                <!-- Title -->
+                                <Title
+                                    text="{rates>name}"
+                                    class="tileTitle"
+                                />
+
+                                <!-- Description -->
+                                <Text
+                                    text="{rates>description}"
+                                    class="tileDesc"
+                                    wrapping="true"
+                                />
+
+                                <!-- Chips -->
+                                <HBox items="{rates>badges}">
+                                    <items>
+                                        <Text
+                                            text="{rates>.}"
+                                            class="{
+                            = ${rates>.} === 'popup needed'
+                            ? 'chipWarning'
+                            : 'chip'
+                        }"
+                                        />
+                                    </items>
+                                </HBox>
+                            </VBox>
+                        </items>
+                    </FlexBox>
+
+                    <HBox class="sectionHeader">
+                        <Title
+                            text="Output"
+                            class="sectionTitle"
+                        />
+                        <Text
+                            text="2 features"
+                            class="pillLight"
+                        />
+                    </HBox>
+                   <FlexBox
+                        id="OutputFlexboxid"
+                        wrap="Wrap"
+                        class="tileGrid"
+                        items="{
+        path: 'output>/tiles'
+    }"
+                    >
+                        <items>
+                            <VBox class="tile success">
+                                <!-- Header -->
+                                <HBox justifyContent="SpaceBetween">
+                                    <Text
+                                        id="iconOutputText"
+                                        text="{output>icon/text}"
+                                    />
+
+                                    <Text
+                                        text="{= ${output>state} === 'ready' ? '✓Saved' : 'Sub-config required' }"
+                                        class="{= ${output>state} === 'ready' ? 'badgeSuccess' : 'badgeWarning' }"
+                                    />
+                                </HBox>
+
+                                <!-- Title -->
+                                <Title
+                                    text="{output>name}"
+                                    class="tileTitle"
+                                />
+
+                                <!-- Description -->
+                                <Text
+                                    text="{output>description}"
+                                    class="tileDesc"
+                                    wrapping="true"
+                                />
+
+                                <!-- Chips -->
+                                <HBox items="{output>badges}">
+                                    <items>
+                                        <Text
+                                            text="{output>.}"
+                                            class="{
+                            = ${output>.} === 'popup needed'
+                            ? 'chipWarning'
+                            : 'chip'
+                        }"
+                                        />
+                                    </items>
+                                </HBox>
+                            </VBox>
+                        </items>
                     </FlexBox>
                 </VBox>
             </HBox>
         </VBox>
     </HBox>
+
+<Dialog
+    id="myDialog"
+    title="Form Configuration"
+    draggable="true"
+    resizable="true"
+>
+    <content>
+        <VBox>
+            <Text text="This is your popup content" />
+            <Input placeholder="Enter value" />
+        </VBox>
+    </content>
+
+    <beginButton>
+        <Button text="Save" press="onSave" />
+    </beginButton>
+
+    <endButton>
+        <Button text="Close" press="onCloseDialog" />
+    </endButton>
+</Dialog>
+
+
 </mvc:View>

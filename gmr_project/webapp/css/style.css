@@ -461,6 +461,13 @@
     background: linear-gradient(135deg, #6a5cff, #8b7bff);
 }
 
+.teal {
+    background: linear-gradient(135deg, #0e8a8a, #3aa5a5);
+}
+
+.gray {
+    background: linear-gradient(135deg, #5d6f85, #7d8fa4);
+}
 
 
 .subText {
@@ -497,7 +504,38 @@
 
 
 
-/*21-05-2026*/
+/*25-05-2026*/
+
+/* 1. Stop full page scrolling */
+html, body {
+  height: 100%;
+  overflow: hidden !important;
+}
+
+/* SAP container fixes */
+.sapMApp,
+.sapUiView,
+.sapUiXMLView,
+.sapUiComponentContainer,
+.sapMNav {
+  height: 100% !important;
+  overflow: visible !important;
+}
+
+/* 2. Allow scroll ONLY inside page content */
+.sapMPage,
+#page0 {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 3. Enable inner scrolling */
+#page0-cont {
+  height: 100%;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+}
+
 
 
 

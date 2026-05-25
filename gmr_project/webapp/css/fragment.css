@@ -1,0 +1,16 @@
+/* ✅ Fragment specific styling */
+.tileRow {
+  background: #f7f8fa;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+}
+
+.tileRow .sapMInput {
+  margin-right: 8px;
+}
+
+/* Optional: dialog customization */
+.sapMDialog {
+  border-radius: 10px;
+}

@@ -358,14 +358,17 @@
 
 /* TITLE + DESC */
 .tileTitle {
-    font-size: 16px;
+    font-size: 20px;
     font-weight: 600;
     color: #1f2937;
 }
 
 .tileDesc {
-    font-size: 13px;
-    color: #64748b;
+       font-size: 15px;
+    color: #8396a8;
+    line-height: 1.4;
+    flex: 1;
+    font-weight: 500;
 }
 
 /* BADGES */
@@ -484,6 +487,22 @@
     border: 1px solid #b6ccff;
     border-left: 6px solid #ea580c !important;
 }
+
+/*25-05-2026*/
+
+ .bottomSection {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 11px;
+}
+
+
+
+
+
+
+
 
 
 

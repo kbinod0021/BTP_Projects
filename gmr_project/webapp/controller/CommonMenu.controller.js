@@ -8,10 +8,7 @@ sap.ui.define([
 
     this._attachMenuClick();
 
-const oModel = this.getOwnerComponent().getModel("appModel");
-const sCode = oModel.getProperty("/selectedCode");
-
-console.log(sCode);
+// this._resetMenu();
 
 //   var oRouter = this.getOwnerComponent().getRouter();
 
@@ -20,6 +17,14 @@ console.log(sCode);
 //     });
 
 },
+
+_resetMenu: function () {
+    var oMenu = this.byId("studio");
+    if (oMenu) {
+        oMenu.setSelectedKey(""); 
+    }
+},
+
 
 _attachMenuClick: function () {
 

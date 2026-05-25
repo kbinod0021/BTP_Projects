@@ -22,6 +22,16 @@ sap.ui.define([
             // enable routing
             this.getRouter().initialize();
 
+     this.getRouter().navTo("Routemain", {}, true); // true = replace history
+
+
+ sap.ui.require(["sap/ui/dom/includeStylesheet"], function (fn) {
+        fn("css/fragment.css");
+    });
+
+//  if (window.location.hash) {
+//         this.getRouter().navTo("main", {}, true); // replace history
+//     }
 
 
         }
