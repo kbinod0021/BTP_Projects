@@ -96,7 +96,35 @@
                 </VBox>
             </HBox>
 
-            <!-- ITEM 4 -->
+              <!-- ITEM 4 -->
+            <HBox
+                id="OnboardItem"
+                class="menuItem"
+            >
+                <customData>
+                    <core:CustomData
+                        key="route"
+                        value="onboard"
+                    />
+                </customData>
+                <Text
+                    text="0"
+                    class="badge"
+                />
+
+                <VBox>
+                    <Text
+                        text="Onboard New PPA"
+                        class="title"
+                    />
+                    <Text
+                        text="documents"
+                        class="subText"
+                    />
+                </VBox>
+            </HBox>
+
+            <!-- ITEM 5 -->
             <HBox
                 id="appsItem"
                 class="menuItem"

@@ -3,17 +3,104 @@
     xmlns:mvc="sap.ui.core.mvc"
     controllerName="gmrproject.controller.Input"
     xmlns:layout="sap.ui.layout"
+    
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+
 >
-    <layout:VerticalLayout
-        class="inputLayout"
-        width="100%"
-    >
-        <layout:content>
-            <Text
-                text="Input View"
-                class="inputTitle"
-            />
-            <!-- Your input content goes here -->
-        </layout:content>
-    </layout:VerticalLayout>
+ 
+    <VBox>
+
+        <!-- ================= PIE CHART ================= -->
+        <viz:VizFrame
+            id="idPieChart"
+            vizType="donut"
+            width="100%"
+            height="400px">
+
+            <viz:dataset>
+                <viz.data:FlattenedDataset data="{pie>/data}">
+                    <viz.data:dimensions>
+                        <viz.data:DimensionDefinition
+                            name="Source"
+                            value="{pie>category}" />
+                    </viz.data:dimensions>
+
+                    <viz.data:measures>
+                        <viz.data:MeasureDefinition
+                            name="Energy"
+                            value="{pie>value}" />
+                    </viz.data:measures>
+                </viz.data:FlattenedDataset>
+            </viz:dataset>
+
+            <viz:feeds>
+                <viz.feeds:FeedItem uid="size" type="Measure" values="Energy"/>
+                <viz.feeds:FeedItem uid="color" type="Dimension" values="Source"/>
+            </viz:feeds>
+
+        </viz:VizFrame>
+
+        <viz:Popover id="idPopover"/>
+
+        <!-- ================= BAR CHART ================= -->
+        <viz:VizFrame
+            id="idBarChart"
+            vizType="column"
+            width="100%"
+            height="400px">
+
+            <viz:dataset>
+                <viz.data:FlattenedDataset data="{bar>/data}">
+                    <viz.data:dimensions>
+                        <viz.data:DimensionDefinition
+                            name="Month"
+                            value="{bar>month}" />
+                    </viz.data:dimensions>
+
+                    <viz.data:measures>
+                        <viz.data:MeasureDefinition name="Coal" value="{bar>coal}" />
+                        <viz.data:MeasureDefinition name="Gas" value="{bar>gas}" />
+                        <viz.data:MeasureDefinition name="Solar" value="{bar>solar}" />
+                    </viz.data:measures>
+                </viz.data:FlattenedDataset>
+            </viz:dataset>
+
+            <viz:feeds>
+                <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Month"/>
+                <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Coal,Gas,Solar"/>
+            </viz:feeds>
+
+        </viz:VizFrame>
+
+
+
+        <!-- ================= STACKED BAR CHART ================= -->
+        <viz:VizFrame id="idStackedChart" vizType="stacked_column" width="100%" height="300px">
+            <viz:dataset>
+                <viz.data:FlattenedDataset data="{stack>/data}">
+                    <viz.data:dimensions>
+                        <viz.data:DimensionDefinition name="Category" value="{stack>name}" />
+                    </viz.data:dimensions>
+                    <viz.data:measures>
+                        <viz.data:MeasureDefinition name="Grey" value="{stack>grey}" />
+                        <viz.data:MeasureDefinition name="Red" value="{stack>red}" />
+                        <viz.data:MeasureDefinition name="Yellow" value="{stack>yellow}" />
+                        <viz.data:MeasureDefinition name="Blue" value="{stack>blue}" />
+                    </viz.data:measures>
+                </viz.data:FlattenedDataset>
+            </viz:dataset>
+            <viz:feeds>
+                <viz.feeds:FeedItem uid="categoryAxis" type="Dimension" values="Category"/>
+                <viz.feeds:FeedItem uid="valueAxis" type="Measure" values="Grey,Red,Yellow,Blue"/>
+            </viz:feeds>
+        </viz:VizFrame>
+
+
+
+    </VBox>
+
+
+
 </mvc:View>

@@ -1,101 +1,208 @@
 <mvc:View
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
-      xmlns:layout="sap.ui.layout"
-    xmlns:core="sap.ui.core"
     controllerName="gmrproject.controller.output"
->
+    
+     height="100%"
+    xmlns:plugins="sap.m.plugins"
+    xmlns:columnmenu="sap.m.table.columnmenu"
+    xmlns:sap.ui.fl="sap.ui.fl"
+    xmlns:sap.ui.dt="sap.ui.dt"
+    xmlns:vm="sap.ui.fl.variants"
+    xmlns:dnd="sap.ui.core.dnd"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+    
+    >
 
- <HBox width="100%" justifyContent="SpaceBetween" >
-   <VBox width="100%" class="stepperPage">
-        <HBox class="stepperHeader" justifyContent="SpaceBetween" alignItems="Center">
-            <VBox>
-                <Text text="Routine Mapping" class="stepperPageTitle" />
-                <Text text="Each SAP SD routine (920–977) needs to be bound to a WRICEF artefact. Missing routines block downstream calculation." class="stepperIntro" />
-            </VBox>
-            <!-- <ObjectStatus text="{= 'Step ' + ${stepper>/currentStep} + ' of ' + ${stepper>/totalSteps}}" state="Information" /> -->
-        </HBox>
+  
+<Table items="{/data}" inset="false" class="fixedTable">
 
-        <ProgressIndicator
-            percentValue="{stepper>/progressValue}"
-            displayValue="{= ${stepper>/progressValue} + ' %'}"
-           
-  width="100%"
-    height="4px"
-    class="customProgress"
+    <columns>
+        <Column width="5%"><Text text="TAG"/></Column>
+        <Column width="30%"><Text text="ANNEXURE"/></Column>
+        <Column width="20%"><Text text="FORM ID"/></Column>
+        <Column width="20%"><Text text="SOURCE"/></Column>
+        <Column width="5%"><Text text="PAGES"/></Column>
+        <Column width="10%"><Text text="STATUS"/></Column>
+        <Column width="5%"/>
+    </columns>
 
-            showValue="false" />
+    <items>
+        <ColumnListItem>
+            <cells>
 
-        <HBox class="stepBar" width="100%" justifyContent="SpaceBetween">
-            <VBox id="step1Item" class="stepItem active">
-                <Text
-    text="{= ${stepper>/currentStep} > 1 ? '✔' : '1' }"
-    class="stepCircle" />
+                <!-- TAG -->
+                <Text text="{TAG}"/>
 
-                <Text text="Blueprint &amp; Basics" class="stepText" wrapping="true" />
-            </VBox>
-            <VBox id="step2Item" class="stepItem pending">
-                <Text text="{= ${stepper>/currentStep} > 2 ? '✔' : '1' }" class="stepCircle" />
-                <Text text="Plant &amp; Sales Org" class="stepText" wrapping="true" />
-            </VBox>
-            <VBox id="step3Item" class="stepItem pending">
-                <Text text="{= ${stepper>/currentStep} > 3 ? '✔' : '3' }" class="stepCircle" />
-                <Text text="Contractual" class="stepText" wrapping="true" />
-            </VBox>
-            <VBox id="step4Item" class="stepItem pending">
-                <Text text="{= ${stepper>/currentStep} > 4 ? '✔' : '4' }" class="stepCircle" />
-                <Text text="Pricing (SD-020)" class="stepText" wrapping="true" />
-            </VBox>
-            <VBox id="step5Item" class="stepItem pending">
-                <Text text="{= ${stepper>/currentStep} > 5 ? '✔' : '5' }" class="stepCircle" />
-                <Text text="Policy (SD-028)" class="stepText" wrapping="true" />
-            </VBox>
-            <VBox id="step6Item" class="stepItem pending">
-                <Text text="{= ${stepper>/currentStep} > 6 ? '✔' : '6' }" class="stepCircle" />
-                <Text text="Routine Mapping" class="stepText" wrapping="true" />
-            </VBox>
-            <VBox id="step7Item" class="stepItem pending">
-                <Text text="{= ${stepper>/currentStep} > 7 ? '✔' : '7' }" class="stepCircle" />
-                <Text text="Adapters &amp; Mapping" class="stepText" wrapping="true" />
-            </VBox>
-            <VBox id="step8Item" class="stepItem pending">
-                <Text text="{= ${stepper>/currentStep} > 8 ? '✔' : '8' }" class="stepCircle" />
-                <Text text="Review &amp; Activate" class="stepText" wrapping="true" />
-            </VBox>
-        </HBox>
+                <!-- ANNEXURE -->
+                <Text text="{ANNEXURE}" wrapping="false"/>
 
-        <VBox class="stepPanels" width="100%">
-            <Panel id="step1Panel" class="stepBox" headerText="1. Blueprint &amp; Basics" visible="{stepper>/step1}">
-                <Text text="Step 1 content goes here." />
-            </Panel>
-            <Panel id="step2Panel" class="stepBox" headerText="2. Plant &amp; Sales Org" visible="{stepper>/step2}">
-                <Text text="Step 2 content goes here." />
-            </Panel>
-            <Panel id="step3Panel" class="stepBox" headerText="3. Contractual" visible="{stepper>/step3}">
-                <Text text="Step 3 content goes here." />
-            </Panel>
-            <Panel id="step4Panel" class="stepBox" headerText="4. Pricing (SD-020)" visible="{stepper>/step4}">
-                <Text text="Step 4 content goes here." />
-            </Panel>
-            <Panel id="step5Panel" class="stepBox" headerText="5. Policy (SD-028)" visible="{stepper>/step5}">
-                <Text text="Step 5 content goes here." />
-            </Panel>
-            <Panel id="step6Panel" class="stepBox" headerText="6. Routine Mapping" visible="{stepper>/step6}">
-                <Text text="Step 6 content goes here." />
-            </Panel>
-            <Panel id="step7Panel" class="stepBox" headerText="7. Adapters &amp; Mapping" visible="{stepper>/step7}">
-                <Text text="Step 7 content goes here." />
-            </Panel>
-            <Panel id="step8Panel" class="stepBox" headerText="8. Review &amp; Activate" visible="{stepper>/step8}">
-                <Text text="Step 8 content goes here." />
-            </Panel>
-        </VBox>
+                <!-- FORM ID -->
+                <Text text="{FORM_ID}" wrapping="false"/>
 
-        <Toolbar>
-            <Button text="Back" press="onBack" enabled="{= ${stepper>/currentStep} &gt; 1 }" />
-            <ToolbarSpacer />
-            <Button text="Next" type="Emphasized" press="onNext" enabled="{= ${stepper>/currentStep} &lt; ${stepper>/totalSteps} }" />
-        </Toolbar>
-    </VBox>
-    </HBox>
+                <!-- SOURCE -->
+                <Text text="{SOURCE}" wrapping="false"/>
+
+                <!-- PAGES -->
+                <ObjectNumber number="{PAGES}"/>
+
+                <!-- STATUS -->
+                <ObjectStatus text="{STATUS}" state="Success"/>
+
+                <!-- EXPAND -->
+                <Button
+                    type="Transparent"
+                    icon="{= ${expanded} ? 'sap-icon://navigation-down-arrow' : 'sap-icon://navigation-right-arrow'}"
+                    press="onToggleExpand"/>
+
+            </cells>
+
+            <!-- ✅ FULL WIDTH EXPAND (IMPORTANT PART) -->
+            <customData>
+                <!-- dummy, ignore -->
+            </customData>
+
+            <dependents>
+                <VBox visible="{expanded}" class="rowExpand">
+
+                    <Text text="What's inside" class="sectionTitle"/>
+                    <Text text="Block-by-block (15-min) declared vs scheduled energy for every day of the billing period — 96 blocks × 31 days = 2,976 rows."/>
+
+                    <Text text="Content layout" class="sectionTitle"/>
+                    <Text text="Page 1: month summary · Pages 2–7: daily block matrices (4 days/page)"/>
+
+                    <Text text="Data source &amp; mapping" class="sectionTitle"/>
+                    <Text text="SourceSD-021 DC table + SD-022 SE table via Routine 920 aggregation"/>
+                    <Text text="Generator: ZSD_ANX_A1_GEN"/>
+
+                    <Text text="Seal &amp; integrity" class="sectionTitle"/>
+                    <Text text="SHA-256a3f9...2b41"/>
+                    <Text text="DSC e-Mudra Class-3"/>
+                    <Text text="Stamped: 12-Jan-2026 09:14 IST"/>
+
+                    <Table class="innerTable">
+                        <columns>
+                            <Column><Text text="FIELD"/></Column>
+                            <Column><Text text="TYPE"/></Column>
+                            <Column><Text text="DESCRIPTION"/></Column>
+                        </columns>
+
+                        <items>
+                            <ColumnListItem>
+                                <cells>
+                                    <Text text="Date"/>
+                                    <Text text="DATE"/>
+                                    <Text text="01-Dec-2025 → 31-Dec-2025"/>
+                                </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+
+                    <HBox class="sapUiSmallMarginTop">
+                        <Button text="Preview PDF page"/>
+                        <Button text="Download annexure only"/>
+                        <Button text="View routine trace"/>
+                    </HBox>
+
+                </VBox>
+            </dependents>
+
+        </ColumnListItem>
+    </items>
+
+</Table>
+
+<Page showHeader="false">
+
+        <Table id="persoTable" ariaLabelledBy="title" fixedLayout="Strict"
+		    autoPopinMode="true" growing="true" sticky="ColumnHeaders,HeaderToolbar" popinLayout="GridSmall">
+
+            <headerToolbar>
+                <OverflowToolbar >
+                    <Title id="title12" text="Persons"/>
+                    <ToolbarSeparator/>
+                    <vm:VariantManagement id="p13nVm" for="persoTable"/>
+                    <ToolbarSpacer/>
+                    <Button icon="sap-icon://action-settings" press=".openPersoDialog" tooltip="Settings"/>
+                    <Button icon="sap-icon://add-employee" press=".openPersoDialogPeople" tooltip="Settings"/>
+                </OverflowToolbar>
+            </headerToolbar>
+
+            <dependents>
+                <columnmenu:Menu id="menu">
+                    <columnmenu:items>
+                        <columnmenu:ActionItem icon="sap-icon://table-column" label="Columns" press=".openPersoDialog"/>
+                    </columnmenu:items>
+                </columnmenu:Menu>
+            </dependents>
+
+            <dragDropConfig>
+                <dnd:DragDropInfo sourceAggregation="columns" targetAggregation="columns" dropPosition="Between" drop=".onColumnMove"/>
+            </dragDropConfig>
+
+            <noData>
+                <IllustratedMessage/>
+            </noData>
+
+            <columns>
+                <Column app:p13nKey="id_col" headerMenu="menu">
+                    <header>
+                        <Text text="ID"/>
+                    </header>
+                </Column>
+                <Column app:p13nKey="firstName_col" headerMenu="menu">
+                        <Text text="First Name"/>
+                </Column>
+                <Column app:p13nKey="lastName_col" headerMenu="menu">
+                    <Text text="Last Name"/>
+                </Column>
+                <Column app:p13nKey="city_col" headerMenu="menu">
+                    <Text text="City"/>
+                </Column>
+                <Column app:p13nKey="size_col" hAlign="End" visible="false" headerMenu="menu">
+                    <Text text="Size"/>
+                </Column>
+            </columns>
+
+            <items>
+                <ColumnListItem app:p13nKey="P1">
+                    <Text text="P1"/>
+                    <Text text="Peter"/>
+                    <Text text="Mueller"/>
+                    <Text text="Walldorf"/>
+                    <Text text="1.75"/>
+                </ColumnListItem>
+                <ColumnListItem app:p13nKey="P2">
+                    <Text text="P2"/>
+                    <Text text="Petra"/>
+                    <Text text="Maier"/>
+                    <Text text="Walldorf"/>
+                    <Text text="1.85"/>
+                </ColumnListItem>
+                <ColumnListItem app:p13nKey="P3">
+                    <Text text="P3"/>
+                    <Text text="Thomas"/>
+                    <Text text="Smith"/>
+                    <Text text="Walldorf"/>
+                    <Text text="1.95"/>
+                </ColumnListItem>
+                <ColumnListItem app:p13nKey="P4">
+                    <Text text="P4"/>
+                    <Text text="John"/>
+                    <Text text="Williams"/>
+                    <Text text="Walldorf"/>
+                    <Text text="1.65"/>
+                </ColumnListItem>
+                <ColumnListItem app:p13nKey="P5">
+                    <Text text="P5"/>
+                    <Text text="Maria"/>
+                    <Text text="Jones"/>
+                    <Text text="Walldorf"/>
+                    <Text text="1.55"/>
+                </ColumnListItem>
+            </items>
+        </Table>
+
+    </Page>
+
 </mvc:View>

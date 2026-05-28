@@ -28,7 +28,7 @@ _resetMenu: function () {
 
 _attachMenuClick: function () {
 
-    var aItems = ["studioItem", "inputItem", "outputItem", "appsItem"];
+    var aItems = ["studioItem", "inputItem", "outputItem","OnboardItem", "appsItem"];
 
     aItems.forEach(function (sId) {
 
@@ -58,7 +58,7 @@ _attachMenuClick: function () {
 
 _removeActive: function () {
 
-    var aItems = ["studioItem", "inputItem", "outputItem", "appsItem"];
+    var aItems = ["studioItem", "inputItem", "outputItem","OnboardItem", "appsItem"];
 
     aItems.forEach(function (sId) {
         this.byId(sId).removeStyleClass("active");
@@ -79,7 +79,11 @@ _removeActive: function () {
         oRouter.navTo("input");
     } else if (sKey === "output") {
         oRouter.navTo("output");
-    } else if (sKey === "apps") {
+    } 
+     else if (sKey === "onboard") {
+        oRouter.navTo("onboard");
+    } 
+    else if (sKey === "apps") {
         oRouter.navTo("apps");
     }
 },
