@@ -1,0 +1,247 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    controllerName="gmrproject.controller.Form15"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+>
+    <VBox class="mainContainerForm15">
+        <!-- Info Banner -->
+        <HBox class="modal-b">
+            <HBox class="alert">
+                <Text
+                    text="•"
+                    class="bullet"
+                />
+                <VBox class="alertTextBlock">
+                    <Text
+                        text="Coal cost build-up: "
+                        class="alert-text"
+                    />
+
+                    <Text
+                        class="Weighted-text"
+                        text=" Weighted average from 3 sources (Shakti, MCL Rail, IB Valley). Feeds ECR via routine 940."
+                    />
+                </VBox>
+            </HBox>
+        </HBox>
+
+        <!-- Section Title -->
+        <HBox
+            alignItems="Center"
+            class="sectionHeaderform15"
+        >
+            <Text
+                text="1"
+                class="num"
+            />
+            <Title
+                text="Coal sources"
+                level="H3"
+                class="mod-sec-header"
+            />
+        </HBox>
+
+        <!-- Source Cards -->
+        <VBox>
+            <!-- Row 1 -->
+
+            <VBox items="{coal>/sources}">
+                <items>
+                    <HBox
+                        class="card"
+                        alignItems="Center"
+                    >
+                        <!-- SOURCE -->
+                        <VBox class="fieldGroup large">
+                            <Label text="Source" />
+                            <Input
+                                value="{coal>source}"
+                                class="inputField mono from15-input"
+                            />
+                        </VBox>
+
+                        <!-- SHARE -->
+                        <VBox class="fieldGroup">
+                            <Label text="Share %" />
+                            <Input
+                                value="{coal>share}"
+                                class="inputField mono small from15-input"
+                            />
+                        </VBox>
+
+                        <!-- MT/MO -->
+                        <VBox class="fieldGroup">
+                            <Label text="MT/mo" />
+                            <Input
+                                value="{coal>mt}"
+                                class="inputField mono small from15-input"
+                            />
+                        </VBox>
+
+                        <!-- GCV -->
+                        <VBox class="fieldGroup">
+                            <Label text="GCV" />
+                            <Input
+                                value="{coal>gcv}"
+                                class="inputField mono small from15-input"
+                            />
+                        </VBox>
+
+                        <!-- LANDED -->
+                        <VBox class="fieldGroup">
+                            <Label text="Landed ₹/MT" />
+                            <Input
+                                value="{coal>landed}"
+                                class="inputField small mono from15-input"
+                            />
+                        </VBox>
+
+                        <!-- DELETE BUTTON -->
+                        <VBox class="deleteContainer">
+                            <Button
+                                icon="sap-icon://decline"
+                                type="Transparent"
+                                class="deleteBtn"
+                                press="onDeleteRow"
+                            />
+                        </VBox>
+                    </HBox>
+                </items>
+            </VBox>
+        </VBox>
+
+        <!-- Add Button -->
+        <HBox
+            class="addBox  add-row-btn"
+            justifyContent="Center"
+        >
+            <Button
+                text="+ Add coal source"
+                type="Transparent"
+                press="onAddRow"
+            />
+        </HBox>
+        <!-- Section Title -->
+        <HBox
+            alignItems="Center"
+            class="sectionHeaderform15"
+        >
+            <Text
+                text="2"
+                class="num"
+            />
+            <Title
+                text="Discounts tolerances"
+                level="H3"
+                class="mod-sec-header"
+            />
+        </HBox>
+        <HBox
+            class="toleranceRow"
+            justifyContent="SpaceBetween"
+        >
+            <!-- ✅ Shakti discount -->
+            <VBox class="tolField">
+                <HBox alignItems="Center">
+                    <Label text="Shakti discount" />
+                    <Text
+                        text="ZDSK n.970"
+                        class="tagPurple"
+                    />
+                </HBox>
+                <VBox class="inputWrapper">
+                    <StepInput
+                        value="0.032"
+                        min="0"
+                        step="0.001"
+                        displayValuePrecision="3"
+                        class="inputField  mono from15-input"
+                    />
+
+                    <Text
+                        text="₹/kWh"
+                        class="inputSuffix"
+                    />
+                </VBox>
+            </VBox>
+
+            <!-- ✅ GCV tolerance -->
+            <VBox class="tolField">
+                <Label text="GCV tol" />
+                <VBox class="inputWrapper">
+                    <StepInput
+                        value="3"
+                        min="0"
+                        step="1"
+                        class="inputField  mono from15-input"
+                    />
+
+                    <Text
+                        text="±%"
+                        class="inputSuffix"
+                    />
+                </VBox>
+            </VBox>
+
+            <!-- ✅ Landed tolerance -->
+            <VBox class="tolField">
+                <Label text="Landed tol" />
+                <VBox class="inputWrapper">
+                    <StepInput
+                        value="5"
+                        min="0"
+                        step="1"
+                        class="inputField  mono from15-input"
+                    />
+
+                    <Text
+                        text="±%"
+                        class="inputSuffix"
+                    />
+                </VBox>
+            </VBox>
+        </HBox>
+        <HBox
+            class="resultCard"
+            alignItems="Start"
+        >
+            <!-- ✅ LEFT CHECK ICON -->
+            <VBox class="iconWrapper">
+                <Text
+                    text="✓"
+                    class="checkIcon"
+                />
+            </VBox>
+
+            <!-- ✅ TEXT CONTENT -->
+            <VBox class="resultContent">
+                <Text
+                    text="Weighted GCV"
+                    class="labelText"
+                />
+                <Text
+                    text="3,654 kcal/kg"
+                    class="valueText"
+                />
+
+                <Text
+                    text="· Weighted landed"
+                    class="labelText indent"
+                />
+                <Text
+                    text="₹ 1,831.20/MT"
+                    class="valueText"
+                />
+
+                <Text
+                    text="· Shares sum to 100.0% ✓"
+                    class="footerText"
+                />
+            </VBox>
+        </HBox>
+
+       
+    </VBox>
+</mvc:View>

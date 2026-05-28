@@ -1,0 +1,100 @@
+<mvc:View
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+      xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    controllerName="gmrproject.controller.output"
+>
+ <HBox width="100%" justifyContent="SpaceBetween" >
+   <VBox width="100%" class="stepperPage">
+        <HBox class="stepperHeader" justifyContent="SpaceBetween" alignItems="Center">
+            <VBox>
+                <Text text="Routine Mapping" class="stepperPageTitle" />
+                <Text text="Each SAP SD routine (920–977) needs to be bound to a WRICEF artefact. Missing routines block downstream calculation." class="stepperIntro" />
+            </VBox>
+            <!-- <ObjectStatus text="{= 'Step ' + ${stepper>/currentStep} + ' of ' + ${stepper>/totalSteps}}" state="Information" /> -->
+        </HBox>
+
+        <ProgressIndicator
+            percentValue="{stepper>/progressValue}"
+            displayValue="{= ${stepper>/progressValue} + ' %'}"
+           
+  width="100%"
+    height="4px"
+    class="customProgress"
+
+            showValue="false" />
+
+        <HBox class="stepBar" width="100%" justifyContent="SpaceBetween">
+            <VBox id="step1Item" class="stepItem active">
+                <Text
+    text="{= ${stepper>/currentStep} > 1 ? '✔' : '1' }"
+    class="stepCircle" />
+
+                <Text text="Blueprint &amp; Basics" class="stepText" wrapping="true" />
+            </VBox>
+            <VBox id="step2Item" class="stepItem pending">
+                <Text text="{= ${stepper>/currentStep} > 2 ? '✔' : '1' }" class="stepCircle" />
+                <Text text="Plant &amp; Sales Org" class="stepText" wrapping="true" />
+            </VBox>
+            <VBox id="step3Item" class="stepItem pending">
+                <Text text="{= ${stepper>/currentStep} > 3 ? '✔' : '3' }" class="stepCircle" />
+                <Text text="Contractual" class="stepText" wrapping="true" />
+            </VBox>
+            <VBox id="step4Item" class="stepItem pending">
+                <Text text="{= ${stepper>/currentStep} > 4 ? '✔' : '4' }" class="stepCircle" />
+                <Text text="Pricing (SD-020)" class="stepText" wrapping="true" />
+            </VBox>
+            <VBox id="step5Item" class="stepItem pending">
+                <Text text="{= ${stepper>/currentStep} > 5 ? '✔' : '5' }" class="stepCircle" />
+                <Text text="Policy (SD-028)" class="stepText" wrapping="true" />
+            </VBox>
+            <VBox id="step6Item" class="stepItem pending">
+                <Text text="{= ${stepper>/currentStep} > 6 ? '✔' : '6' }" class="stepCircle" />
+                <Text text="Routine Mapping" class="stepText" wrapping="true" />
+            </VBox>
+            <VBox id="step7Item" class="stepItem pending">
+                <Text text="{= ${stepper>/currentStep} > 7 ? '✔' : '7' }" class="stepCircle" />
+                <Text text="Adapters &amp; Mapping" class="stepText" wrapping="true" />
+            </VBox>
+            <VBox id="step8Item" class="stepItem pending">
+                <Text text="{= ${stepper>/currentStep} > 8 ? '✔' : '8' }" class="stepCircle" />
+                <Text text="Review &amp; Activate" class="stepText" wrapping="true" />
+            </VBox>
+        </HBox>
+
+        <VBox class="stepPanels" width="100%">
+            <Panel id="step1Panel" class="stepBox" headerText="1. Blueprint &amp; Basics" visible="{stepper>/step1}">
+                <Text text="Step 1 content goes here." />
+            </Panel>
+            <Panel id="step2Panel" class="stepBox" headerText="2. Plant &amp; Sales Org" visible="{stepper>/step2}">
+                <Text text="Step 2 content goes here." />
+            </Panel>
+            <Panel id="step3Panel" class="stepBox" headerText="3. Contractual" visible="{stepper>/step3}">
+                <Text text="Step 3 content goes here." />
+            </Panel>
+            <Panel id="step4Panel" class="stepBox" headerText="4. Pricing (SD-020)" visible="{stepper>/step4}">
+                <Text text="Step 4 content goes here." />
+            </Panel>
+            <Panel id="step5Panel" class="stepBox" headerText="5. Policy (SD-028)" visible="{stepper>/step5}">
+                <Text text="Step 5 content goes here." />
+            </Panel>
+            <Panel id="step6Panel" class="stepBox" headerText="6. Routine Mapping" visible="{stepper>/step6}">
+                <Text text="Step 6 content goes here." />
+            </Panel>
+            <Panel id="step7Panel" class="stepBox" headerText="7. Adapters &amp; Mapping" visible="{stepper>/step7}">
+                <Text text="Step 7 content goes here." />
+            </Panel>
+            <Panel id="step8Panel" class="stepBox" headerText="8. Review &amp; Activate" visible="{stepper>/step8}">
+                <Text text="Step 8 content goes here." />
+            </Panel>
+        </VBox>
+
+        <Toolbar>
+            <Button text="Back" press="onBack" enabled="{= ${stepper>/currentStep} &gt; 1 }" />
+            <ToolbarSpacer />
+            <Button text="Next" type="Emphasized" press="onNext" enabled="{= ${stepper>/currentStep} &lt; ${stepper>/totalSteps} }" />
+        </Toolbar>
+    </VBox>
+    </HBox>
+</mvc:View>

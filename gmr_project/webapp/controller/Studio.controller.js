@@ -490,7 +490,7 @@ sap.ui.define([
         "tiles": [
           {
             "id": "fixedInputs",
-            "status": "on",
+            "status": "off",
             "state": "needs",
             "icon": { "text": "★", "color": "purple" },
             "name": "Fixed Calculation Inputs",
@@ -578,34 +578,231 @@ sap.ui.define([
 onTileClick: function (data) {
     console.log(data);
 
-    if (data.id === "dc") {
+    if (data.badges.includes('popup needed')) {
         this.onOpenDialog();
     }
     
 },
-openGenericDialog: function (data) {
+onOpenDialog: function () {
+    var that = this;
+
     if (!this._oDialog) {
+
         this._oDialog = new sap.m.Dialog({
-            title: data.name,
-            content: new sap.m.Text({ text: "Content for " + data.name }),
-            beginButton: new sap.m.Button({
-                text: "Close",
-                press: () => this._oDialog.close()
+            contentWidth: "70%",
+            contentHeight: "650px",
+
+            // ✅ ✅ HEADER
+            customHeader: new sap.m.Bar({
+
+                contentLeft: [
+                    new sap.m.HBox({
+                        alignItems: "Center",
+                        items: [
+
+                            // F15 BOX
+                            new sap.m.Text({
+                                text: "F15"
+                            }).addStyleClass("f15Box"),
+
+                            // TITLE + SUBTITLE + CHIPS
+                            new sap.m.VBox({
+                                items: [
+
+                                    new sap.m.Title({
+                                        text: "Form‑15 Coal Configuration",
+                                        level: "H4"
+                                    }).addStyleClass("dialogTitle"),
+
+                                    new sap.m.Text({
+                                        text: "GRIDCO Section 62 · 3 coal sources"
+                                    }).addStyleClass("dialogSubTitle"),
+
+                                    new sap.m.HBox({
+                                        items: [
+                                            new sap.m.Text({ text: "GRIDCO" }).addStyleClass("chipBlue"),
+                                            new sap.m.Text({ text: "S62" }).addStyleClass("chipGreen"),
+                                            new sap.m.Text({ text: "Data Upload" }).addStyleClass("chipGray")
+                                        ]
+                                    })
+
+                                ]
+                            }).addStyleClass("dialogTextBlock")
+
+                        ]
+                    })
+                ],
+
+                contentRight: [
+                    new sap.m.Button({
+                        icon: "sap-icon://decline",
+                        type: "Transparent",
+                        press: function () {
+                            that._oDialog.close();
+                        }
+                    }).addStyleClass("closeBtn")
+                ]
             })
         });
-    }
 
-    this._oDialog.open();
+        // ✅ LOAD MAIN VIEW
+        sap.ui.core.mvc.XMLView.create({
+            viewName: "gmrproject.view.Form15"
+        }).then(function (oView) {
+
+            // ✅ FOOTER LEFT
+            var oLeft = new sap.m.HBox({
+                items: [
+                    new sap.m.ObjectStatus({
+                        text: "Unsaved",
+                        icon: "sap-icon://circle-task-2"
+                    }).addStyleClass("unsavedTag")
+                ]
+            });
+
+            // ✅ FOOTER RIGHT (BUTTONS)
+            var oRight = new sap.m.HBox({
+                items: [
+                    new sap.m.Button({
+                        text: "Cancel",
+                        type: "Transparent",
+                        press: function () {
+                            that._oDialog.close();
+                        }
+                    }),
+                    new sap.m.Button({
+                        text: "Validate",
+                        type: "Default"
+                    }).addStyleClass("validateBtn"),
+                    new sap.m.Button({
+                        text: "Save",
+                        type: "Emphasized",
+                        press: function () {
+                            sap.m.MessageToast.show("Saved");
+                        }
+                    }).addStyleClass("saveBtn")
+                ]
+            }).addStyleClass("footerRight");
+
+            // ✅ FOOTER BAR
+            var oFooter = new sap.m.HBox({
+                justifyContent: "SpaceBetween",
+                alignItems: "Center",
+                items: [oLeft, oRight]
+            }).addStyleClass("footerBar");
+
+            // ✅ WRAP CONTENT + FOOTER
+           var oWrapper = new sap.m.VBox({
+    fitContainer: true,
+    items: [
+        new sap.m.ScrollContainer({
+            vertical: true,
+            height: "100%",
+            content: [oView]
+        }),
+        oFooter
+    ]
+});
+
+
+            that._oDialog.addContent(oWrapper);
+            that.getView().addDependent(that._oDialog);
+            that._oDialog.open();
+        });
+
+    } else {
+        this._oDialog.open();
+    }
+},
+onOpenDialog1: function () {
+    var that = this;
+
+    if (!this._oDialog) {
+
+        this._oDialog = new sap.m.Dialog({
+            contentWidth: "70%",
+            contentHeight: "650px",
+
+            // ✅ ✅ CUSTOM HEADER (FULL DESIGN)
+            customHeader: new sap.m.Bar({
+
+                contentLeft: [
+
+                    new sap.m.HBox({
+                        alignItems: "Center",
+                        items: [
+
+                            // ✅ F15 ICON BOX
+                            new sap.m.Text({
+                                text: "F15"
+                            }).addStyleClass("f15Box"),
+
+                            // ✅ Title + Subtitle + Chips
+                            new sap.m.VBox({
+                                items: [
+
+                                    new sap.m.Title({
+                                        text: "Form‑15 Coal Configuration",
+                                        level: "H4"
+                                    }).addStyleClass("dialogTitle"),
+
+                                    new sap.m.Text({
+                                        text: "GRIDCO Section 62 · 3 coal sources"
+                                    }).addStyleClass("dialogSubTitle"),
+
+                                    new sap.m.HBox({
+                                        items: [
+
+                                            new sap.m.Text({ text: "GRIDCO" }).addStyleClass("chipBlue"),
+                                            new sap.m.Text({ text: "S62" }).addStyleClass("chipGreen"),
+                                            new sap.m.Text({ text: "Data Upload" }).addStyleClass("chipGray")
+
+                                        ]
+                                    })
+
+                                ]
+                            }).addStyleClass("dialogTextBlock")
+                        ]
+                    })
+
+                ],
+
+                contentRight: [
+
+                    // ✅ CLOSE ICON
+                    new sap.m.Button({
+                        icon: "sap-icon://decline",
+                        type: "Transparent",
+                        press: function () {
+                            that._oDialog.close();
+                        }
+                    }).addStyleClass("closeBtn")
+
+                ]
+            })
+        });
+
+        sap.ui.core.mvc.XMLView.create({
+            viewName: "gmrproject.view.Form15"
+        }).then(function (oView) {
+            that._oDialog.addContent(oView);
+            that.getView().addDependent(that._oDialog);
+            that._oDialog.open();
+        });
+
+    } else {
+        this._oDialog.open();
+    }
 },
 
 
-onOpenDialog: function () {
+onOpenDialog1: function () {
     var that = this;
 
     if (!this._oDialog) {
         sap.ui.core.Fragment.load({
             id: this.getView().getId(),
-            name: "gmrproject.view.Form15Coal", // ✅ your correct path
+            name: "gmrproject.view.Form15", // ✅ your correct path
             controller: this
         }).then(function (oDialog) {
             that._oDialog = oDialog;
@@ -625,7 +822,9 @@ onCloseDialog: function () {
 
 onSaveCoal: function () {
     sap.m.MessageToast.show("Saved successfully");
-}
+},
+
+
 
 
 

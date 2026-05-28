@@ -25,9 +25,9 @@ sap.ui.define([
      this.getRouter().navTo("Routemain", {}, true); // true = replace history
 
 
- sap.ui.require(["sap/ui/dom/includeStylesheet"], function (fn) {
-        fn("css/fragment.css");
-    });
+
+
+
 
 //  if (window.location.hash) {
 //         this.getRouter().navTo("main", {}, true); // replace history

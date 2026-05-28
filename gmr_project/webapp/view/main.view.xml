@@ -109,7 +109,9 @@
 
                 <VBox>
                     <VBox>
+                    <VBox id="menuContainer">
                         <mvc:XMLView viewName="gmrproject.view.CommonMenu" />
+                        </VBox>
                         <!-- <mvc:XMLView viewName="gmrproject.view.Studio" /> -->
                         <!-- your inner content -->
                     </VBox>

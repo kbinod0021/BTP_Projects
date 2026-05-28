@@ -1,0 +1,12 @@
+.sectionHeaderform15 {
+    margin-top: 10px;
+    margin-bottom: 14px;
+    padding: 20px 18px 17px;
+    /* background: #f9fafb; */
+    /* border-top: 1px solid #dde3eb; */
+    /* border-bottom: 1px solid #dde3eb; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 11px;
+}

@@ -82,7 +82,9 @@ _removeActive: function () {
     } else if (sKey === "apps") {
         oRouter.navTo("apps");
     }
-}
+},
+
+
 
     });
 });

@@ -497,6 +497,541 @@
     margin-top: 11px;
 }
 
+/*26-05-2026 */
+
+/* ✅ F15 box */
+.f15Box {
+ background: linear-gradient(135deg, #f59e0b, #ea580c);
+    color: white;
+    font-weight: bold;
+    padding: 16px 16px;
+    border-radius: 10px;
+    margin-right: 12px;
+    font-size: 14px;
+}
+
+/* ✅ Title */
+.dialogTitle {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* ✅ Subtitle */
+.dialogSubTitle {
+color: #000;
+    line-height: 1.2;
+    font-size: 19px;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    margin: 10px;
+}
+
+/* ✅ Group text spacing */
+.dialogTextBlock {
+  margin-left: 6px;
+}
+
+/* ✅ Chips */
+.chipBlue {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.chipGreen {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.chipGray {
+  background: #e5e7eb;
+  color: #374151;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* ✅ Close button styling */
+.closeBtn {
+  border-radius: 8px;
+}
+
+.sapUiSizeCompact.sapMDialog .sapMDialogTitleGroup .sapMHeader-CTX, .sapUiSizeCompact .sapMDialog .sapMDialogTitleGroup .sapMHeader-CTX, .sapUiSizeCompact.sapMDialog .sapMDialogTitleGroup .sapMSubHeader-CTX, .sapUiSizeCompact .sapMDialog .sapMDialogTitleGroup .sapMSubHeader-CTX {
+    height: 8.5rem !important;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    box-sizing: border-box;
+}
+.sapUiSizeCompact .sapMBarLeft, .sapUiSizeCompact .sapMBarRight, .sapUiSizeCompact .sapMBarPH {
+    height: 6rem !important;
+    line-height: 2rem;
+}
+.headerBarForm15 {
+       background: linear-gradient(90deg, #dee0e4, #d9dde2);
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: white;
+}
+
+.text-header{
+  font: 500 12px var(--ff-body);
+    color: #8396a8;
+    margin-top: 3px;
+    line-height: 1.4;
+}
+
+.headerBarForm15 {
+  gap: 12px; /* space between text and chips */
+}
+
+.text-header {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ✅ container of tags */
+.tagContainer {
+  margin-left: 10px;
+}
+
+/* ✅ chip style */
+.tagtagContainer {
+  background: #e5e7eb;
+  color: #374151;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+/* ✅ green chip */
+.tagtagContainer.green {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+
+.modal-b {
+    /* padding: 18px 22px; */
+    overflow-y: auto;
+    flex: 1;
+}
+.alert {
+display: flex;
+    gap: 11px;
+    padding: 21px 19px;
+    border-radius: 11px;
+    background: #eaf4ff;
+    border-left: 6px solid #0070f2;
+    font-size: 14.5px;
+    color: #384a5f;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    width: 100%;
+}
+.alert .ico {
+    font-size: 16px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.alert-text{
+    font-size: 16px;
+    font-weight: 600;
+}
+.mainContainerForm15 {
+    background: #fff;
+    padding: 1rem;
+    width: 100%;
+}
+
+.bullet {
+  font-size: 16px;
+  color: #4b5563;
+  margin-top: 2px;
+}
+
+.alertTextBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.Weighted-text{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sectionHeaderform15 {
+    margin-top: 10px;
+    margin-bottom: 14px;
+    /* padding: 20px 18px 17px; */
+    /* background: #f9fafb; */
+    /* border-top: 1px solid #dde3eb; */
+    /* border-bottom: 1px solid #dde3eb; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 11px;
+}
+.num {
+       width: 28px;
+    height: 26px;
+    border-radius: 50%;
+    background: #5d36ff ;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font: 700 11px var(--ff-mono);
+    flex-shrink: 0;
+}
+.mod-sec-header {
+font-size: 18px;
+    font-weight: 700;
+    flex: 1;
+    line-height: 1.2;
+}
+
+/* ✅ Card container */
+.card {
+background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 17px 13px;
+    gap: 12px;
+    margin: 6px;
+}
+
+/* ✅ Field group spacing */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ✅ Large field (Source) */
+.fieldGroup.large {
+  width: 88%;
+}
+
+/* ✅ Small fields */
+.fieldGroup:not(.large) {
+  width: 12%;
+}
+
+/* ✅ Input main style */
+/* .inputField .sapMInputBaseInner {
+  border-radius: 10px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  min-height: 42px;
+box-sizing: border-box;
+} */
+
+
+
+.inputField{
+   height:auto !important;
+}
+.inputField .sapMInputBaseContentWrapper{
+   min-height:42px !important;
+   height:auto !important;
+   display:flex;
+   align-items:center;
+   box-sizing:border-box;
+}
+.inputField .sapMInputBaseInner{
+   border-radius:10px;
+   background:#f3f4f6;
+   border:1px solid #d1d5db;
+   height:auto !important;
+   min-height:42px;
+   padding:8px 11px !important;
+   line-height:20px !important;
+   box-sizing:border-box;
+}
+
+
+
+
+
+/* ✅ Smaller inputs */
+.inputField.small .sapMInputBaseInner {
+  text-align: center;
+}
+
+/* ✅ Label styling */
+.sapMLabel {
+ font-size: 15px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+/* ✅ Delete container */
+.deleteContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* ✅ Delete button */
+.deleteBtn {
+  background: #fee2e2;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.deleteBtn .sapMBtnInner {
+  color: #ef4444;
+}
+.mono {
+    font-family: 'JetBrains Mono',ui-monospace,monospace;
+    font-weight: 600;
+    font-size: 12.5px;
+}
+
+.from15-input .sapMInputBaseInner {
+   padding: 6px 11px;
+    border: 1px solid #c2cad6;
+    border-radius: 7px;
+    font: 500 13px #c2cad6;
+    color: #1a2733;
+    background: #fff;
+    transition: 120ms cubic-bezier(.4, .2, .2, 1);
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.add-row-btn {
+    height: 32px;
+    border: 1.5px dashed #c2cad6;
+    background: transparent;
+    border-radius: 7px;
+    font: 600 12px 'Inter',system-ui,sans-serif;
+    color: #8396a8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: 120ms cubic-bezier(.4,.2,.2,1);
+    width: 100%;
+}
+
+/* ✅ Layout */
+.toleranceRow {
+  gap: 16px;
+}
+
+/* ✅ Field width */
+.tolField {
+  width: 32%;
+  position: relative;
+}
+
+/* ✅ Number input */
+.numberInput .sapMStepInputInner {
+  border-radius: 10px;
+  height: 40px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+}
+
+/* ✅ suffix inside right */
+.inputSuffix {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ✅ purple tag */
+.tagPurple {
+  background: #ede9fe;
+  color: #6d28d9;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+/* ✅ wrapper for positioning */
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ✅ StepInput styling */
+.form15-input .sapMStepInputInner {
+  padding-right: 60px; /* ✅ space for suffix */
+  height: 40px;
+  border-radius: 10px;
+}
+
+/* ✅ suffix inside bottom-right */
+.inputSuffix {
+     position: absolute;
+    right: 0px;
+    top: 11px;
+    font-size: 12px;
+    color: #6b7280;
+    pointer-events: none;
+}
+
+
+
+/* ✅ Main card */
+.resultCard {
+  background: #e6f4ec;
+  border-left: 4px solid #166534;
+  border-radius: 10px;
+  padding: 16px;
+  gap: 12px;
+  margin-top: 39px;
+      margin-bottom: 24px;
+}
+
+/* ✅ Icon area */
+.iconWrapper {
+  margin-top: 2px;
+}
+
+/* ✅ Check icon */
+.checkIcon {
+  font-size: 16px;
+  color: #166534;
+  font-weight: bold;
+}
+
+/* ✅ Content spacing */
+.resultContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ✅ Labels */
+.labelText {
+  font-size: 14px;
+  color: #374151;
+}
+
+/* ✅ Bold values */
+.valueText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ✅ Indent bullet lines */
+.indent {
+  margin-top: 6px;
+}
+
+/* ✅ Footer line */
+.footerText {
+  font-size: 14px;
+  color: #374151;
+  margin-top: 6px;
+}
+
+
+
+/* ✅ Left side (Unsaved) */
+.footerLeft {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ✅ Footer container */
+.footerBar {
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ✅ Left tag */
+.unsavedTag {
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* ✅ Right buttons */
+.footerRight {
+  display: flex;
+  gap: 10px;
+}
+
+/* ✅ Validate */
+.validateBtn {
+  border: 1px solid #f59e0b;
+  color: #f59e0b;
+  border-radius: 8px;
+}
+
+/* ✅ Save */
+.saveBtn {
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: white;
+}
+
+/* ✅ Dialog content layout */
+.sapMDialog .sapMDialogSection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ✅ Keep wrapper full height */
+.sapMDialog .sapMVBox {
+  height: 100%;
+}
+
+/* ✅ Footer always visible */
+.footerBar {
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 14px 18px;
+
+  display: flex;
+  justify-content: space-between;
+
+  position: sticky;   /* ✅ key fix */
+  bottom: 0;
+  z-index: 10;
+}
+
+
+
+
+
+
 
 
 
