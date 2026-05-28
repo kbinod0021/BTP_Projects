@@ -5,6 +5,7 @@
     xmlns:core="sap.ui.core"
     controllerName="gmrproject.controller.output"
 >
+
  <HBox width="100%" justifyContent="SpaceBetween" >
    <VBox width="100%" class="stepperPage">
         <HBox class="stepperHeader" justifyContent="SpaceBetween" alignItems="Center">
