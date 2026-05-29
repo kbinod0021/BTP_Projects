@@ -46,7 +46,7 @@
                             alignItems="Center"
                             class="rightSection"
                         >
-                            <HBox class="pillBox">
+                            <!-- <HBox class="pillBox">
                                 <HBox class="statusDot" />
 
                                 <Text
@@ -71,13 +71,13 @@
                                     text="Dec 2025"
                                     class="pillValue"
                                 />
-                            </HBox>
+                            </HBox> -->
 
-                            <Button
+                            <!-- <Button
                                 text="Joule"
                                 icon="sap-icon://favorite"
                                 class="jouleBtn"
-                            />
+                            /> -->
 
                             <HBox class="notifWrapper">
                                 <Button

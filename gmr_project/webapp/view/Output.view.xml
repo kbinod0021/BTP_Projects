@@ -1,9 +1,9 @@
 <mvc:View
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
     xmlns:mvc="sap.ui.core.mvc"
     controllerName="gmrproject.controller.output"
-    
-     height="100%"
+    height="100%"
     xmlns:plugins="sap.m.plugins"
     xmlns:columnmenu="sap.m.table.columnmenu"
     xmlns:sap.ui.fl="sap.ui.fl"
@@ -11,198 +11,173 @@
     xmlns:vm="sap.ui.fl.variants"
     xmlns:dnd="sap.ui.core.dnd"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
-    
-    >
+>
+    <VBox class="outputCenterPage leftPanel">
+        <!-- HEADER -->
+        <HBox
+            justifyContent="SpaceBetween"
+            alignItems="Center"
+        >
+            <VBox>
+                <Title text="Output Center" />
+                <Text text="Browse annexure output" />
+            </VBox>
+            <Button
+                text="Create Export"
+                press="onCreateExport"
+            />
+        </HBox>
 
-  
-<Table items="{/data}" inset="false" class="fixedTable">
-
-    <columns>
-        <Column width="5%"><Text text="TAG"/></Column>
-        <Column width="30%"><Text text="ANNEXURE"/></Column>
-        <Column width="20%"><Text text="FORM ID"/></Column>
-        <Column width="20%"><Text text="SOURCE"/></Column>
-        <Column width="5%"><Text text="PAGES"/></Column>
-        <Column width="10%"><Text text="STATUS"/></Column>
-        <Column width="5%"/>
-    </columns>
-
-    <items>
-        <ColumnListItem>
-            <cells>
-
-                <!-- TAG -->
-                <Text text="{TAG}"/>
-
-                <!-- ANNEXURE -->
-                <Text text="{ANNEXURE}" wrapping="false"/>
-
-                <!-- FORM ID -->
-                <Text text="{FORM_ID}" wrapping="false"/>
-
-                <!-- SOURCE -->
-                <Text text="{SOURCE}" wrapping="false"/>
-
-                <!-- PAGES -->
-                <ObjectNumber number="{PAGES}"/>
-
-                <!-- STATUS -->
-                <ObjectStatus text="{STATUS}" state="Success"/>
-
-                <!-- EXPAND -->
-                <Button
-                    type="Transparent"
-                    icon="{= ${expanded} ? 'sap-icon://navigation-down-arrow' : 'sap-icon://navigation-right-arrow'}"
-                    press="onToggleExpand"/>
-
-            </cells>
-
-            <!-- ✅ FULL WIDTH EXPAND (IMPORTANT PART) -->
-            <customData>
-                <!-- dummy, ignore -->
-            </customData>
-
-            <dependents>
-                <VBox visible="{expanded}" class="rowExpand">
-
-                    <Text text="What's inside" class="sectionTitle"/>
-                    <Text text="Block-by-block (15-min) declared vs scheduled energy for every day of the billing period — 96 blocks × 31 days = 2,976 rows."/>
-
-                    <Text text="Content layout" class="sectionTitle"/>
-                    <Text text="Page 1: month summary · Pages 2–7: daily block matrices (4 days/page)"/>
-
-                    <Text text="Data source &amp; mapping" class="sectionTitle"/>
-                    <Text text="SourceSD-021 DC table + SD-022 SE table via Routine 920 aggregation"/>
-                    <Text text="Generator: ZSD_ANX_A1_GEN"/>
-
-                    <Text text="Seal &amp; integrity" class="sectionTitle"/>
-                    <Text text="SHA-256a3f9...2b41"/>
-                    <Text text="DSC e-Mudra Class-3"/>
-                    <Text text="Stamped: 12-Jan-2026 09:14 IST"/>
-
-                    <Table class="innerTable">
-                        <columns>
-                            <Column><Text text="FIELD"/></Column>
-                            <Column><Text text="TYPE"/></Column>
-                            <Column><Text text="DESCRIPTION"/></Column>
-                        </columns>
-
-                        <items>
-                            <ColumnListItem>
-                                <cells>
-                                    <Text text="Date"/>
-                                    <Text text="DATE"/>
-                                    <Text text="01-Dec-2025 → 31-Dec-2025"/>
-                                </cells>
-                            </ColumnListItem>
-                        </items>
-                    </Table>
-
-                    <HBox class="sapUiSmallMarginTop">
-                        <Button text="Preview PDF page"/>
-                        <Button text="Download annexure only"/>
-                        <Button text="View routine trace"/>
-                    </HBox>
-
-                </VBox>
-            </dependents>
-
-        </ColumnListItem>
-    </items>
-
-</Table>
-
-<Page showHeader="false">
-
-        <Table id="persoTable" ariaLabelledBy="title" fixedLayout="Strict"
-		    autoPopinMode="true" growing="true" sticky="ColumnHeaders,HeaderToolbar" popinLayout="GridSmall">
-
-            <headerToolbar>
-                <OverflowToolbar >
-                    <Title id="title12" text="Persons"/>
-                    <ToolbarSeparator/>
-                    <vm:VariantManagement id="p13nVm" for="persoTable"/>
-                    <ToolbarSpacer/>
-                    <Button icon="sap-icon://action-settings" press=".openPersoDialog" tooltip="Settings"/>
-                    <Button icon="sap-icon://add-employee" press=".openPersoDialogPeople" tooltip="Settings"/>
-                </OverflowToolbar>
-            </headerToolbar>
-
-            <dependents>
-                <columnmenu:Menu id="menu">
-                    <columnmenu:items>
-                        <columnmenu:ActionItem icon="sap-icon://table-column" label="Columns" press=".openPersoDialog"/>
-                    </columnmenu:items>
-                </columnmenu:Menu>
-            </dependents>
-
-            <dragDropConfig>
-                <dnd:DragDropInfo sourceAggregation="columns" targetAggregation="columns" dropPosition="Between" drop=".onColumnMove"/>
-            </dragDropConfig>
-
-            <noData>
-                <IllustratedMessage/>
-            </noData>
-
-            <columns>
-                <Column app:p13nKey="id_col" headerMenu="menu">
-                    <header>
-                        <Text text="ID"/>
-                    </header>
-                </Column>
-                <Column app:p13nKey="firstName_col" headerMenu="menu">
-                        <Text text="First Name"/>
-                </Column>
-                <Column app:p13nKey="lastName_col" headerMenu="menu">
-                    <Text text="Last Name"/>
-                </Column>
-                <Column app:p13nKey="city_col" headerMenu="menu">
-                    <Text text="City"/>
-                </Column>
-                <Column app:p13nKey="size_col" hAlign="End" visible="false" headerMenu="menu">
-                    <Text text="Size"/>
-                </Column>
-            </columns>
-
+        <!-- LIST -->
+        <List items="{/annexures}">
             <items>
-                <ColumnListItem app:p13nKey="P1">
-                    <Text text="P1"/>
-                    <Text text="Peter"/>
-                    <Text text="Mueller"/>
-                    <Text text="Walldorf"/>
-                    <Text text="1.75"/>
-                </ColumnListItem>
-                <ColumnListItem app:p13nKey="P2">
-                    <Text text="P2"/>
-                    <Text text="Petra"/>
-                    <Text text="Maier"/>
-                    <Text text="Walldorf"/>
-                    <Text text="1.85"/>
-                </ColumnListItem>
-                <ColumnListItem app:p13nKey="P3">
-                    <Text text="P3"/>
-                    <Text text="Thomas"/>
-                    <Text text="Smith"/>
-                    <Text text="Walldorf"/>
-                    <Text text="1.95"/>
-                </ColumnListItem>
-                <ColumnListItem app:p13nKey="P4">
-                    <Text text="P4"/>
-                    <Text text="John"/>
-                    <Text text="Williams"/>
-                    <Text text="Walldorf"/>
-                    <Text text="1.65"/>
-                </ColumnListItem>
-                <ColumnListItem app:p13nKey="P5">
-                    <Text text="P5"/>
-                    <Text text="Maria"/>
-                    <Text text="Jones"/>
-                    <Text text="Walldorf"/>
-                    <Text text="1.55"/>
-                </ColumnListItem>
+                <CustomListItem
+                    type="Active"
+                    press="onRowPress"
+                >
+                    <VBox class="outputRowCard">
+                        <!-- SUMMARY -->
+                        <HBox class="outputRowSummary">
+                            <Text text="{tag}" />
+                            <Text
+                                text="{annexure}"
+                                width="40%"
+                            />
+                            <Text
+                                text="{formId}"
+                                width="15%"
+                            />
+                            <Text
+                                text="{source}"
+                                width="20%"
+                            />
+                            <Text
+                                text="{pages}"
+                                width="5%"
+                            />
+                            <ObjectStatus text="{status}" />
+
+                            <core:Icon
+                                src="{= ${expanded} ? 'sap-icon://navigation-down-arrow' : 'sap-icon://navigation-right-arrow' }"
+                            />
+                        </HBox>
+
+                        <!-- DETAIL PANEL -->
+                        <VBox
+                            visible="{expanded}"
+                            class="outputRowDetailPanel"
+                        >
+                            <!-- <Text text="{description}" />
+
+                            <HBox>
+                                <Text text="{contentLayout}" />
+                                <Text text="{dataSource}" />
+                                <Text text="{date}" />
+                            </HBox> -->
+
+                            <VBox class="sapUiSmallMargin">
+                                <!-- What's inside -->
+                                <Text
+                                    text="What's inside"
+                                    class="labelSmall"
+                                />
+
+                                <!-- Main Title -->
+                                <Title
+                                    text="Coal source-wise consumption with weighted GCV and landed cost build-up — feeds ECR."
+                                    level="H4"
+                                    wrapping="true"
+                                />
+
+                                <!-- Content layout -->
+                                <VBox class="sectionMargin">
+                                    <Text
+                                        text="Content layout"
+                                        class="labelSmall"
+                                    />
+                                    <FormattedText
+                                        htmlText="Page 1: source breakdown table · Page 2: GCV variance · Page 3: discount certificate (Shakti)"
+                                    />
+                                </VBox>
+
+                                <!-- Data source & mapping -->
+                                <VBox class="sectionMargin">
+                                    <Text
+                                        text="Data source &amp; mapping"
+                                        class="labelSmall"
+                                    />
+                                    <Text
+                                        text="SourceSD-023 Form-15 Coal · Routine 938 (landed price)"
+                                    />
+                                    <Text text="GeneratorZSD_ANX_A3_GEN" />
+                                </VBox>
+
+                                <!-- Seal & integrity -->
+                                <VBox class="sectionMargin">
+                                    <Text
+                                        text="Seal &amp; integrity"
+                                        class="labelSmall"
+                                    />
+                                    <Text text="SHA-256e1f4…a07c" />
+                                    <Text text="DSCe-Mudra Class-3" />
+                                    <Text text="Stamped12-Jan-2026 09:15 IST" />
+                                </VBox>
+
+                                <!-- Footer label -->
+                                <VBox class="sectionMargin">
+                                    <Text
+                                        text="Fields rendered on this annexure"
+                                        class="labelSmall"
+                                    />
+                                </VBox>
+                            </VBox>
+
+                            <VBox width="50%">
+                                <Table items="{data}">
+                                    <columns>
+                                        <Column>
+                                            <Text text="Field" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="Type" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="Description" />
+                                        </Column>
+                                    </columns>
+
+                                    <items>
+                                        <ColumnListItem>
+                                            <cells>
+                                                <Text text="{field}" />
+                                                <Text text="{type}" />
+                                                <Text
+                                                    text="{path:'description', formatter:'.formatDescription'}"
+                                                />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </VBox>
+
+                            <HBox>
+                                <Button
+                                    text="Preview PDF"
+                                    press="onPreviewPdf"
+                                />
+                                <Button
+                                    text="Download"
+                                    press="onDownload"
+                                />
+                                <Button
+                                    text="Trace"
+                                    press="onViewTrace"
+                                />
+                            </HBox>
+                        </VBox>
+                    </VBox>
+                </CustomListItem>
             </items>
-        </Table>
-
-    </Page>
-
+        </List>
+    </VBox>
 </mvc:View>

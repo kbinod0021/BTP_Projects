@@ -26,3 +26,215 @@
 .innerTable {
     margin-top: 1rem;
 }
+
+
+
+
+/* Header */
+.headerBar {
+    background: #f0f5fa;
+    color: white;
+}
+
+/* Table Header */
+.customTable .sapUiTableColHdrCnt {
+    background-color: #23364a;
+    color: white;
+}
+
+/* Center values */
+.sapMInputBaseInner {
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Category badge */
+.categoryBadge {
+    border: 1px solid #1976d2;
+    color: #1976d2 !important;
+    background: #ffffff;
+    border-radius: 999px;
+    padding: 4px 12px;
+    min-width: 72px;
+    display: inline-block;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ✅ TEXT FIX (NO vertical issue) */
+.sapMText {
+    white-space: normal !important;
+    word-break: break-word;
+}
+
+/* ===== OUTPUT CENTER ===== */
+.outputCenterPage {
+    gap: 1rem;
+    padding-top: 1rem;
+}
+
+.outputCenterHeader {
+    padding-bottom: 0.75rem;
+    gap: 1rem;
+    align-items: center;
+}
+
+.outputCenterHeader .sapMTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.outputCenterHeaderText {
+    color: #5a6b7b;
+    max-width: 54rem;
+}
+
+/* ✅ HEADER GRID (IMPORTANT) */
+.outputHeaderRow {
+    display: grid;
+    grid-template-columns:
+        80px
+        2fr
+        1.5fr
+        2fr
+        80px
+        120px
+        40px;
+
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid #dbe5f0;
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.82rem;
+    color: #556776;
+    text-transform: uppercase;
+}
+
+/* ===== ROW CARD (table style) ===== */
+.outputRowCard {
+    border: none;
+    border-bottom: 1px solid #e0e6ed;
+    border-radius: 0;
+    padding: 0.8rem 0;
+    background: #ffffff;
+    box-shadow: none;
+}
+
+/* ✅ ROW GRID (MOST IMPORTANT FIX) */
+.outputRowSummary {
+    display: grid;
+    grid-template-columns:
+        80px
+        2fr
+        1.5fr
+        2fr
+        80px
+        120px
+        40px;
+
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ===== COLUMN FIX ===== */
+.colTag {
+    font-weight: 600;
+}
+
+.colAnnexure {
+    white-space: normal;
+}
+
+.colFormId {
+    white-space: nowrap;   /* FIX */
+}
+
+.colSource {
+    white-space: normal;
+}
+
+.colPages {
+    text-align: center;
+}
+
+.colStatus {
+}
+
+/* ✅ arrow right aligned */
+.colArrow {
+    text-align: right;
+    cursor: pointer;
+}
+
+/* ===== STATUS BADGE ===== */
+.statusBadge {
+    border-radius: 999px;
+    padding: 0.25rem 0.8rem;
+    font-weight: 700;
+    color: #1b5e20 !important;
+    background: #e8f5e9;
+    border: 1px solid #c8e6c9;
+    display: inline-block;
+}
+
+/* ===== DETAIL PANEL ===== */
+.outputRowDetailPanel {
+    margin-top: 0.8rem;
+    padding: 0.8rem;
+    border-top: 1px solid #e6edf5;
+    background: #f9fbfd;
+    border-radius: 6px;
+}
+
+/* ===== DETAIL CONTENT ===== */
+.detailHeading {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.detailText {
+    color: #425466;
+    margin-bottom: 0.8rem;
+}
+
+/* GRID inside details */
+.detailInfoGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.detailInfoBlock {
+    flex: 1 1 calc(33.33% - 1rem);
+    min-width: 10rem;
+}
+
+.detailLabel {
+    font-size: 0.8rem;
+    color: #6b7888;
+}
+
+.detailValue {
+    font-size: 0.95rem;
+    color: #1f3448;
+    font-weight: 600;
+}
+
+/* ===== BUTTONS ===== */
+.detailButtons {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.detailButtons .sapMBtn {
+    min-width: 8rem;
+}
+
+/* ===== ICON ===== */
+.rowToggleIcon {
+    color: #425466;
+}

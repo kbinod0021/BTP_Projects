@@ -1,363 +1,407 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/ui/model/json/JSONModel",
-    	'sap/m/p13n/Engine',
+	"sap/ui/core/mvc/Controller",
+	"sap/ui/model/json/JSONModel",
+	'sap/m/p13n/Engine',
 	'sap/m/p13n/SelectionController',
 	'sap/m/p13n/MetadataHelper',
-	'sap/ui/core/library'
-], function (Controller, JSONModel, Engine, SelectionController, MetadataHelper, coreLibrary) {
-    "use strict";
+	'sap/ui/core/library',
+	"sap/m/MessageToast"
+], function (Controller, JSONModel, Engine, SelectionController, MetadataHelper, coreLibrary, MessageToast) {
+	"use strict";
 
-    return Controller.extend("gmrproject.controller.output", {
-        onInit: function () {
-            sap.ui.require(["sap/ui/dom/includeStylesheet"], function (includeStylesheet) {
-                includeStylesheet("css/output.css");
-            });
-           
-  
-// var oData = {
-//         data: [   // ✅ wrap inside object
-//             {
-//                 TAG: "A1",
-//                 ANNEXURE: "SE / DC schedule (96 blocks/day)",
-//                 FORM_ID: "ZSDF_ANX_A1",
-//                 SOURCE: "Auto from DC/SE grid",
-//                 PAGES: 7,
-//                 STATUS: "SEALED",
-//                 expanded: false
-//             },
-//             {
-//                 TAG: "A2",
-//                 ANNEXURE: "Cumulative Availability calculation",
-//                 FORM_ID: "ZSDF_ANX_A2",
-//                 SOURCE: "From DC schedule",
-//                 PAGES: 2,
-//                 STATUS: "SEALED",
-//                 expanded: false
-//             },
-//             {
-//                 TAG: "A3",
-//                 ANNEXURE: "Form-15 Coal sources",
-//                 FORM_ID: "ZSDF_ANX_A3",
-//                 SOURCE: "FI/MM close",
-//                 PAGES: 3,
-//                 STATUS: "SEALED",
-//                 expanded: false
-//             }
-//         ]
-//     };
+	return Controller.extend("gmrproject.controller.output", {
+		onInit: function () {
+			sap.ui.require(["sap/ui/dom/includeStylesheet"], function (includeStylesheet) {
+				includeStylesheet("css/output.css");
+			});
 
-//     var oModel = new JSONModel(oData);
-//     this.getView().setModel(oModel);
 
-   
-var oData = {
-        data: [
-            {
-                TAG: "A1",
-                ANNEXURE: "SE / DC schedule (96 blocks/day)",
-                FORM_ID: "ZSDF_ANX_A1",
-                SOURCE: "Auto from DC/SE grid",
-                PAGES: 7,
-                STATUS: "SEALED",
-                expanded: false
-            },
-            {
-                TAG: "A2",
-                ANNEXURE: "Cumulative Availability calculation",
-                FORM_ID: "ZSDF_ANX_A2",
-                SOURCE: "From DC schedule",
-                PAGES: 2,
-                STATUS: "SEALED",
-                expanded: false
-            }
-        ]
-    };
+			// var oData = {
+			//         data: [   // ✅ wrap inside object
+			//             {
+			//                 TAG: "A1",
+			//                 ANNEXURE: "SE / DC schedule (96 blocks/day)",
+			//                 FORM_ID: "ZSDF_ANX_A1",
+			//                 SOURCE: "Auto from DC/SE grid",
+			//                 PAGES: 7,
+			//                 STATUS: "SEALED",
+			//                 expanded: false
+			//             },
+			//             {
+			//                 TAG: "A2",
+			//                 ANNEXURE: "Cumulative Availability calculation",
+			//                 FORM_ID: "ZSDF_ANX_A2",
+			//                 SOURCE: "From DC schedule",
+			//                 PAGES: 2,
+			//                 STATUS: "SEALED",
+			//                 expanded: false
+			//             },
+			//             {
+			//                 TAG: "A3",
+			//                 ANNEXURE: "Form-15 Coal sources",
+			//                 FORM_ID: "ZSDF_ANX_A3",
+			//                 SOURCE: "FI/MM close",
+			//                 PAGES: 3,
+			//                 STATUS: "SEALED",
+			//                 expanded: false
+			//             }
+			//         ]
+			//     };
 
-    this.getView().setModel(new JSONModel(oData));
-this._registerForP13n();
+			//     var oModel = new JSONModel(oData);
+			//     this.getView().setModel(oModel);
 
-        },
-      
-       
-	onExit: function() {
-			Engine.getInstance().detachStateChange(this.handleStateChange, this);
+
+			var oData = {
+				data: [
+					{
+						TAG: "A1",
+						ANNEXURE: "SE / DC schedule (96 blocks/day)",
+						FORM_ID: "ZSDF_ANX_A1",
+						SOURCE: "Auto from DC/SE grid",
+						PAGES: 7,
+						STATUS: "SEALED",
+						expanded: false
+					},
+					{
+						TAG: "A2",
+						ANNEXURE: "Cumulative Availability calculation",
+						FORM_ID: "ZSDF_ANX_A2",
+						SOURCE: "From DC schedule",
+						PAGES: 2,
+						STATUS: "SEALED",
+						expanded: false
+					}
+				]
+			};
+
+			this.getView().setModel(new JSONModel(oData));
+
+
+
+
+			var oModel = new JSONModel({
+				annexures: [
+					{
+						tag: "A1",
+						annexure: "SE / DC schedule (96 blocks/day)",
+						formId: "ZSDF_ANX_A1",
+						source: "Auto from DC/SE grid",
+						pages: "7",
+						status: "SEALED",
+						expanded: false, // ✅ Initial CLOSED
+						description: "Detail A1",
+						contentLayout: "Layout A1",
+						dataSource: "Source A1",
+						date: "01-Dec",
+						block: "1-96",
+						dc: "DC data",
+						se: "SE data",
+						time: "Full Day",
+						data: [
+							{
+								"field": "Date",
+								"type": "DATE",
+								"description": {
+									"start": "01-Dec-2025",
+									"end": "31-Dec-2025"
+								}
+							},
+							{
+								"field": "Block #",
+								"type": "INT4",
+								"description": {
+									"range": "1 to 96",
+									"details": "15-min slots"
+								}
+							},
+							{
+								"field": "DC (MW)",
+								"type": "DEC9.3",
+								"description": "Declared capacity per block - from Plant Ops"
+							},
+							{
+								"field": "SE (MW)",
+								"type": "DEC9.3",
+								"description": "Scheduled energy per block - from SLDC WBES"
+							},
+							{
+								"field": "Time of day",
+								"type": "TIME",
+								"description": {
+									"start": "00:00",
+									"end": "23:45"
+								}
+							},
+							{
+								"field": "Peak flag",
+								"type": "BOOL",
+								"description": "TRUE if 17:00–21:00 window"
+							}
+						]
+
+					},
+					{
+						tag: "A2",
+						annexure: "Cumulative Availability calculation",
+						formId: "ZSDF_ANX_A2",
+						source: "From DC schedule",
+						pages: "2",
+						status: "SEALED",
+						expanded: false,
+						description: "Detail A2",
+						contentLayout: "Layout A2",
+						dataSource: "Source A2",
+						date: "01-Dec",
+						block: "1-96",
+						dc: "DC data",
+						se: "SE data",
+						time: "Full Day",
+
+						data: [
+							{
+								"field": "NTH Month",
+								"type": "INT2",
+								"description": {
+									"range": "1–12",
+									"details": "FY position"
+								}
+							},
+							{
+								"field": "Period label",
+								"type": "CHAR8",
+								"description": "e.g. Dec 2025"
+							},
+							{
+								"field": "PAFM Peak %",
+								"type": "DEC5.4",
+								"description": "Calculated per Routine 925"
+							},
+							{
+								"field": "PAFM Off %",
+								"type": "DEC5.4",
+								"description": "Calculated per Routine 926"
+							},
+							{
+								"field": "PAFM Total %",
+								"type": "DEC5.4",
+								"description": "Weighted by hours"
+							},
+							{
+								"field": "Cushion vs NAPAF",
+								"type": "DEC5.4",
+								"description": "Delta to threshold"
+							}
+						]
+
+					},
+					{
+						tag: "A3",
+						annexure: "Form-15 Coal sources",
+						formId: "ZSDF_ANX_A3",
+						source: "FI/MM close",
+						pages: "3",
+						status: "SEALED",
+						expanded: false,
+						description: "Detail A3",
+						contentLayout: "Layout A3",
+						dataSource: "Source A3",
+						date: "01-Dec",
+						block: "Coal",
+						dc: "N/A",
+						se: "N/A",
+						time: "N/A",
+
+						data: [
+							{
+								"field": "Source",
+								"type": "CHAR40",
+								"description": "Shakti · MCL Rail · IB Valley"
+							},
+							{
+								"field": "Qty supplied (MT)",
+								"type": "DEC15.3",
+								"description": "From MM movement type 309"
+							},
+							{
+								"field": "Share %",
+								"type": "DEC5.2",
+								"description": "Source / total"
+							},
+							{
+								"field": "GCV (kcal/kg)",
+								"type": "INT5",
+								"description": "As-received basis"
+							},
+							{
+								"field": "Landed ₹/MT",
+								"type": "DEC11.2",
+								"description": "Inclusive of freight, royalty, cess"
+							},
+							{
+								"field": "Weighted contribution",
+								"type": "DEC11.2",
+								"description": "Sum of contribution per kWh"
+							}
+						]
+
+					},
+					{
+						tag: "A1",
+						annexure: "SE / DC schedule (96 blocks/day)",
+						formId: "ZSDF_ANX_A1",
+						source: "Auto from DC/SE grid",
+						pages: "7",
+						status: "SEALED",
+						expanded: false, // ✅ Initial CLOSED
+						description: "Detail A1",
+						contentLayout: "Layout A1",
+						dataSource: "Source A1",
+						date: "01-Dec",
+						block: "1-96",
+						dc: "DC data",
+						se: "SE data",
+						time: "Full Day"
+					},
+					{
+						tag: "A2",
+						annexure: "Cumulative Availability calculation",
+						formId: "ZSDF_ANX_A2",
+						source: "From DC schedule",
+						pages: "2",
+						status: "SEALED",
+						expanded: false,
+						description: "Detail A2",
+						contentLayout: "Layout A2",
+						dataSource: "Source A2",
+						date: "01-Dec",
+						block: "1-96",
+						dc: "DC data",
+						se: "SE data",
+						time: "Full Day"
+					},
+					{
+						tag: "A3",
+						annexure: "Form-15 Coal sources",
+						formId: "ZSDF_ANX_A3",
+						source: "FI/MM close",
+						pages: "3",
+						status: "SEALED",
+						expanded: false,
+						description: "Detail A3",
+						contentLayout: "Layout A3",
+						dataSource: "Source A3",
+						date: "01-Dec",
+						block: "Coal",
+						dc: "N/A",
+						se: "N/A",
+						time: "N/A"
+					}
+				]
+			});
+
+			this.getView().setModel(oModel);
+
+
+
+
 		},
 
-		_registerForP13n: function () {
-			const oTable = this.byId("persoTable");
 
-			this.oMetadataHelper = new MetadataHelper([{
-				key: "id_col",
-				label: "ID",
-				path: "id"
-			},
-			{
-				key: "firstName_col",
-				label: "First Name",
-				path: "firstName"
-			},
-			{
-				key: "lastName_col",
-				label: "Last Name",
-				path: "lastName"
-			},
-			{
-				key: "city_col",
-				label: "City",
-				path: "city"
-			},
-			{
-				key: "size_col",
-				label: "Size",
-				path: "size"
+		onRowPress: function (oEvent) {
+    var sPath = oEvent.getSource().getBindingContext().getPath();
+    var iIndex = parseInt(sPath.split("/").pop(), 10);
+
+    var oModel = this.getView().getModel();
+    var aData = oModel.getProperty("/annexures");
+
+    // ✅ Check current state
+    var bIsAlreadyExpanded = aData[iIndex].expanded;
+
+    // ✅ Collapse all rows first
+    aData.forEach(function (item) {
+        item.expanded = false;
+    });
+
+    // ✅ Toggle logic
+    if (!bIsAlreadyExpanded) {
+        aData[iIndex].expanded = true;
+    }
+
+    oModel.setProperty("/annexures", aData);
+    oModel.refresh(true);
+},
+
+		onPreviewPdf: function () {
+			MessageToast.show("Preview PDF clicked");
+		},
+
+		onDownload: function () {
+			MessageToast.show("Download clicked");
+		},
+
+		onViewTrace: function () {
+			MessageToast.show("View Trace clicked");
+		},
+
+		onCreateExport: function () {
+			MessageToast.show("Create Export clicked");
+		},
+		formatDescription: function (desc) {
+			if (!desc) return "";
+
+			if (typeof desc === "object") {
+				if (desc.start && desc.end) {
+					return desc.start + " - " + desc.end;
+				}
+				if (desc.range) {
+					return desc.range + (desc.details ? " (" + desc.details + ")" : "");
+				}
 			}
-			]);
+			return desc;
+		},
+		onSelectAnnexure: function (oEvent) {
 
-			const _oMetadataHelperRows = new MetadataHelper([{
-				key: "P1",
-				label: "Peter Müller",
-				path: "id"
-			},
-			{
-				key: "P2",
-				label: "Petra Maier",
-				path: "id"
-			},
-			{
-				key: "P3",
-				label: "Thomas Smith",
-				path: "id"
-			},
-			{
-				key: "P4",
-				label: "John Williams",
-				path: "id"
-			},
-			{
-				key: "P5",
-				label: "Maria Jones",
-				path: "id"
+			var oItem = oEvent.getSource(); // clicked row
+			var oContext = oItem.getBindingContext();
+			var sPath = oContext.getPath();
+
+			// ✅ get table inside this row
+			var oTable = oItem.getAggregation("content")[0]   // VBox
+				.getItems()[1]                                // Detail VBox
+				.getItems()[1]                                // Inner VBox (table container)
+				.getItems()[0];                               // Table
+
+			// ✅ safety check
+			if (!oTable) {
+				console.log("Table not found");
+				return;
 			}
-			]);
 
-			Engine.getInstance().register(oTable, {
-				helper: this.oMetadataHelper,
-				controller: {
-					Columns: new SelectionController({
-						targetAggregation: "columns",
-						control: oTable,
-						persistenceIdentifier: "selection-columns"
-					}),
-					Rows: new SelectionController({
-						targetAggregation: "items",
-						helper: _oMetadataHelperRows,
-						control: oTable,
-						persistenceIdentifier: "selection-items",
-						enableReorder: false
+			// ✅ unbind old
+			//oTable.unbindItems();
+
+			// ✅ template
+			var oTemplate = new sap.m.ColumnListItem({
+				cells: [
+					new sap.m.Text({ text: "{field}" }),
+					new sap.m.Text({ text: "{type}" }),
+					new sap.m.Text({
+						text: {
+							path: "description",
+							formatter: this.formatDescription.bind(this)
+						}
 					})
-				}
+				]
 			});
 
-			Engine.getInstance().attachStateChange(this.handleStateChange, this);
-		},
-
-		openPersoDialog: function (oEvt) {
-			const oTable = this.byId("persoTable");
-
-			Engine.getInstance().show(oTable, ["Columns"], {
-				contentHeight: "35rem",
-				contentWidth: "32rem",
-				source: oEvt.getSource()
+			// ✅ bind correct path
+			oTable.bindItems({
+				path: sPath + "/data",
+				template: oTemplate
 			});
-		},
-
-		openPersoDialogPeople: function (oEvt) {
-			const oTable = this.byId("persoTable");
-
-			Engine.getInstance().show(oTable, ["Rows"], {
-				contentHeight: "35rem",
-				contentWidth: "32rem",
-				source: oEvt.getSource()
-			});
-		},
-
-		_getKey: function (oControl) {
-			return oControl.data("p13nKey");
-		},
-
-		handleStateChange: function (oEvt) {
-			const oTable = this.byId("persoTable");
-			const oState = oEvt.getParameter("state");
-
-			if (!oState) {
-				return;
-			}
-
-			oTable.getColumns().forEach(function (oColumn, iIndex) {
-				oColumn.setVisible(false);
-				oColumn.setSortIndicator(coreLibrary.SortOrder.None);
-				oColumn.data("grouped", false);
-			});
-
-			oState.Columns.forEach(function (oProp, iIndex) {
-				const oCol = this.byId("persoTable").getColumns().find((oColumn) => oColumn.data("p13nKey") === oProp.key);
-				if (oCol) {
-					oCol.setVisible(true);
-
-					oTable.removeColumn(oCol);
-					oTable.insertColumn(oCol, iIndex);
-				}
-			}.bind(this));
-
-			oTable.getItems().forEach(function (oItem, iIndex) {
-				oItem.setVisible(false);
-			});
-
-			oState.Rows.forEach(function (oProp, iIndex) {
-				const aItems = this.byId("persoTable").getItems();
-				// var oRelevantCol = aItems[0].getCells().find((cell) => true);
-
-				// find index of cell with "id", that can be used later
-				const oFoundItem = aItems.find((oItem) => oItem.getCells()[0].getText() == oProp.key);
-
-				oFoundItem.setVisible(true);
-
-				oTable.removeItem(oFoundItem);
-				oTable.insertItem(oFoundItem, iIndex);
-			}.bind(this));
-		},
-
-		onColumnMove: function (oEvt) {
-			const oDraggedColumn = oEvt.getParameter("draggedControl");
-			const oDroppedColumn = oEvt.getParameter("droppedControl");
-
-			if (oDraggedColumn === oDroppedColumn) {
-				return;
-			}
-
-			const oTable = this.byId("persoTable");
-			const sDropPosition = oEvt.getParameter("dropPosition");
-			const iDraggedIndex = oTable.indexOfColumn(oDraggedColumn);
-			const iDroppedIndex = oTable.indexOfColumn(oDroppedColumn);
-			const iNewPos = iDroppedIndex + (sDropPosition == "Before" ? 0 : 1) + (iDraggedIndex < iDroppedIndex ? -1 : 0);
-			const sKey = this._getKey(oDraggedColumn);
-
-			Engine.getInstance().retrieveState(oTable).then(function (oState) {
-
-				const oCol = oState.Columns.find(function (oColumn) {
-					return oColumn.data("p13nKey") === sKey;
-				}) || {
-					key: sKey
-				};
-				oCol.position = iNewPos;
-
-				Engine.getInstance().applyState(oTable, {
-					Columns: [oCol]
-				});
-			});
-		},
-onToggleExpand: function (oEvent) {
-
-    const oCtx = oEvent.getSource().getBindingContext();
-    const oModel = oCtx.getModel();
-    const sPath = oCtx.getPath();
-
-    const current = oModel.getProperty(sPath + "/expanded");
-
-    // ✅ collapse all rows first (optional but clean UX)
-    oModel.getProperty("/data").forEach(function (row) {
-        row.expanded = false;
-    });
-
-    // ✅ expand only clicked
-    oModel.setProperty(sPath + "/expanded", !current);
-}
-,
-
-onToggleExpand: function (oEvent) {
-
-    var oCtx = oEvent.getSource().getBindingContext();
-    var oModel = oCtx.getModel();
-
-    var path = oCtx.getPath();   // /data/0
-    var index = parseInt(path.split("/")[2]);
-
-    var aData = oModel.getProperty("/data");
-
-    // toggle main row
-    aData[index].expanded = !aData[index].expanded;
-
-    // next item = detail row
-    aData[index + 1].visible = aData[index].expanded;
-
-    oModel.setProperty("/data", aData);
-},
-
-rowFactory: function (sId, oContext) {
-
-    var bExpanded = oContext.getProperty("expanded");
-
-    // -------- MAIN ROW --------
-    var oMain = new sap.m.ColumnListItem({
-        cells: [
-            new sap.m.Text({ text: "{TAG}" }),
-            new sap.m.Text({ text: "{ANNEXURE}" }),
-            new sap.m.Text({ text: "{FORM_ID}" }),
-            new sap.m.Text({ text: "{SOURCE}" }),
-            new sap.m.ObjectNumber({ number: "{PAGES}" }),
-            new sap.m.ObjectStatus({ text: "{STATUS}", state: "Success" }),
-            new sap.m.Button({
-                type: "Transparent",
-                icon: {
-                    path: "expanded",
-                    formatter: function (b) {
-                        return b
-                            ? "sap-icon://navigation-down-arrow"
-                            : "sap-icon://navigation-right-arrow";
-                    }
-                },
-                press: this.onToggleExpand.bind(this)
-            })
-        ]
-    });
-
-    // -------- DETAIL ROW --------
-    var oDetail = new sap.m.ColumnListItem({
-        visible: "{expanded}",
-        cells: [
-            new sap.m.VBox({
-                width: "100%",
-                items: [
-                    new sap.m.Text({
-                        text: "What's inside",
-                        design: "Bold"
-                    }),
-                    new sap.m.Text({
-                        text: "Block-by-block (15-min) declared vs scheduled energy for every day..."
-                    }),
-
-                    new sap.m.Text({
-                        text: "Content layout",
-                        design: "Bold"
-                    }),
-                    new sap.m.Text({
-                        text: "Page 1 summary, pages 2–7..."
-                    })
-                ]
-            })
-        ]
-    });
-
-    // ✅ return BOTH rows
-    return new sap.ui.core.Control({
-        aggregations: {
-            items: [oMain, oDetail]
-        }
-    });
-},
+		}
 
 
-
-    });
+	});
 });

@@ -6,8 +6,12 @@ sap.ui.define([
 
     return Controller.extend("gmrproject.controller.Onboard", {
         onInit: function () {
-            sap.ui.require(["sap/ui/dom/includeStylesheet"], function (includeStylesheet) {
-                includeStylesheet("css/onboard.css");
+            // sap.ui.require(["sap/ui/dom/includeStylesheet"], function (includeStylesheet) {
+            //     includeStylesheet("css/onboard.css");
+            // });
+             sap.ui.require(["sap/ui/dom/includeStylesheet"], function (includeStylesheet) {
+                includeStylesheet(sap.ui.require.toUrl("gmrproject/css/custom_studio.css"));
+                includeStylesheet(sap.ui.require.toUrl("gmrproject/css/onboard.css"));
             });
           var oModel = new JSONModel({
                 currentStep: 1,

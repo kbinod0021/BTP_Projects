@@ -133,3 +133,13 @@
 .customProgress .sapMPIBar {
     background-color: #0a6ed1 !important;
 }
+
+.tileIcon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+    font-weight: bold;
+}
