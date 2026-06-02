@@ -112,6 +112,14 @@
      ]
    },
    {
+     "name": "pdf",
+     "pattern": "pdf",
+     "target": [
+       "Targetmain",
+       "pdf"
+     ]
+   },
+   {
      "name": "apps",
      "pattern": "apps",
      "target": [
@@ -153,6 +161,13 @@
      "viewName": "Onboard",
      "viewId": "onboard",
      "controlId": "innerApp",
+     "controlAggregation": "pages"
+   },
+   "pdf": {
+     "parent": "Targetmain",
+     "viewName": "PDF",
+     "viewId": "pdf",
+     "controlId": "dialogNavContainer",
      "controlAggregation": "pages"
    },
    "apps": {

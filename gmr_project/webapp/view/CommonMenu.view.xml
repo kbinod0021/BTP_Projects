@@ -13,115 +13,62 @@
         <HBox class="menuLeft">
             <!-- ITEM 1 -->
             <HBox
-                id="studioItem"
-                class="menuItem active" 
+                id="menuContainer12"
+                items="{
+        path: 'menu>/menuItems',
+        filters: [
+            { path: 'isMainMenu', operator: 'EQ', value1: true }
+        ]
+    }"
             >
-                <customData>
-                    <core:CustomData
-                        key="route"
-                        value="studio"
-                    />
-                </customData>
+                <HBox
+                    class="menuItem"
+                    visible="true"
+                >
+                    <customData>
+                        <core:CustomData
+                            key="active"
+                            value="{menu>active}"
+                        />
+                    </customData>
 
-                <Text
-                    text="C"
-                    class="iconCircle"
-                />
+                    <customData>
+                        <core:CustomData
+                            key="id"
+                            value="{menu>id}"
+                        />
+                    </customData>
 
-                <VBox>
-                    <Text
-                        text="PPA Configuration Studio"
-                        class="title"
-                    />
-                    <Text
-                        text="setup"
-                        class="subText"
-                    />
-                </VBox>
-            </HBox>
+                    <customData>
+                        <core:CustomData
+                            key="route"
+                            value="{menu>route}"
+                        />
+                    </customData>
 
-            <!-- ITEM 2 -->
-            <HBox
-                id="inputItem"
-                class="menuItem"
-            >
-                <customData>
-                    <core:CustomData
-                        key="route"
-                        value="input"
+                    <Text
+                        text="{menu>icon}"
+                        class="iconCircle"
+                        visible="{= ${menu>icon} !== '' }"
                     />
-                </customData>
-                <Text
-                    text="1"
-                    class="badge"
-                />
 
-                <VBox>
-                    <Text
-                        text="Input for Calculation"
-                        class="title"
-                    />
-                    <Text
-                        text="DC • SE • Screen"
-                        class="subText"
-                    />
-                </VBox>
-            </HBox>
+                    <!-- <Text
+                        text="{menu>badge}"
+                        class="badge"
+                        visible="{= ${menu>badge} !== '' }"
+                    /> -->
 
-            <!-- ITEM 3 -->
-            <HBox
-                id="outputItem"
-                class="menuItem"
-            >
-                <customData>
-                    <core:CustomData
-                        key="route"
-                        value="output"
-                    />
-                </customData>
-                <Text
-                    text="0"
-                    class="badge"
-                />
-
-                <VBox>
-                    <Text
-                        text="Output Center"
-                        class="title"
-                    />
-                    <Text
-                        text="documents"
-                        class="subText"
-                    />
-                </VBox>
-            </HBox>
-
-              <!-- ITEM 4 -->
-            <HBox
-                id="OnboardItem"
-                class="menuItem"
-            >
-                <customData>
-                    <core:CustomData
-                        key="route"
-                        value="onboard"
-                    />
-                </customData>
-                <Text
-                    text="0"
-                    class="badge"
-                />
-
-                <VBox>
-                    <Text
-                        text="Onboard New PPA"
-                        class="title"
-                    />
-                    <Text
-                        text="documents"
-                        class="subText"
-                    />
-                </VBox>
+                    <VBox>
+                        <Text
+                            text="{menu>title}"
+                            class="title"
+                        />
+                        <Text
+                            text="{menu>subText}"
+                            class="subText"
+                        />
+                    </VBox>
+                </HBox>
             </HBox>
 
             <!-- ITEM 5 -->
@@ -136,25 +83,27 @@
                     />
                 </customData>
                 <Text
+                    id="plusIconBtn"
                     text="+"
+                    tooltip="More Apps"
                     class="plusIcon"
                 />
 
-                <VBox>
-                    <Text
+                <!-- <VBox> -->
+                <!-- <Text
                         text="More Apps"
                         class="title"
-                    />
-                    <Text
+                    /> -->
+                <!-- <Text
                         text="8 supporting apps"
                         class="subText"
-                    />
-                </VBox>
+                    /> -->
+                <!-- </VBox> -->
             </HBox>
         </HBox>
 
         <!-- ✅ RIGHT SIDE -->
-        <HBox class="menuRight">
+        <!-- <HBox class="menuRight">
             <Text
                 text="PPA GRIDCO"
                 class="tag"
@@ -163,7 +112,33 @@
                 text="FY 2025-26"
                 class="tag"
             />
-        </HBox>
+        </HBox> -->
     </HBox>
-    
+
+    <Dialog
+        id="myDialog"
+        draggable="true"
+        resizable="true"
+        contentWidth="100%"
+        contentHeight="99%"
+    >
+        <content>
+               <VBox  width="100%">
+                <core:Fragment
+                    fragmentName="gmrproject.view.OtherMenu"
+                    type="XML"
+                />
+                
+            <VBox id="viewContainer" width="100%" />
+
+            </VBox>
+        </content>
+
+        <endButton>
+            <Button
+                text="Close"
+                press="onCloseDialog"
+            />
+        </endButton>
+    </Dialog>
 </mvc:View>

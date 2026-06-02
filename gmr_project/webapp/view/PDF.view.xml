@@ -1,0 +1,23 @@
+<mvc:View
+    controllerName="gmrproject.controller.PDF"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+
+
+    <VBox width="100%" height="100%" class="sapUiSmallMargin">
+
+        <!-- ✅ Header -->
+        <Title text="PDF Viewer" level="H2" />
+
+        <Toolbar>
+            <Button text="Upload PDF" icon="sap-icon://upload"/>
+            <Button text="Download" icon="sap-icon://download"/>
+            <Button text="Refresh" icon="sap-icon://refresh"/>
+        </Toolbar>
+
+       </VBox>
+
+
+</mvc:View>

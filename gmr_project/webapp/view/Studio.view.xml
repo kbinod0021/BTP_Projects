@@ -534,27 +534,7 @@
         </VBox>
     </HBox>
 
-<Dialog
-    id="myDialog"
-    title="Form Configuration"
-    draggable="true"
-    resizable="true"
->
-    <content>
-        <VBox>
-            <Text text="This is your popup content" />
-            <Input placeholder="Enter value" />
-        </VBox>
-    </content>
 
-    <beginButton>
-        <Button text="Save" press="onSave" />
-    </beginButton>
-
-    <endButton>
-        <Button text="Close" press="onCloseDialog" />
-    </endButton>
-</Dialog>
 
 
 </mvc:View>
