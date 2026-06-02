@@ -6,6 +6,8 @@ sap.ui.define([
     return Controller.extend("gmrproject.controller.CommonMenu", {
         onInit: function () {
 
+    window.addEventListener("beforeunload", this._handleCloseDialog.bind(this));
+
 
             const oData = {
                 menuItems: [
@@ -157,6 +159,16 @@ sap.ui.define([
                 oMenu.setSelectedKey("");
             }
         },
+        
+_handleCloseDialog: function () {
+    var oDialog = this.byId("myDialog");
+    if (oDialog) {
+        oDialog.close();
+    }
+}
+,
+
+
 
 onAfterRendering: function () {
 

@@ -120,7 +120,7 @@ sap.ui.define([
 
 
 
-      var items = this.byId("dataUploadFlexboxid").getItems();
+      var items = this.byId("dataUploadFlexboxid")?.getItems();
 
       items.forEach(function (item) {
         var ctx = item.getBindingContext("fileUpload");
@@ -559,7 +559,7 @@ sap.ui.define([
 
 
     onAfterUploadFlexRendering: function () {
-      var items = this.byId("dataUploadFlexboxid").getItems();
+      var items = this.byId("dataUploadFlexboxid")?.getItems();
       var that = this;
 
       items.forEach(function (item) {

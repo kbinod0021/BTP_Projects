@@ -128,3 +128,7 @@
 .emptyStateText {
     color: #999 !important;
 }
+
+.hideUploader {
+    display: none !important;
+}

@@ -22,9 +22,9 @@ sap.ui.define([
             });
             this.getView().setModel(this.oModel);
         },
-        formatFilesVisible: function(aFiles) {
-    return Array.isArray(aFiles) && aFiles.length > 0;
-},
+        formatFilesVisible: function (aFiles) {
+            return Array.isArray(aFiles) && aFiles.length > 0;
+        },
 
         // ✅ HANDLE FILE UPLOAD
         onFileSelected: function (oEvent) {
@@ -45,11 +45,12 @@ sap.ui.define([
                 }
 
                 this.oModel.setProperty("/uploadedFiles", aUploadedFiles);
-                oFileUploader.clear(); // Clear the uploader
                 // If a single file was uploaded, preview it by default
                 if (aFiles.length === 1 && aUploadedFiles.length > 0) {
                     this._showPreview(aUploadedFiles[aUploadedFiles.length - 1]);
                 }
+                oFileUploader.clear(); // Clear the uploader
+
             }
         },
 
@@ -69,7 +70,7 @@ sap.ui.define([
                     var sUrl = URL.createObjectURL(oFile);
                     // store to revoke later
                     this._lastPreviewUrl = sUrl;
-                    var sIframe = '<iframe src="' + sUrl + '" style="width:100%;height:80vh;border:none"></iframe>';
+                    var sIframe = '<iframe src="' + sUrl + '" style="width:200vh;height:80vh;border:none"></iframe>';
                     oHtml.setContent(sIframe);
                     this.byId("previewDialog").open();
                 } catch (e) {
@@ -89,17 +90,51 @@ sap.ui.define([
                     var aLines = aAllLines.slice(0, iMaxRows);
 
                     var sNotice = '';
+                    // if (iTotalRows > iMaxRows) {
+                    //     sNotice = '<div style="padding:8px;background:#fff4e5;border:1px solid #ffdca8;margin-bottom:8px">Showing first ' + iMaxRows + ' of ' + iTotalRows + ' rows. Download the file to view all rows.</div>';
+                    // }
+
+                    // var sHtml = '<div style="overflow:auto;max-height:80vh">' + sNotice + '<table style="border-collapse:collapse;width:100%">';
+                    // aLines.forEach(function (line, idx) {
+                    //     var aCols = line.split(',');
+                    //     sHtml += '<tr>';
+                    //     aCols.forEach(function (c) { sHtml += '<td style="border:1px solid #ddd;padding:6px">' + (c || '') + '</td>'; });
+                    //     sHtml += '</tr>';
+                    // });
                     if (iTotalRows > iMaxRows) {
-                        sNotice = '<div style="padding:8px;background:#fff4e5;border:1px solid #ffdca8;margin-bottom:8px">Showing first ' + iMaxRows + ' of ' + iTotalRows + ' rows. Download the file to view all rows.</div>';
+                        sNotice = '<div style="padding:10px;background:#fff4e5;border:1px solid #ffdca8;color:#8a6d3b;font-family:Arial;font-size:14px;margin-bottom:10px;">' +
+                            'Showing first ' + iMaxRows + ' of ' + iTotalRows + ' rows. Download the file to view all rows.</div>';
                     }
 
-                    var sHtml = '<div style="overflow:auto;max-height:80vh">' + sNotice + '<table style="border-collapse:collapse;width:100%">';
+                    var sHtml =
+                        '<div>' +
+                        '<div style="overflow:auto;max-height:80vh;">' +
+                        sNotice +
+                        '<table border="1" cellpadding="6" cellspacing="0" width="100%" style="border-collapse:collapse;font-family:Arial;font-size:13px;">';
+
                     aLines.forEach(function (line, idx) {
                         var aCols = line.split(',');
-                        sHtml += '<tr>';
-                        aCols.forEach(function (c) { sHtml += '<td style="border:1px solid #ddd;padding:6px">' + (c || '') + '</td>'; });
-                        sHtml += '</tr>';
+
+                        // Header row
+                        if (idx === 0) {
+                            sHtml += '<tr style="background:#f1f1f1;">';
+                            aCols.forEach(function (c) {
+                                sHtml += '<th style="border:1px solid #ccc;padding:8px;text-align:left;">' + c + '</th>';
+                            });
+                            sHtml += '</tr>';
+                        } else {
+                            // Alternate row color
+                            var bgColor = (idx % 2 === 0) ? '#ffffff' : '#f9f9f9';
+
+                            sHtml += '<tr style="background:' + bgColor + ';">';
+                            aCols.forEach(function (c) {
+                                sHtml += '<td style="border:1px solid #ddd;padding:8px;">' + (c || '') + '</td>';
+                            });
+                            sHtml += '</tr>';
+                        }
                     });
+
+                    sHtml += '</table></div></div>';
                     sHtml += '</table></div>';
                     oHtml.setContent(sHtml);
                     oView.byId("previewDialog").open();
@@ -121,9 +156,50 @@ sap.ui.define([
                             var workbook = XLSX.read(arrayBuffer, { type: 'array' });
                             var firstSheet = workbook.SheetNames[0];
                             var sheet = workbook.Sheets[firstSheet];
+                            // var sTable = XLSX.utils.sheet_to_html(sheet, { id: 'xlsxPreviewTable' });
+                            // var sHtmlWrap = '<div style="overflow:auto;max-height:80vh;padding:8px">' + sTable + '</div>';
+                            // oHtml.setContent(sHtmlWrap);
                             var sTable = XLSX.utils.sheet_to_html(sheet, { id: 'xlsxPreviewTable' });
-                            var sHtmlWrap = '<div style="overflow:auto;max-height:80vh;padding:8px">' + sTable + '</div>';
+
+                            var sStyle = `
+<style>
+#xlsxPreviewTable {
+    border-collapse: collapse;
+    width: 100%;
+    font-family: Arial;
+    font-size: 13px;
+}
+
+/* ✅ HEADER STYLE CHANGE HERE */
+#xlsxPreviewTable th {
+    background: #0078d4;   /* change background */
+    color: white;          /* change text color */
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+/* body cells */
+#xlsxPreviewTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+/* alternate rows */
+#xlsxPreviewTable tr:nth-child(even) {
+    background: #f9f9f9;
+}
+</style>
+`;
+
+                            var sHtmlWrap =
+                                '<div style="overflow:auto;max-height:80vh;padding:8px;">' +
+                                sStyle +
+                                sTable +
+                                '</div>';
+
                             oHtml.setContent(sHtmlWrap);
+
                             oView.byId("previewDialog").open();
                         } catch (err) {
                             MessageToast.show('Unable to parse XLSX for preview.');
@@ -297,6 +373,16 @@ sap.ui.define([
             }
 
             return fSize.toFixed(2) + " " + aSizes[iSizeIndex];
-        }
+        },
+        
+onOpenFileDialog: function () {
+
+ var oUploader = this.byId("fileUploader");
+    if (oUploader && oUploader.$().length) {
+        oUploader.$().find("input[type='file']").click();
+    }
+
+}
+
     });
 });

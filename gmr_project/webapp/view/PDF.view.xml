@@ -19,8 +19,12 @@
     <VBox class="uploadSection">
         <VBox class="uploadBox">
             <VBox alignItems="Center" class="uploadContent">
-                <core:Icon src="sap-icon://upload-to-cloud" size="3rem" class="uploadIconiles here or click to browse"/>
-                <Text text="Supported formats: CSV, PDF, XLSX" class="uploadHint"/>
+                <core:Icon src="sap-icon://upload-to-cloud" size="3rem"  press="onOpenFileDialog" class="uploadIconiles here or click to browse"/>
+                <!-- <Text text="Supported formats: CSV, PDF, XLSX" class="uploadHint"/> -->
+                
+   <!-- <Text text="Drop files here or click to browse" class="uploadText"/> -->
+    <Text text="Supported formats: CSV, PDF, XLSX" class="uploadHint"/>
+
                 <u:FileUploader
                     id="fileUploader"
                     uploadUrl="/"
@@ -28,7 +32,7 @@
                     fileType="csv,pdf,xlsx"
                     maximumFileSize="50"
                     change="onFileSelected"
-                    class="uploadButton"/>
+                    class="uploadButton hideUploader" />
             </VBox>
         </VBox>
     </VBox>
