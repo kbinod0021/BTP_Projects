@@ -199,146 +199,101 @@ sap.ui.define([
                                 '</div>';
 
 
-                            // var rawData = XLSX.utils.sheet_to_json(sheet, {
-                            //     range: 11,
-                            //     header: 1,
-                            //     raw: true   // IMPORTANT → keep original Excel values
-                            // });
 
-                            // var result = [];
-
-                            // function formatTime(value) {
-                            //     if (typeof value === "number") {
-                            //         // Convert Excel numeric time → HH:mm:ss format
-                            //         return XLSX.SSF.format("hh:mm:ss", value);
-                            //     }
-                            //     return value; // already string
-                            // }
-
-                            // rawData.forEach(function(row) {
-
-                            //     // ✅ LEFT SIDE
-                            //     if (row[0] !== undefined) {
-                            //         result.push({
-                            //             TimeBlock: row[0],
-                            //             From: formatTime(row[1]),
-                            //             To: formatTime(row[2]),
-                            //             Capacity: row[3],
-                            //             Schedule: row[4]
-                            //         });
-                            //     }
-
-                            //     // ✅ RIGHT SIDE
-                            //     if (row[5] !== undefined) {
-                            //         result.push({
-                            //             TimeBlock: row[5],
-                            //             From: formatTime(row[6]),
-                            //             To: formatTime(row[7]),
-                            //             Capacity: row[8],
-                            //             Schedule: row[9]
-                            //         });
-                            //     }
-
-                            // });
-
-
-                            // result = result.sort((a, b) => a.TimeBlock - b.TimeBlock);
-
-                            // console.log(result);
 
 
 
                             // Read full sheet
 
-                            var rawData = XLSX.utils.sheet_to_json(sheet, {
-                                header: 1,
-                                raw: true
-                            });
+                            // var rawData = XLSX.utils.sheet_to_json(sheet, {
+                            //     header: 1,
+                            //     raw: true
+                            // });
 
-                            // ✅ Find header row
-                            var headerRowIndex = rawData.findIndex(row => row.includes("Time Block"));
+                            // // ✅ Find header row
+                            // var headerRowIndex = rawData.findIndex(row => row.includes("Time Block"));
 
-                            // ✅ Get main + sub header
-                            var mainHeader = rawData[headerRowIndex];
-                            var subHeader = rawData[headerRowIndex + 1];
+                            // // ✅ Get main + sub header
+                            // var mainHeader = rawData[headerRowIndex];
+                            // var subHeader = rawData[headerRowIndex + 1];
 
-                            // ✅ Merge headers
-                            var headers = mainHeader.map((h, i) => {
-                                if (subHeader[i]) {
-                                    return h + " " + subHeader[i];
-                                }
-                                return h;
-                            });
+                            // // ✅ Merge headers
+                            // var headers = mainHeader.map((h, i) => {
+                            //     if (subHeader[i]) {
+                            //         return h + " " + subHeader[i];
+                            //     }
+                            //     return h;
+                            // });
 
-                            // ✅ Helper: find column
-                            function findCol(headers, name, startIndex = 0) {
-                                return headers.findIndex((h, i) =>
-                                    i >= startIndex &&
-                                    h &&
-                                    h.toString().toLowerCase().includes(name.toLowerCase())
-                                );
-                            }
+                            // // ✅ Helper: find column
+                            // function findCol(headers, name, startIndex = 0) {
+                            //     return headers.findIndex((h, i) =>
+                            //         i >= startIndex &&
+                            //         h &&
+                            //         h.toString().toLowerCase().includes(name.toLowerCase())
+                            //     );
+                            // }
 
-                            // ✅ Helper: format time
-                            function formatTime(value) {
-                                if (value === undefined || value === null) {
-                                    return "";
-                                }
-                                if (typeof value === "number") {
-                                    return XLSX.SSF.format("hh:mm:ss", value);
-                                }
-                                return value.toString().trim();
-                            }
+                            // // ✅ Helper: format time
+                            // function formatTime(value) {
+                            //     if (value === undefined || value === null) {
+                            //         return "";
+                            //     }
+                            //     if (typeof value === "number") {
+                            //         return XLSX.SSF.format("hh:mm:ss", value);
+                            //     }
+                            //     return value.toString().trim();
+                            // }
 
-                            // ✅ LEFT block
-                            var leftTimeBlock = findCol(headers, "Time Block");
-                            var leftFrom = findCol(headers, "From");
-                            var leftTo = leftFrom + 1;   // ✅ FIX (important)
-                            var leftCapacity = findCol(headers, "Capacity");
-                            var leftSchedule = findCol(headers, "Schedule");
+                            // // ✅ LEFT block
+                            // var leftTimeBlock = findCol(headers, "Time Block");
+                            // var leftFrom = findCol(headers, "From");
+                            // var leftTo = leftFrom + 1;   // ✅ FIX (important)
+                            // var leftCapacity = findCol(headers, "Capacity");
+                            // var leftSchedule = findCol(headers, "Schedule");
 
-                            // ✅ RIGHT block
-                            var rightTimeBlock = findCol(headers, "Time Block", leftSchedule + 1);
-                            var rightFrom = findCol(headers, "From", leftSchedule + 1);
-                            var rightTo = rightFrom + 1;  // ✅ FIX (important)
-                            var rightCapacity = findCol(headers, "Capacity", leftSchedule + 1);
-                            var rightSchedule = findCol(headers, "Schedule", leftSchedule + 1);
+                            // // ✅ RIGHT block
+                            // var rightTimeBlock = findCol(headers, "Time Block", leftSchedule + 1);
+                            // var rightFrom = findCol(headers, "From", leftSchedule + 1);
+                            // var rightTo = rightFrom + 1;  // ✅ FIX (important)
+                            // var rightCapacity = findCol(headers, "Capacity", leftSchedule + 1);
+                            // var rightSchedule = findCol(headers, "Schedule", leftSchedule + 1);
 
-                            // ✅ Read data
-                            var result = [];
+                            // // ✅ Read data
+                            // var result = [];
 
-                            for (var i = headerRowIndex + 2; i < rawData.length; i++) {
-                                var row = rawData[i];
+                            // for (var i = headerRowIndex + 2; i < rawData.length; i++) {
+                            //     var row = rawData[i];
 
-                                // LEFT
-                                if (row[leftTimeBlock] !== undefined) {
-                                    result.push({
-                                        TimeBlock: row[leftTimeBlock],
-                                        From: formatTime(row[leftFrom]),
-                                        To: formatTime(row[leftTo]),
-                                        Capacity: row[leftCapacity],
-                                        Schedule: row[leftSchedule],
-                                        Unit: "MW"
-                                    });
-                                }
+                            //     // LEFT
+                            //     if (row[leftTimeBlock] !== undefined) {
+                            //         result.push({
+                            //             TimeBlock: row[leftTimeBlock],
+                            //             From: formatTime(row[leftFrom]),
+                            //             To: formatTime(row[leftTo]),
+                            //             Capacity: row[leftCapacity],
+                            //             Schedule: row[leftSchedule],
+                            //             Unit: "MW"
+                            //         });
+                            //     }
 
-                                // RIGHT
-                                if (row[rightTimeBlock] !== undefined) {
-                                    result.push({
-                                        TimeBlock: row[rightTimeBlock],
-                                        From: formatTime(row[rightFrom]),
-                                        To: formatTime(row[rightTo]),
-                                        Capacity: row[rightCapacity],
-                                        Schedule: row[rightSchedule],
-                                        Unit: "MW"
-                                    });
-                                }
-                            }
+                            //     // RIGHT
+                            //     if (row[rightTimeBlock] !== undefined) {
+                            //         result.push({
+                            //             TimeBlock: row[rightTimeBlock],
+                            //             From: formatTime(row[rightFrom]),
+                            //             To: formatTime(row[rightTo]),
+                            //             Capacity: row[rightCapacity],
+                            //             Schedule: row[rightSchedule],
+                            //             Unit: "MW"
+                            //         });
+                            //     }
+                            // }
 
-                            // ✅ Sort properly
-                            result.sort((a, b) => a.TimeBlock - b.TimeBlock);
+                            // // ✅ Sort properly
+                            // result.sort((a, b) => a.TimeBlock - b.TimeBlock);
 
-                            console.log(result);
+                            // console.log(result);
 
 
 
@@ -346,11 +301,17 @@ sap.ui.define([
 
                             oHtml.setContent(sHtmlWrap);
 
+
+                            var result = this.parseSheetData(sheet);
+
+                            console.log(result);
+
+
                             oView.byId("previewDialog").open();
                         } catch (err) {
-                            MessageToast.show('Unable to parse XLSX for preview.');
+                            MessageToast.show('Unable to parse XLSX for preview.', err);
                         }
-                    };
+                    }.bind(this);
                     oReaderX.onerror = function () { MessageToast.show('Unable to read XLSX for preview.'); };
                     oReaderX.readAsArrayBuffer(oFile);
                 } else {
@@ -362,29 +323,85 @@ sap.ui.define([
             }
         },
 
-        findCol: function (headers, name, startIndex = 0) {
-            return headers.findIndex((h, i) =>
-                i >= startIndex &&
-                h &&
-                h.toString().toLowerCase().includes(name.toLowerCase())
-            );
-        },
 
-        formatTime: function (value) {
-            if (value === undefined || value === null) {
-                return "";
+
+
+        parseSheetData: function (sheet) {
+            var rawData = XLSX.utils.sheet_to_json(sheet, {
+                header: 1,
+                raw: true
+            });
+
+            var headerRowIndex = rawData.findIndex(row => row.includes("Time Block"));
+
+            var mainHeader = rawData[headerRowIndex];
+            var subHeader = rawData[headerRowIndex + 1];
+
+            var headers = mainHeader.map((h, i) => {
+                return subHeader[i] ? h + " " + subHeader[i] : h;
+            });
+
+            function findCol(headers, name, startIndex = 0) {
+                return headers.findIndex((h, i) =>
+                    i >= startIndex &&
+                    h &&
+                    h.toString().toLowerCase().includes(name.toLowerCase())
+                );
             }
 
-            // Excel numeric time → format
-            if (typeof value === "number") {
-                return XLSX.SSF.format("hh:mm:ss", value);
+            function formatTime(value) {
+                if (value === undefined || value === null) return "";
+                if (typeof value === "number") {
+                    return XLSX.SSF.format("hh:mm:ss", value);
+                }
+                return value.toString().trim();
             }
 
-            // Already string → return as-is
-            return value.toString().trim();
+            var leftTimeBlock = findCol(headers, "Time Block");
+            var leftFrom = findCol(headers, "From");
+            var leftTo = leftFrom + 1;
+            var leftCapacity = findCol(headers, "Capacity");
+            var leftSchedule = findCol(headers, "Schedule");
+
+            var rightTimeBlock = findCol(headers, "Time Block", leftSchedule + 1);
+            var rightFrom = findCol(headers, "From", leftSchedule + 1);
+            var rightTo = rightFrom + 1;
+            var rightCapacity = findCol(headers, "Capacity", leftSchedule + 1);
+            var rightSchedule = findCol(headers, "Schedule", leftSchedule + 1);
+
+            var result = [];
+
+            for (var i = headerRowIndex + 2; i < rawData.length; i++) {
+                var row = rawData[i];
+
+                if (row[leftTimeBlock] !== undefined) {
+                    result.push({
+                        TimeBlock: row[leftTimeBlock],
+                        From: formatTime(row[leftFrom]),
+                        To: formatTime(row[leftTo]),
+                        Capacity: row[leftCapacity],
+                        Schedule: row[leftSchedule],
+                        Unit: "MW"
+                    });
+                }
+
+                if (row[rightTimeBlock] !== undefined) {
+                    result.push({
+                        TimeBlock: row[rightTimeBlock],
+                        From: formatTime(row[rightFrom]),
+                        To: formatTime(row[rightTo]),
+                        Capacity: row[rightCapacity],
+                        Schedule: row[rightSchedule],
+                        Unit: "MW"
+                    });
+                }
+            }
+
+            result.sort((a, b) => a.TimeBlock - b.TimeBlock);
+
+            return result;
         },
 
-        readExcelData: function (rawData) { },
 
 
         onClosePreview: function () {
