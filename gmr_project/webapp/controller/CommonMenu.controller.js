@@ -52,6 +52,7 @@ sap.ui.define([
                         isMainMenu:true
                     },
 
+                    
                     {
                         id: "onboardItem",
                         route: "onboard",
@@ -93,11 +94,11 @@ sap.ui.define([
                         isMainMenu:false
                     },
                     {
-                        id: "onboardItem",
-                        route: "onboard",
+                        id: "onsmartTableItem",
+                        route: "smartTable",
                         icon: "N",
-                        title: "Onboard New PPA",
-                        subText: "documents",
+                        title: "Smart Table",
+                        subText: "smartTable",
                         badge: "0",
                         active: false,
                         isMainMenu:false
@@ -252,7 +253,7 @@ _getViewNameFromRoute: function (sRoute) {
         "onboard": "gmrproject.view.Onboard",
         "input": "gmrproject.view.Input",
         "output": "gmrproject.view.Output",
-        "studio": "gmrproject.view.Studio",
+        "smartTable": "gmrproject.view.smartTable",
         "pdf": "gmrproject.view.PDF"
     };
 

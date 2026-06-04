@@ -1,7 +1,10 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
-    "gmrproject/model/models"
-], (UIComponent, models) => {
+    "gmrproject/model/models",
+    
+    "sap/ui/core/util/MockServer"
+
+], (UIComponent, models,MockServer) => {
     "use strict";
 
     return UIComponent.extend("gmrproject.Component", {
@@ -22,11 +25,27 @@ sap.ui.define([
             // enable routing
             this.getRouter().initialize();
 
-     this.getRouter().navTo("Routemain", {}, true); // true = replace history
+     this.getRouter().navTo("studio", {}, true); // true = replace history
+
+     
+            var oMockServer = new MockServer({
+                rootUri: "/odata/"
+            });
+
+            oMockServer.simulate("localService/metadata.xml", {
+                sMockdataBaseUrl: "localService/mockdata",
+                bGenerateMissingMockData: true
+            });
+
+            
+
+            oMockServer.start();
+
+            var oModel = new sap.ui.model.odata.v2.ODataModel("/odata/");
+            this.setModel(oModel);
 
 
-
-
+    window.addEventListener("beforeunload", this._handleCloseDialog.bind(this));
 
 
 //  if (window.location.hash) {
@@ -34,6 +53,13 @@ sap.ui.define([
 //     }
 
 
-        }
+        },
+        _handleCloseDialog: function () {
+    var oDialog = this.byId("myDialog");
+    if (oDialog) {
+        oDialog.close();
+    }
+}
+
     });
 });

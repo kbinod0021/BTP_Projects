@@ -3,7 +3,7 @@ sap.ui.define([
 ], (Controller) => {
   "use strict";
 
-  return Controller.extend("gmrproject.controller.CommonMenu", {
+  return Controller.extend("gmrproject.controller.studio", {
     onInit: function () {
 
 

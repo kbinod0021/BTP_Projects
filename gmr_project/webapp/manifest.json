@@ -14,7 +14,18 @@
       "id": "@sap/generator-fiori:basic",
       "version": "1.24.0",
       "toolsId": "364753ca-29d0-42c5-9b2c-de3281b992c0"
+    },
+    
+"dataSources": {
+  "mainService": {
+    "uri": "/odata/",
+    "type": "OData",
+    "settings": {
+      "odataVersion": "2.0"
     }
+  }
+}
+
   },
   "sap.ui": {
     "technology": "UI5",
@@ -39,7 +50,9 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-          "sap.viz": {}
+          "sap.viz": {},
+  "sap.ui.comp": {}
+
       }
     },
     "contentDensities": {
@@ -47,6 +60,14 @@
       "cozy": true
     },
     "models": {
+      
+ "": {
+    "dataSource": "mainService",
+    "settings": {
+      "defaultBindingMode": "TwoWay"
+    }
+  },
+
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
@@ -120,6 +141,14 @@
      ]
    },
    {
+     "name": "smartTable",
+     "pattern": "smartTable",
+     "target": [
+       "Targetmain",
+       "smartTable"
+     ]
+   },
+   {
      "name": "apps",
      "pattern": "apps",
      "target": [
@@ -167,6 +196,13 @@
      "parent": "Targetmain",
      "viewName": "PDF",
      "viewId": "pdf",
+     "controlId": "dialogNavContainer",
+     "controlAggregation": "pages"
+   },
+   "smartTable": {
+     "parent": "Targetmain",
+     "viewName": "SmartTable",
+     "viewId": "smartTable",
      "controlId": "dialogNavContainer",
      "controlAggregation": "pages"
    },
