@@ -104,10 +104,10 @@ sap.ui.define([
                         isMainMenu:false
                     },
                     {
-                        id: "onboardItem",
-                        route: "onboard",
+                        id: "onplanningCalendarItem",
+                        route: "planningCalendar",
                         icon: "N",
-                        title: "Onboard New PPA",
+                        title: "Planning Calendar",
                         subText: "documents",
                         badge: "0",
                         active: false,
@@ -252,7 +252,7 @@ _getViewNameFromRoute: function (sRoute) {
     const mRoutes = {
         "onboard": "gmrproject.view.Onboard",
         "input": "gmrproject.view.Input",
-        "output": "gmrproject.view.Output",
+        "planningCalendar": "gmrproject.view.PlanningCalendar",
         "smartTable": "gmrproject.view.smartTable",
         "pdf": "gmrproject.view.PDF"
     };

@@ -149,6 +149,14 @@
      ]
    },
    {
+     "name": "planningCalendar",
+     "pattern": "planningCalendar",
+     "target": [
+       "Targetmain",
+       "planningCalendar"
+     ]
+   },
+   {
      "name": "apps",
      "pattern": "apps",
      "target": [
@@ -203,6 +211,13 @@
      "parent": "Targetmain",
      "viewName": "SmartTable",
      "viewId": "smartTable",
+     "controlId": "dialogNavContainer",
+     "controlAggregation": "pages"
+   },
+   "planningCalendar": {
+     "parent": "Targetmain",
+     "viewName": "PlanningCalendar",
+     "viewId": "planningCalendar",
      "controlId": "dialogNavContainer",
      "controlAggregation": "pages"
    },
