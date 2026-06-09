@@ -14,6 +14,12 @@ function (JSONModel, Device) {
             var oModel = new JSONModel(Device);
             oModel.setDefaultBindingMode("OneWay");
             return oModel;
+        },
+         createAppConfigData: function () {
+            var oAppConfigModel = {
+                "uploadPercentage": 0
+            };
+            return oAppConfigModel;
         }
     };
 

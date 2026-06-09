@@ -157,6 +157,14 @@
      ]
    },
    {
+     "name": "multipleFile",
+     "pattern": "multipleFile",
+     "target": [
+       "Targetmain",
+       "multipleFile"
+     ]
+   },
+   {
      "name": "apps",
      "pattern": "apps",
      "target": [
@@ -218,6 +226,13 @@
      "parent": "Targetmain",
      "viewName": "PlanningCalendar",
      "viewId": "planningCalendar",
+     "controlId": "dialogNavContainer",
+     "controlAggregation": "pages"
+   },
+   "multipleFile": {
+     "parent": "Targetmain",
+     "viewName": "multipleFile",
+     "viewId": "multipleFile",
      "controlId": "dialogNavContainer",
      "controlAggregation": "pages"
    },

@@ -1,57 +1,93 @@
 <mvc:View
-    xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc"
-    xmlns:layout="sap.ui.layout"
-    xmlns:core="sap.ui.core"
     controllerName="gmrproject.controller.PlanningCalendar"
-xmlns:unified="sap.ui.unified">
-  
-  
-<VBox class="sapUiSmallMargin">
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:unified="sap.ui.unified">
 
-    <Button text="Add Appointment" press="onOpenDialog" />
+    <VBox class="sapUiSmallMargin">
 
- <PlanningCalendar
+        <!-- Toolbar -->
+        <OverflowToolbar>
+            <Button text="Today" press="onToday"/>
+
+            <ToolbarSpacer/>
+
+            <Button text="Add Appointment" press="onOpenDialog"/>
+        </OverflowToolbar>
+
+        <!-- Planning Calendar -->
+     <PlanningCalendar
     id="PC1"
     startDate="{/startDate}"
-    viewKey="Hour"
     rows="{/people}"
-    appointmentsVisualization="Standard"
-    showEmptyIntervalHeaders="false"
-    showWeekNumbers="true">
+    viewKey="WorkWeek"
+    appointmentsVisualization="Filled"
+    showWeekNumbers="true"
+    class="customCalendar">
+
+    <views>
+
+        <!-- Day -->
+        <PlanningCalendarView
+            key="Day"
+            intervalType="Day"
+            description="Day"
+            intervalsS="1"
+            intervalsM="1"
+            intervalsL="1" />
+
+        <!-- Work Week -->
+        <PlanningCalendarView
+            key="WorkWeek"
+            intervalType="Day"
+            description="Work Week"
+            intervalsS="5"
+            intervalsM="5"
+            intervalsL="5" />
+
+        <!-- Full Week -->
+        <PlanningCalendarView
+            key="Week"
+            intervalType="Day"
+            description="Week"
+            intervalsS="7"
+            intervalsM="7"
+            intervalsL="7" />
+
+        <!-- Month -->
+        <PlanningCalendarView
+            key="Month"
+            intervalType="Month"
+            description="Month"
+            intervalsS="1"
+            intervalsM="1"
+            intervalsL="1" />
+
+    </views>
 
     <rows>
-        <PlanningCalendarRow 
+
+        <PlanningCalendarRow
             title="{name}"
-            key="{key}"
-           	text="{role}"
-					appointments="{path : 'appointments', templateShareable: false}"
-					intervalHeaders="{path: 'headers', templateShareable: false}">
+            appointments="{appointments}">
 
             <appointments>
+
                 <unified:CalendarAppointment
-                   	startDate="{start}"
-							endDate="{end}"
-							icon="{pic}"
-							title="{title}"
-							text="{info}"
-							type="{type}" />
+                    startDate="{start}"
+                    endDate="{end}"
+                    title="{title}"
+                    text="{info}"
+                    type="{type}" />
+
             </appointments>
-	<intervalHeaders>
-						<unified:CalendarAppointment
-							startDate="{start}"
-							endDate="{end}"
-							icon="{pic}"
-							title="{title}"
-							type="{type}">
-						</unified:CalendarAppointment>
-					</intervalHeaders>
+
         </PlanningCalendarRow>
+
     </rows>
+
 </PlanningCalendar>
 
-
-  </VBox>
-
+    </VBox>
 
 </mvc:View>

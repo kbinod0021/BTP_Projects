@@ -1,0 +1,68 @@
+<mvc:View
+    controllerName="gmrproject.controller.multipleFile"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:upload="sap.m.upload"
+    xmlns:plugins="sap.m.plugins">
+
+ 
+
+            <Table
+                id="attachmentsTable"
+                mode="MultiSelect"
+                selectionChange="onChangeEmailUpload">
+
+                <headerToolbar>
+
+                    <OverflowToolbar>
+
+                        <Title text="Attachments" />
+clear
+                        <ToolbarSpacer />
+
+                        <upload:ActionsPlaceholder
+                            id="uploadButtonPlaceholder" />
+
+                    </OverflowToolbar>
+
+                </headerToolbar>
+
+                <columns>
+
+                    <Column>
+                        <Text text="File Name" />
+                    </Column>
+
+                </columns>
+
+                <dependents>
+
+                    <plugins:UploadSetwithTable
+                        id="idMultiUploader"
+                        actions="uploadButtonPlaceholder"
+                        multiple="true"
+                        uploadEnabled="true"
+                        maxFileSize="3"
+                        maxFileNameLength="55"
+                        fileTypes="txt,doc,png,pdf,jpg"
+                        beforeUploadStarts="onBeforeUploadStarts"
+                        uploadCompleted="onUploadCompleted" />
+
+                </dependents>
+
+            </Table>
+
+            <Toolbar>
+
+                <ToolbarSpacer />
+
+                <Button
+                    text="Upload Files"
+                    type="Emphasized"
+                    press="onMultiUploadSubmit" />
+
+            </Toolbar>
+
+      
+
+</mvc:View>

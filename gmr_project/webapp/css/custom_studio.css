@@ -1009,9 +1009,9 @@ box-sizing: border-box;
 }
 
 /* ✅ Keep wrapper full height */
-.sapMDialog .sapMVBox {
+/* .sapMDialog .sapMVBox {
   height: 100%;
-}
+} */
 
 /* ✅ Footer always visible */
 .footerBar {

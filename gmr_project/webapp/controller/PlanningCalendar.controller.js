@@ -2,26 +2,69 @@ sap.ui.define([
   "sap/ui/core/mvc/Controller",
   "sap/ui/model/json/JSONModel",
   "sap/ui/core/Fragment",
-  "sap/m/MessageToast"
+  "sap/m/MessageToast",
+
 ], function (Controller, JSONModel, Fragment, MessageToast) {
   "use strict";
 
   return Controller.extend("gmrproject.controller.PlanningCalendar", {
 
     onInit: function () {
-      var oDate = new Date();
-      oDate.setHours(0, 0, 0, 0);
+      sap.ui.require(["sap/ui/dom/includeStylesheet"], function (includeStylesheet) {
+				includeStylesheet("css/planningCalendar.css");
+			});
+      // var oDate = new Date();
+      // oDate.setHours(0, 0, 0, 0);
+
+      // var oModel = new JSONModel({
+      //   startDate: oDate,
+      //   people: [{
+      //     name: "Binod Kumar",
+      //     key: "1",
+      //     appointments: []
+      //   }]
+      // });
+
+      // this.getView().setModel(oModel);
+
+
+      var oStartDate = new Date(2026, 5, 8);
 
       var oModel = new JSONModel({
-        startDate: oDate,
+
+        startDate: oStartDate,
+
         people: [{
           name: "Binod Kumar",
-          key: "1",
-          appointments: []
+
+          appointments: [
+
+            {
+              start: new Date(2026, 5, 8, 8, 30),
+              end: new Date(2026, 5, 8, 9, 30),
+              title: "FW: HSCP Bintag Issue",
+              info: "Ashish Rohilla",
+              type: "Type02"
+            },
+
+            {
+              start: new Date(2026, 5, 9, 10, 30),
+              end: new Date(2026, 5, 9, 11, 0),
+              title: "Sync Up",
+              info: "",
+              type: "Type01"
+            }
+
+          ]
         }]
       });
 
       this.getView().setModel(oModel);
+
+    },
+
+    onToday: function () {
+      this.byId("PC1").setStartDate(new Date());
     },
 
     onOpenDialog: function () {

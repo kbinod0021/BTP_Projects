@@ -81,6 +81,14 @@
                             text="Delete"
                             press="onDelete"
                         />
+                         <Button
+                            class="sapUISmallMarginBeginEnd"
+                            type="Success"
+                            icon="sap-icon://download"
+                            text="Export Excel"
+                            press="onExportExcel"
+                        />
+
                     </OverflowToolbar>
                 </headerToolbar>
             </Table>

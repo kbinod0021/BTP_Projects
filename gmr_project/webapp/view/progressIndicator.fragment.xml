@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+>
+    <Dialog
+        id="idProgresIndicatorDialog"
+        title="{i18n>UploadinProgress}"
+        titleAlignment="Center"
+        showHeader="true"
+        class="sapUiResponsivePadding"
+    >
+        <ProgressIndicator
+            id="idProgresIndicator"
+            class="sapUiSmallMarginBottom"
+            displayValue="{appConfigModel>/uploadPercentage}%"
+            percentValue="{appConfigModel>/uploadPercentage}"
+            state="Information"
+            displayOnly="true"
+        />
+    </Dialog>
+</core:FragmentDefinition>

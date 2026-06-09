@@ -17,137 +17,159 @@ sap.ui.define([
         onSearch: function () {
             this.byId("smartTable").rebindTable();
         },
-     onDelete: function () {
-    var oSmartTable = this.byId("smartTable");
-    var oTable = oSmartTable.getTable();
-    var oModel = this.getView().getModel();
+        onDelete: function () {
+            var oSmartTable = this.byId("smartTable");
+            var oTable = oSmartTable.getTable();
+            var oModel = this.getView().getModel();
 
-    var aSelectedItems = oTable.getSelectedItems();
+            var aSelectedItems = oTable.getSelectedItems();
 
-    if (aSelectedItems.length === 0) {
-        sap.m.MessageToast.show("Please select at least one item.");
-        return;
-    }
-
-    // ✅ Confirmation popup
-    sap.m.MessageBox.confirm("Are you sure you want to delete selected record(s)?", {
-        title: "Confirm",
-        actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
-        emphasizedAction: sap.m.MessageBox.Action.OK,
-
-        onClose: function (oAction) {
-            if (oAction === sap.m.MessageBox.Action.OK) {
-
-                aSelectedItems.forEach(function (oItem) {
-                    var oContext = oItem.getBindingContext();
-                    var sPath = oContext.getPath(); // ✅ OData path
-
-                    oModel.remove(sPath, {
-                        success: function () {
-                            sap.m.MessageToast.show("Deleted successfully");
-                            oSmartTable.rebindTable(); // refresh
-                        },
-                        error: function () {
-                            sap.m.MessageToast.show("Delete failed");
-                        }
-                    });
-                });
-
+            if (aSelectedItems.length === 0) {
+                sap.m.MessageToast.show("Please select at least one item.");
+                return;
             }
-        }
-    });
-},
-onAdd: function () {
-    var oModel = this.getView().getModel();
-    var oSmartTable = this.byId("smartTable");
 
-    // ✅ New record
-    var oNewData = {
-        ID: Date.now().toString(),
-        Name: "New Name",
-        City: "New City",
-        Age: "25"
-    };
+            // ✅ Confirmation popup
+            sap.m.MessageBox.confirm("Are you sure you want to delete selected record(s)?", {
+                title: "Confirm",
+                actions: [sap.m.MessageBox.Action.OK, sap.m.MessageBox.Action.CANCEL],
+                emphasizedAction: sap.m.MessageBox.Action.OK,
 
-    // ✅ Create via OData
-    oModel.create("/YourEntitySet", oNewData, {
-        success: function () {
-            sap.m.MessageToast.show("Record added successfully");
-            oSmartTable.rebindTable(); // refresh table
-        },
-        error: function () {
-            sap.m.MessageToast.show("Error while adding");
-        }
-    });
-},
-onEdit: function () {
-    var oTable = this.byId("smartTable").getTable();
-    var aSelectedItems = oTable.getSelectedItems();
+                onClose: function (oAction) {
+                    if (oAction === sap.m.MessageBox.Action.OK) {
 
-    if (aSelectedItems.length !== 1) {
-        sap.m.MessageToast.show("Select one row");
-        return;
-    }
+                        aSelectedItems.forEach(function (oItem) {
+                            var oContext = oItem.getBindingContext();
+                            var sPath = oContext.getPath(); // ✅ OData path
 
-    var oContext = aSelectedItems[0].getBindingContext();
-    var oPath = oContext.getPath();   // ✅ OData path
-    var oOriginalData = oContext.getObject();
+                            oModel.remove(sPath, {
+                                success: function () {
+                                    sap.m.MessageToast.show("Deleted successfully");
+                                    oSmartTable.rebindTable(); // refresh
+                                },
+                                error: function () {
+                                    sap.m.MessageToast.show("Delete failed");
+                                }
+                            });
+                        });
 
-    // Clone data
-    var oData = JSON.parse(JSON.stringify(oOriginalData));
-
-    var oDialog = new sap.m.Dialog({
-        title: "Edit Record",
-
-        content: [
-            new sap.m.Input({
-                value: oData.Name,
-                placeholder: "Name",
-                liveChange: function (oEvent) {
-                    oData.Name = oEvent.getParameter("value");
-                }
-            }),
-            new sap.m.Input({
-                value: oData.City,
-                placeholder: "City",
-                liveChange: function (oEvent) {
-                    oData.City = oEvent.getParameter("value");
-                }
-            })
-        ],
-
-        beginButton: new sap.m.Button({
-            text: "Save",
-            press: function () {
-
-                var oModel = this.getView().getModel();
-
-                // ✅ UPDATE via OData
-                oModel.update(oPath, oData, {
-                    success: function () {
-                        sap.m.MessageToast.show("Updated successfully");
-                        this.byId("smartTable").rebindTable();
-                    }.bind(this),
-
-                    error: function () {
-                        sap.m.MessageToast.show("Update failed");
                     }
-                });
+                }
+            });
+        },
+        onAdd: function () {
+            var oModel = this.getView().getModel();
+            var oSmartTable = this.byId("smartTable");
 
-                oDialog.close();
-            }.bind(this)
-        }),
+            // ✅ New record
+            var oNewData = {
+                ID: Date.now().toString(),
+                Name: "New Name",
+                City: "New City",
+                Age: "25"
+            };
 
-        endButton: new sap.m.Button({
-            text: "Cancel",
-            press: function () {
-                oDialog.close();
+            // ✅ Create via OData
+            oModel.create("/YourEntitySet", oNewData, {
+                success: function () {
+                    sap.m.MessageToast.show("Record added successfully");
+                    oSmartTable.rebindTable(); // refresh table
+                },
+                error: function () {
+                    sap.m.MessageToast.show("Error while adding");
+                }
+            });
+        },
+        onEdit: function () {
+            var oTable = this.byId("smartTable").getTable();
+            var aSelectedItems = oTable.getSelectedItems();
+
+            if (aSelectedItems.length !== 1) {
+                sap.m.MessageToast.show("Select one row");
+                return;
             }
-        })
-    });
 
-    oDialog.open();
-}
+            var oContext = aSelectedItems[0].getBindingContext();
+            var oPath = oContext.getPath();   // ✅ OData path
+            var oOriginalData = oContext.getObject();
+
+            // Clone data
+            var oData = JSON.parse(JSON.stringify(oOriginalData));
+
+            var oDialog = new sap.m.Dialog({
+                title: "Edit Record",
+
+                content: [
+                    new sap.m.Input({
+                        value: oData.Name,
+                        placeholder: "Name",
+                        liveChange: function (oEvent) {
+                            oData.Name = oEvent.getParameter("value");
+                        }
+                    }),
+                    new sap.m.Input({
+                        value: oData.City,
+                        placeholder: "City",
+                        liveChange: function (oEvent) {
+                            oData.City = oEvent.getParameter("value");
+                        }
+                    })
+                ],
+
+                beginButton: new sap.m.Button({
+                    text: "Save",
+                    press: function () {
+
+                        var oModel = this.getView().getModel();
+
+                        // ✅ UPDATE via OData
+                        oModel.update(oPath, oData, {
+                            success: function () {
+                                sap.m.MessageToast.show("Updated successfully");
+                                this.byId("smartTable").rebindTable();
+                            }.bind(this),
+
+                            error: function () {
+                                sap.m.MessageToast.show("Update failed");
+                            }
+                        });
+
+                        oDialog.close();
+                    }.bind(this)
+                }),
+
+                endButton: new sap.m.Button({
+                    text: "Cancel",
+                    press: function () {
+                        oDialog.close();
+                    }
+                })
+            });
+
+            oDialog.open();
+        },
+
+        onExportExcel: function () {
+            let jsonData = [
+                {
+                    "ID": "1",
+                    "Name": "Binod",
+                    "City": "Noida",
+                    "Age": "30"
+                },
+                {
+                    "ID": "2",
+                    "Name": "Rahul",
+                    "City": "Delhi",
+                    "Age": "25"
+                }
+            ]
+
+            let workBook=XLSX.utils.book_new()
+            let workSheet=XLSX.utils.json_to_sheet(jsonData)
+            XLSX.utils.book_append_sheet(workBook,workSheet,"sheet1")
+            XLSX.writeFile(workBook,"data.xlsx")
+        }
 
 
 

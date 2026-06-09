@@ -24,6 +24,7 @@ sap.ui.define([
 
             // enable routing
             this.getRouter().initialize();
+            this.setModel(new sap.ui.model.json.JSONModel(models.createAppConfigData()), "appConfigModel");
 
      this.getRouter().navTo("studio", {}, true); // true = replace history
 

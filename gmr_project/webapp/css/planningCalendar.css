@@ -1,0 +1,132 @@
+/* =========================
+   CUSTOM PROFESSIONAL DIALOG
+========================= */
+
+.myDialog .sapMDialogSection {
+    background: #f8fafc !important;
+}
+
+/* Header */
+.myDialog .sapMBar {
+    background: #ffffff !important;
+    border-bottom: 1px solid #dbe2ea;
+}
+
+/* Title */
+.myDialog .sapMDialogTitle {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #1e293b !important;
+}
+
+/* Labels */
+.myDialog .sapMLabel {
+    font-weight: 600 !important;
+    color: #334155 !important;
+    font-size: 14px !important;
+    margin-top: 10px !important;
+}
+
+/* Input Wrapper */
+.myDialog .sapMInputBaseContentWrapper {
+    border-radius: 10px !important;
+    border: 1px solid #cbd5e1 !important;
+    background: #ffffff !important;
+    min-height: 44px !important;
+}
+
+/* Focus */
+.myDialog .sapMInputBaseContentWrapper:focus-within {
+    border: 1px solid #2563eb !important;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.15);
+}
+
+/* Input */
+.myDialog input {
+    font-size: 14px !important;
+    color: #0f172a !important;
+    padding-left: 10px !important;
+}
+
+/* TextArea */
+.myDialog textarea {
+    border-radius: 10px !important;
+    padding: 12px !important;
+    min-height: 120px !important;
+}
+
+/* Icons */
+.myDialog .sapMInputBaseIcon {
+    color: #475569 !important;
+    margin-top: 7px !important;
+}
+
+/* Buttons */
+.myDialog .sapMBtn {
+    border-radius: 8px !important;
+}
+
+/* Add Button */
+.myDialog .sapMBtnEmphasized {
+    background: #2563eb !important;
+    border-color: #2563eb !important;
+    color: white !important;
+    font-weight: 600;
+}
+
+/* Add Button Hover */
+.myDialog .sapMBtnEmphasized:hover {
+    background: #1d4ed8 !important;
+}
+
+/* Footer */
+.myDialog footer {
+    border-top: 1px solid #dbe2ea;
+    background: #ffffff;
+}
+
+div.sapUiRespGridOverflowHidden[class*='sapUiRespGrid']>div[class*='sapUiRespGridSpan'] {
+    overflow: visible !important;
+}
+
+/* Calendar Appointment Box */
+.customCalendar .sapUiCalendarApp {
+    min-width: 120px !important;
+    min-height: 48px !important;
+
+    border-left: 4px solid #5c6bc0;
+    border-radius: 8px;
+    background: #f4f5ff;
+
+    padding: 6px 10px !important;
+
+    box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+/* Appointment Content */
+.customCalendar .sapUiCalendarAppCont {
+    padding: 4px !important;
+}
+
+/* Title */
+.customCalendar .sapUiCalendarAppTitle {
+    font-weight: 600;
+    font-size: 14px !important;
+    color: #1e293b;
+}
+
+/* Text */
+.customCalendar .sapUiCalendarAppText {
+    font-size: 12px;
+    color: #475569;
+}
+
+/* Current Day Indicator */
+.customCalendar .sapUiCalendarRowNow {
+    border-left: 2px solid #5b5bd6;
+}
+
+/* Row Height */
+.customCalendar .sapUiCalendarRowApps {
+    height: 90px !important;
+}

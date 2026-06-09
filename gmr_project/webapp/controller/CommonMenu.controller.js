@@ -114,10 +114,10 @@ sap.ui.define([
                         isMainMenu:false
                     },
                     {
-                        id: "onboardItem",
-                        route: "onboard",
+                        id: "onmultipleFileItem",
+                        route: "multipleFile",
                         icon: "N",
-                        title: "Onboard New PPA",
+                        title: "Multiple File",
                         subText: "documents",
                         badge: "0",
                         active: false,
@@ -251,7 +251,7 @@ _getViewNameFromRoute: function (sRoute) {
 
     const mRoutes = {
         "onboard": "gmrproject.view.Onboard",
-        "input": "gmrproject.view.Input",
+        "multipleFile": "gmrproject.view.multipleFile",
         "planningCalendar": "gmrproject.view.PlanningCalendar",
         "smartTable": "gmrproject.view.smartTable",
         "pdf": "gmrproject.view.PDF"

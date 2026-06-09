@@ -1,28 +1,86 @@
 <core:FragmentDefinition
-  xmlns="sap.m"
-  xmlns:core="sap.ui.core">
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form">
 
-  <Dialog title="Add Appointment">
+    <Dialog
+        id="addAppointmentDialog"
+        title="Add Appointment"
+        contentWidth="420px"
+       
+class="myDialog"
+>
 
-    <VBox class="sapUiSmallMargin">
+        <content>
 
-      <DatePicker id="dlgDate" />
+            <f:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                width="100%"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1">
 
-      <TimePicker id="dlgStartTime" />
+                <!-- Date -->
+                <Label text="Date" required="true"/>
 
-      <TimePicker id="dlgEndTime" />
+                <DatePicker
+                    id="dlgDate"
+                    width="100%"
+                    placeholder="Select Date" />
 
-      <Input id="dlgDesc" placeholder="Enter Description" />
+                <!-- Start Time -->
+                <Label text="Start Time" required="true"/>
 
-    </VBox>
+                <TimePicker
+                    id="dlgStartTime"
+                    width="100%"
+                    displayFormat="HH:mm"
+                    valueFormat="HH:mm"
+                    placeholder="Select Start Time" />
 
-    <beginButton>
-      <Button text="Add" press="onSaveAppointment" />
-    </beginButton>
+                <!-- End Time -->
+                <Label text="End Time" required="true"/>
 
-    <endButton>
-      <Button text="Cancel" press="onCloseDialog" />
-    </endButton>
+                <TimePicker
+                    id="dlgEndTime"
+                    width="100%"
+                    displayFormat="HH:mm"
+                    valueFormat="HH:mm"
+                    placeholder="Select End Time" />
 
-  </Dialog>
+                <!-- Description -->
+                <Label text="Description"/>
+
+                <TextArea
+                    id="dlgDesc"
+                    rows="4"
+                    width="100%"
+                    placeholder="Enter Description" />
+
+            </f:SimpleForm>
+
+        </content>
+
+        <beginButton>
+            <Button
+                text="Add"
+                type="Emphasized"
+                icon="sap-icon://add"
+                press="onSaveAppointment" />
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="Cancel"
+                icon="sap-icon://decline"
+                press="onCloseDialog" />
+        </endButton>
+
+    </Dialog>
+
 </core:FragmentDefinition>
