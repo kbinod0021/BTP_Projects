@@ -52,12 +52,6 @@
                         visible="{= ${menu>icon} !== '' }"
                     />
 
-                    <!-- <Text
-                        text="{menu>badge}"
-                        class="badge"
-                        visible="{= ${menu>badge} !== '' }"
-                    /> -->
-
                     <VBox>
                         <Text
                             text="{menu>title}"
@@ -88,31 +82,71 @@
                     tooltip="More Apps"
                     class="plusIcon"
                 />
-
-                <!-- <VBox> -->
-                <!-- <Text
-                        text="More Apps"
-                        class="title"
-                    /> -->
-                <!-- <Text
-                        text="8 supporting apps"
-                        class="subText"
-                    /> -->
-                <!-- </VBox> -->
             </HBox>
         </HBox>
+    </HBox>
 
-        <!-- ✅ RIGHT SIDE -->
-        <!-- <HBox class="menuRight">
-            <Text
-                text="PPA GRIDCO"
-                class="tag"
-            />
-            <Text
-                text="FY 2025-26"
-                class="tag"
-            />
-        </HBox> -->
+    <HBox
+        class="menuBar"
+        justifyContent="SpaceBetween"
+        visible="{= ${menu>/selectedMenu/subMenus} &amp;&amp; ${menu>/selectedMenu/subMenus}.length > 0 }"
+    >
+        <!-- ✅ LEFT MENU (ROW FIX) -->
+        <HBox class="menuLeft">
+            <!-- ITEM 1 -->
+            <HBox
+                id="menuContainer1212"
+               
+  visible="{= ${menu>/selectedMenu/subMenus} &amp;&amp; ${menu>/selectedMenu/subMenus}.length > 0 }"
+    items="{
+        path: 'menu>/selectedMenu/subMenus'
+    }"
+
+            >
+                <HBox
+                    class="menuItem"
+                    visible="true"
+                >
+                    <customData>
+                        <core:CustomData
+                            key="active"
+                            value="{menu>active}"
+                        />
+                    </customData>
+
+                    <customData>
+                        <core:CustomData
+                            key="id"
+                            value="{menu>id}"
+                        />
+                    </customData>
+
+                    <customData>
+                        <core:CustomData
+                            key="route"
+                            value="{menu>route}"
+                        />
+                    </customData>
+
+                    <Text
+                        text="{menu>icon}"
+                        class="iconCircle"
+                        visible="{= ${menu>icon} !== '' }"
+                    />
+
+                    <VBox>
+                        <Text
+                            text="{menu>title}"
+                            class="title"
+                        />
+                        <Text
+                            text="{menu>subText}"
+                            class="subText"
+                        />
+                    </VBox>
+                </HBox>
+            </HBox>
+        </HBox>
     </HBox>
 
     <Dialog
@@ -123,14 +157,16 @@
         contentHeight="99%"
     >
         <content>
-               <VBox  width="100%">
+            <VBox width="100%">
                 <core:Fragment
                     fragmentName="gmrproject.view.OtherMenu"
                     type="XML"
                 />
-                
-            <VBox id="viewContainer" width="100%" />
 
+                <VBox
+                    id="viewContainer"
+                    width="100%"
+                />
             </VBox>
         </content>
 

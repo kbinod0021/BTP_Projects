@@ -1,0 +1,12 @@
+<mvc:View
+    controllerName="gmrproject.controller.subView1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <HBox width="100%">
+        <VBox>
+            <Text text="sub View1" />
+        </VBox>
+    </HBox>
+</mvc:View>

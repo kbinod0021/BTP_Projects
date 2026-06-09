@@ -109,6 +109,22 @@
      ]
    },
    {
+     "name": "subView1",
+     "pattern": "subView1",
+     "target": [
+       "Targetmain",
+       "subView1"
+     ]
+   },
+   {
+     "name": "subView2",
+     "pattern": "subView2",
+     "target": [
+       "Targetmain",
+       "subView2"
+     ]
+   },
+   {
      "name": "input",
      "pattern": "input",
      "target": [
@@ -184,6 +200,20 @@
      "parent": "Targetmain",
      "viewName": "Studio",
      "viewId": "studio",
+     "controlId": "innerApp",
+     "controlAggregation": "pages"
+   },
+   "subView1": {
+     "parent": "Targetmain",
+     "viewName": "subView1",
+     "viewId": "subView1",
+     "controlId": "innerApp",
+     "controlAggregation": "pages"
+   },
+   "subView2": {
+     "parent": "Targetmain",
+     "viewName": "subView2",
+     "viewId": "subView2",
      "controlId": "innerApp",
      "controlAggregation": "pages"
    },

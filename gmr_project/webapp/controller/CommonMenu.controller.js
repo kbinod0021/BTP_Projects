@@ -6,7 +6,7 @@ sap.ui.define([
     return Controller.extend("gmrproject.controller.CommonMenu", {
         onInit: function () {
 
-    window.addEventListener("beforeunload", this._handleCloseDialog.bind(this));
+            window.addEventListener("beforeunload", this._handleCloseDialog.bind(this));
 
 
             const oData = {
@@ -19,7 +19,30 @@ sap.ui.define([
                         subText: "setup",
                         badge: "",
                         active: true,
-                        isMainMenu:true
+                        isMainMenu: true,
+
+
+                        subMenus: [
+                            {
+                                id: "subView1",
+                                route: "subView1",
+                                icon: "C",
+                                title: "Sub View1",
+                                subText: "subView1",
+                                badge: "",
+                                active: true,
+                            },
+                            {
+                                id: "subView2",
+                                route: "subView2",
+                                icon: "C",
+                                title: "Sub View2",
+                                subText: "subView2",
+                                badge: "",
+                                active: true,
+                            }
+                        ]
+
                     },
                     {
                         id: "inputItem",
@@ -29,7 +52,8 @@ sap.ui.define([
                         subText: "DC • SE • Screen",
                         badge: "1",
                         active: false,
-                        isMainMenu:true
+                        isMainMenu: true,
+                        subMenus: []
                     },
                     {
                         id: "outputItem",
@@ -39,7 +63,8 @@ sap.ui.define([
                         subText: "documents",
                         badge: "0",
                         active: false,
-                        isMainMenu:true
+                        isMainMenu: true,
+                        subMenus: []
                     },
                     {
                         id: "onboardItem",
@@ -49,10 +74,11 @@ sap.ui.define([
                         subText: "documents",
                         badge: "0",
                         active: false,
-                        isMainMenu:true
+                        isMainMenu: true,
+                        subMenus: []
                     },
 
-                    
+
                     {
                         id: "onboardItem",
                         route: "onboard",
@@ -61,7 +87,8 @@ sap.ui.define([
                         subText: "documents",
                         badge: "0",
                         active: false,
-                        isMainMenu:true
+                        isMainMenu: true,
+                        subMenus: []
                     },
                     {
                         id: "onboardItem",
@@ -71,7 +98,8 @@ sap.ui.define([
                         subText: "documents",
                         badge: "0",
                         active: false,
-                        isMainMenu:true
+                        isMainMenu: true,
+                        subMenus: []
                     },
                     {
                         id: "onboardItem",
@@ -81,7 +109,8 @@ sap.ui.define([
                         subText: "documents",
                         badge: "0",
                         active: false,
-                        isMainMenu:true
+                        isMainMenu: true,
+                        subMenus: []
                     },
                     {
                         id: "onpdfItem",
@@ -91,7 +120,8 @@ sap.ui.define([
                         subText: "documents",
                         badge: "0",
                         active: false,
-                        isMainMenu:false
+                        isMainMenu: false,
+                        subMenus: []
                     },
                     {
                         id: "onsmartTableItem",
@@ -101,7 +131,8 @@ sap.ui.define([
                         subText: "smartTable",
                         badge: "0",
                         active: false,
-                        isMainMenu:false
+                        isMainMenu: false,
+                        subMenus: []
                     },
                     {
                         id: "onplanningCalendarItem",
@@ -111,7 +142,8 @@ sap.ui.define([
                         subText: "documents",
                         badge: "0",
                         active: false,
-                        isMainMenu:false
+                        isMainMenu: false,
+                        subMenus: []
                     },
                     {
                         id: "onmultipleFileItem",
@@ -121,7 +153,8 @@ sap.ui.define([
                         subText: "documents",
                         badge: "0",
                         active: false,
-                        isMainMenu:false
+                        isMainMenu: false,
+                        subMenus: []
                     },
                     {
                         id: "onboardItem",
@@ -131,26 +164,27 @@ sap.ui.define([
                         subText: "documents",
                         badge: "0",
                         active: false,
-                        isMainMenu:false
+                        isMainMenu: false,
+                        subMenus: []
                     },
-                ]
+                ],
+
+                selectedMenu: {
+                    subMenus: []
+                }
+
             };
 
             const oModel = new sap.ui.model.json.JSONModel(oData);
             this.getView().setModel(oModel, "menu");
 
-            // setTimeout(() => {
-            //     this._attachMenuClick();
+            /* default submenu load */
+            oModel.setProperty(
+                "/selectedMenu/subMenus",
+                oData.menuItems[0].subMenus
+            );
 
 
-            // }, 1000);
-            // this._resetMenu();
-
-            //   var oRouter = this.getOwnerComponent().getRouter();
-
-            //     oRouter.getRoute("Routemain").attachPatternMatched(function () {
-            //         oRouter.navTo("studio", {}, true); // ✅ redirect to studio
-            //     });
 
         },
 
@@ -160,133 +194,182 @@ sap.ui.define([
                 oMenu.setSelectedKey("");
             }
         },
-        
-_handleCloseDialog: function () {
-    var oDialog = this.byId("myDialog");
-    if (oDialog) {
-        oDialog.close();
-    }
-}
-,
+
+        _handleCloseDialog: function () {
+            var oDialog = this.byId("myDialog");
+            if (oDialog) {
+                oDialog.close();
+            }
+        }
+        ,
 
 
 
-onAfterRendering: function () {
+        onAfterRendering: function () {
 
-    const oContainer = this.byId("menuContainer12");
-    const aItems = oContainer.getItems();
+            const oContainer = this.byId("menuContainer12");
+            const aItems = oContainer.getItems();
 
-    aItems.forEach(function (oItem) {
+            aItems.forEach(function (oItem) {
 
-        // ✅ remove old binding (avoid duplicate)
-        oItem.detachBrowserEvent("click");
+                // ✅ remove old binding (avoid duplicate)
+                oItem.detachBrowserEvent("click");
 
-        oItem.attachBrowserEvent("click", (oEvent) => {
+                oItem.attachBrowserEvent("click", (oEvent) => {
 
-            const oContext = oItem.getBindingContext("menu");
-            const sRoute = oContext.getProperty("route");
+                    const oContext = oItem.getBindingContext("menu");
+                    const sRoute = oContext.getProperty("route");
 
-            const oModel = this.getView().getModel("menu");
-            const data = oModel.getData();
+                    const oModel = this.getView().getModel("menu");
+                    const data = oModel.getData();
 
-            // ✅ update active state
-            data.menuItems.forEach(item => item.active = false);
-            oContext.getObject().active = true;
 
-            oModel.refresh();
+                    const aSubMenus = data.menuItems.filter(x => x.route === sRoute)[0].subMenus;
 
-            // ✅ navigation
-            sap.ui.core.UIComponent
-                .getRouterFor(this)
-                .navTo(sRoute);
+                    this.getView()
+                        .getModel("menu")
+                        .setProperty("/selectedMenu/subMenus", aSubMenus);
 
-        });
 
-    }.bind(this));
-    this.onOpenDialog();
+                    // ✅ update active state
+                    data.menuItems.forEach(item => item.active = false);
+                    oContext.getObject().active = true;
+
+                    oModel.refresh();
+
+                    // ✅ navigation
+                    sap.ui.core.UIComponent
+                        .getRouterFor(this)
+                        .navTo(sRoute);
+
+                });
+
+            }.bind(this));
+            this.onOpenDialog();
+            this.submenuClick()
+        },
+
+
+submenuClick:function(){
+      const oContainer = this.byId("menuContainer1212");
+            const aItems = oContainer.getItems();
+
+            aItems.forEach(function (oItem) {
+
+                // ✅ remove old binding (avoid duplicate)
+                oItem.detachBrowserEvent("click");
+
+                oItem.attachBrowserEvent("click", (oEvent) => {
+
+                    const oContext = oItem.getBindingContext("menu");
+                    const sRoute = oContext.getProperty("route");
+
+                    const oModel = this.getView().getModel("menu");
+                    const data = oModel.getData();
+
+
+                  console.log(sRoute);
+                  
+
+                    // ✅ update active state
+                    data.menuItems.forEach(item => item.active = false);
+                    oContext.getObject().active = true;
+
+                    oModel.refresh();
+
+                    // ✅ navigation
+                    sap.ui.core.UIComponent
+                        .getRouterFor(this)
+                        .navTo(sRoute);
+
+                });
+
+            }.bind(this));
+            this.onOpenDialog();
 },
 
-onAfterOpenDialog: function () {
 
-    const aItems = this.byId("menuContainer122").getItems();
+        onAfterOpenDialog: function () {
 
-    aItems.forEach((oItem) => {
+            const aItems = this.byId("menuContainer122").getItems();
 
-        oItem.detachBrowserEvent("click");
+            aItems.forEach((oItem) => {
 
-        oItem.attachBrowserEvent("click", async () => {
+                oItem.detachBrowserEvent("click");
 
-            const oContext = oItem.getBindingContext("menu");
-            const sRoute = oContext.getProperty("route");
+                oItem.attachBrowserEvent("click", async () => {
 
-            const oModel = this.getView().getModel("menu");
-            const data = oModel.getData();
+                    const oContext = oItem.getBindingContext("menu");
+                    const sRoute = oContext.getProperty("route");
 
-            // ✅ active state
-            data.menuItems.forEach(item => item.active = false);
-            oContext.getObject().active = true;
-            oModel.refresh();
+                    const oModel = this.getView().getModel("menu");
+                    const data = oModel.getData();
 
-            // ✅ ONLY update content area
-            const oContainer = this.byId("viewContainer");
-            oContainer.removeAllItems();
+                    // ✅ active state
+                    data.menuItems.forEach(item => item.active = false);
+                    oContext.getObject().active = true;
+                    oModel.refresh();
 
-            // ✅ LOAD VIEW (THIS IS CORRECT FOR DIALOG)
-            const oView = await sap.ui.core.mvc.XMLView.create({
-                viewName: this._getViewNameFromRoute(sRoute)
+                    // ✅ ONLY update content area
+                    const oContainer = this.byId("viewContainer");
+                    oContainer.removeAllItems();
+
+                    // ✅ LOAD VIEW (THIS IS CORRECT FOR DIALOG)
+                    const oView = await sap.ui.core.mvc.XMLView.create({
+                        viewName: this._getViewNameFromRoute(sRoute)
+                    });
+
+                    this.getView().addDependent(oView);
+
+                    oContainer.addItem(oView);
+
+                });
+
             });
+        }
 
-            this.getView().addDependent(oView);
+        ,
 
-            oContainer.addItem(oView);
+        _getViewNameFromRoute: function (sRoute) {
 
-        });
+            const mRoutes = {
+                "onboard": "gmrproject.view.Onboard",
+                "multipleFile": "gmrproject.view.multipleFile",
+                "planningCalendar": "gmrproject.view.PlanningCalendar",
+                "smartTable": "gmrproject.view.smartTable",
+                "pdf": "gmrproject.view.PDF"
+            };
 
-    });
-}
-
-,
-
-_getViewNameFromRoute: function (sRoute) {
-
-    const mRoutes = {
-        "onboard": "gmrproject.view.Onboard",
-        "multipleFile": "gmrproject.view.multipleFile",
-        "planningCalendar": "gmrproject.view.PlanningCalendar",
-        "smartTable": "gmrproject.view.smartTable",
-        "pdf": "gmrproject.view.PDF"
-    };
-
-    return mRoutes[sRoute] || "gmrproject.view.Default";
-},
+            return mRoutes[sRoute] || "gmrproject.view.Default";
+        },
 
 
-onOpenDialog: function () {
-  
-const oPlus = this.byId("plusIconBtn");
+        onOpenDialog: function () {
 
-    if (oPlus) {
-        oPlus.detachBrowserEvent("click");
+            const oPlus = this.byId("plusIconBtn");
 
-        oPlus.attachBrowserEvent("click", () => {
+            if (oPlus) {
+                oPlus.detachBrowserEvent("click");
 
-            // ✅ Open dialog
-            this.byId("myDialog").open();
+                oPlus.attachBrowserEvent("click", () => {
 
-    this.onAfterOpenDialog(); // ✅ important
+                    // ✅ Open dialog
+                    this.byId("myDialog").open();
 
-            // OR navigation
-            // sap.ui.core.UIComponent.getRouterFor(this).navTo("more");
+                    this.onAfterOpenDialog(); // ✅ important
 
-        });
-    }
+                    // OR navigation
+                    // sap.ui.core.UIComponent.getRouterFor(this).navTo("more");
 
-},
-onCloseDialog: function () {
-    this.byId("myDialog").close();
-},
+                });
+            }
 
-       
+        },
+        onCloseDialog: function () {
+            this.byId("myDialog").close();
+        },
+
+
 
 
     });
