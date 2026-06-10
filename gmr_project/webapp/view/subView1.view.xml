@@ -3,10 +3,24 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
+    height="100%"
+    displayBlock="true"
 >
-    <HBox width="100%">
-        <VBox>
-            <Text text="sub View1" />
-        </VBox>
-    </HBox>
+        <Page>
+        <customHeader>
+            <Bar>
+                <contentLeft>
+                    <Button id="msgpop1" icon="sap-icon://message-popup" text="{popoverModel>/messagesLength}" type="{popoverModel>/type}"
+                        press="handleMessagePopoverPress"/>
+                </contentLeft>
+                <contentMiddle>
+                    <Title text="My Project Ideas: Message Popover Integration in SAP UI5" titleStyle="H2"></Title>
+                </contentMiddle>
+                <contentRight>
+                    <Button text="Get Success Message" press="onSuccess" icon="sap-icon://message-success"/>
+                    <Button text="Get Error Message" press="onError" icon="sap-icon://message-error"/>
+                </contentRight>
+            </Bar>
+        </customHeader>
+    </Page>
 </mvc:View>
