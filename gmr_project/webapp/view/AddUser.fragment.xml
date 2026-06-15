@@ -1,0 +1,80 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Dialog
+        id="addUserDialog"
+        title="Add User"
+        contentWidth="420px"
+        class="myDialog"
+    >
+        <content>
+            <f:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                width="100%"
+                labelSpanXL="3"
+                labelSpanL="3"
+                labelSpanM="3"
+                labelSpanS="12"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1"
+            >
+                <!-- Date -->
+                <Label
+                    text="Name"
+                    required="true"
+                />
+
+                <Input
+                    id="inputName"
+                    placeholder="Enter Name"
+                    class="sapUiSmallMarginBottom"
+                />
+
+                <!-- End Time -->
+
+                <Label text="Email"  required="true" />
+                <Input
+                    id="inputEmail"
+                    placeholder="Enter Email"
+                    class="sapUiSmallMarginBottom"
+                    liveChange="onEmailLiveChange"
+                />
+
+                <!-- Description -->
+
+                <Label
+                    text="Address"
+                   
+                />
+                <TextArea
+                    id="dlgAddress"
+                    rows="4"
+                    width="100%"
+                    placeholder="Enter Address"
+                />
+            </f:SimpleForm>
+        </content>
+
+        <beginButton>
+            <Button
+            id="btnSave"
+                text="Add"
+                type="Emphasized"
+                icon="sap-icon://add"
+                press="onSaveUser"
+            />
+        </beginButton>
+
+        <endButton>
+            <Button
+                text="Cancel"
+                icon="sap-icon://decline"
+                press="onCloseDialog"
+            />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

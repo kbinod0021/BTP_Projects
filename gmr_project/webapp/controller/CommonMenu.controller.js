@@ -241,8 +241,12 @@ sap.ui.define([
                     sap.ui.core.UIComponent
                         .getRouterFor(this)
                         .navTo(sRoute);
+                                        
+
 
                 });
+
+
 
             }.bind(this));
             this.onOpenDialog();
