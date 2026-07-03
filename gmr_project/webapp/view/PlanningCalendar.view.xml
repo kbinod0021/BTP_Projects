@@ -2,7 +2,8 @@
     controllerName="gmrproject.controller.PlanningCalendar"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:unified="sap.ui.unified">
+    xmlns:unified="sap.ui.unified"
+     xmlns:table="sap.ui.table">
 
     <VBox class="sapUiSmallMargin">
 
@@ -87,6 +88,47 @@
     </rows>
 
 </PlanningCalendar>
+
+<table:Table
+    id="mountainTable"
+    rows="{oModelTable>/mountains}"
+    cellClick="onCellClick"
+  >
+
+    <table:columns>
+
+        <table:Column>
+            <Label text="Name"/>
+            <table:template>
+               
+ <Input
+            value="{oModelTable>Name}"
+            editable="false"
+           
+            change="onInputChange"
+          />
+
+            </table:template>
+        </table:Column>
+
+        <table:Column>
+            <Label text="Range"/>
+            <table:template>
+               
+<Input
+            value="{oModelTable>Range}"
+            editable="false"
+             change="onInputChange"
+           />
+
+            </table:template>
+        </table:Column>
+
+    </table:columns>
+
+</table:Table>
+
+
 
     </VBox>
 

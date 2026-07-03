@@ -11,8 +11,8 @@ sap.ui.define([
 
     onInit: function () {
       sap.ui.require(["sap/ui/dom/includeStylesheet"], function (includeStylesheet) {
-				includeStylesheet("css/planningCalendar.css");
-			});
+        includeStylesheet("css/planningCalendar.css");
+      });
       // var oDate = new Date();
       // oDate.setHours(0, 0, 0, 0);
 
@@ -27,6 +27,7 @@ sap.ui.define([
 
       // this.getView().setModel(oModel);
 
+      this._oPreviousInput = null;
 
       var oStartDate = new Date(2026, 5, 8);
 
@@ -60,6 +61,57 @@ sap.ui.define([
       });
 
       this.getView().setModel(oModel);
+
+
+
+
+      var oData = {
+        mountains: [
+          {
+            Name: "Mount Everest",
+            Range: "Mahalangur Himalaya",
+            FirstAscent: "1953",
+            Countries: "Nepal, China",
+            ParentMountain: "-",
+            isEditable: false
+          },
+          {
+            Name: "K2",
+            Range: "Baltoro Karakoram",
+            FirstAscent: "1954",
+            Countries: "Pakistan, China",
+            ParentMountain: "Mount Everest",
+
+            editName: false,
+            editRange: false,
+            editFirstAscent: false,
+            editCountries: false,
+            editParentMountain: false
+
+          },
+          {
+            Name: "Kangchenjunga",
+            Range: "Kangchenjunga Himalaya",
+            FirstAscent: "1955",
+            Countries: "Nepal, India",
+            ParentMountain: "Mount Everest",
+
+
+            editName: false,
+            editRange: false,
+            editFirstAscent: false,
+            editCountries: false,
+            editParentMountain: false
+
+          }
+        ]
+      };
+
+      var oModelTable = new sap.ui.model.json.JSONModel(oData);
+      this.getView().setModel(oModelTable, "oModelTable");
+
+
+
 
     },
 
@@ -131,7 +183,98 @@ sap.ui.define([
       MessageToast.show("Added ✅");
 
       this._oDialog.close();
+    },
+
+
+    onInputFocus1: function (oEvent) {
+
+      var oInput = oEvent.getSource();
+      var oContext = oInput.getBindingContext("oModelTable");
+
+      var oModel = this.getView().getModel("oModelTable");
+      var aRows = oModel.getProperty("/mountains");
+
+      aRows.forEach(function (oRow) {
+        oRow.isEditable = false;
+      });
+
+      oModel.setProperty(oContext.getPath() + "/isEditable", true);
+      oModel.refresh(true);
+    },
+    onRowSelectionChange: function (oEvent) {
+
+      var iRowIndex = oEvent.getParameter("rowIndex");
+      var oModel = this.getView().getModel("oModelTable");
+
+      var aRows = oModel.getProperty("/mountains");
+
+      aRows.forEach(function (oRow) {
+        oRow.isEditable = false;
+      });
+
+      oModel.setProperty(
+        "/mountains/" + iRowIndex + "/isEditable",
+        true
+      );
+    },
+    onCellClick1: function (oEvent) {
+
+      var oContext = oEvent.getParameter("rowBindingContext");
+      var iColIndex = oEvent.getParameter("columnIndex");
+
+      var aFields = [
+        "editName",
+        "editRange",
+        "editFirstAscent",
+        "editCountries",
+        "editParentMountain"
+      ];
+
+      var oModel = this.getView().getModel("oModelTable");
+
+      oModel.getProperty("/mountains").forEach(function (oRow) {
+        aFields.forEach(function (sField) {
+          oRow[sField] = false;
+        });
+      });
+
+      oModel.setProperty(
+        oContext.getPath() + "/" + aFields[iColIndex],
+        true
+      );
+
+      oModel.refresh(true);
+    },
+    onCellClick: function (oEvent) {
+      let oCell = oEvent.getParameter("cellControl");
+      if (this._oPreviousInput) {
+        this._oPreviousInput.setEditable(false);
+      }
+      if (oCell instanceof sap.m.Input) {
+
+        oCell.setEditable(true);
+        oCell.focus();
+      }
+      this._oPreviousInput = oCell;
+      // MessageToast.show("Hi");
+    },
+    onInputChange: function (oEvent) {
+
+      var oInput = oEvent.getSource();
+      oInput.setEditable(false);
+      MessageToast.show("fields");
+    },
+
+    onInputFocus: function (oEvent) {
+      var oCurrentInput = oEvent.getSource();
+
+      if (this._oPreviousInput) {
+        this._oPreviousInput.setEditable(false);
+      }
+      oCurrentInput.setEditable(true);
+      this._oPreviousInput = oCurrentInput;
     }
+
 
   });
 });

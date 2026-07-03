@@ -1,0 +1,31 @@
+{
+  "xsappname": "my-secure-app",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.View",
+      "description": "View access"
+    },
+    {
+      "name": "$XSAPPNAME.Edit",
+      "description": "Edit access"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "ViewerRole",
+      "scope-references": [
+        "$XSAPPNAME.View"
+      ]
+    },
+    {
+      "name": "EditorRole",
+      "scope-references": [
+        "$XSAPPNAME.View",
+        "$XSAPPNAME.Edit"
+      ]
+    }
+  ],
+  "attributes": [],
+  "authorities-inheritance": false
+}

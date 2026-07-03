@@ -1,0 +1,20 @@
+<mvc:View
+    controllerName="basicui5app.controller.main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <Input
+            value="{name}"
+            editable="{permissionModel>/canEdit}"
+        />
+
+        <Button
+            text="Save"
+            enabled="{permissionModel>/canEdit}"
+        />
+    </Page>
+</mvc:View>

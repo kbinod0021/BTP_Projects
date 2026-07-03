@@ -10,12 +10,9 @@
         width="100%"
         class="sapUiContentPadding"
     >
-        <!-- <smartFilterBar:SmartFilterBar
-    id="smartFilterBar"
-    entitySet="YourEntitySet"
-    enableBasicSearch="true"
-    persistencyKey="SmartFilter"
-    search="onSearch" /> -->
+    
+
+
 
         <smartFilterBar:SmartFilterBar
             id="smartFilterBar"

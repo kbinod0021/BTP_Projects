@@ -13,56 +13,61 @@ class="myDialog"
 
         <content>
 
-            <f:SimpleForm
-                editable="true"
-                layout="ResponsiveGridLayout"
-                width="100%"
-                labelSpanXL="3"
-                labelSpanL="3"
-                labelSpanM="3"
-                labelSpanS="12"
-                columnsXL="1"
-                columnsL="1"
-                columnsM="1">
+          <f:SimpleForm
+    editable="true"
+    layout="ResponsiveGridLayout"
+    width="100%"
+    labelSpanXL="3"
+    labelSpanL="3"
+    labelSpanM="3"
+    labelSpanS="12"
+    columnsXL="1"
+    columnsL="1"
+    columnsM="1">
 
-                <!-- Date -->
-                <Label text="Date" required="true"/>
+    <!-- Start -->
+    <Label text="Start" required="true" />
+    <HBox width="100%">
+        <DatePicker
+            id="dlgStartDate"
+           width="95%"
+            placeholder="Select Start Date"
+            class="sapUiTinyMarginEnd" />
 
-                <DatePicker
-                    id="dlgDate"
-                    width="100%"
-                    placeholder="Select Date" />
+        <TimePicker
+            id="dlgStartTime"
+            width="95%"
+            displayFormat="HH:mm"
+            valueFormat="HH:mm"
+            placeholder="Select Start Time" />
+    </HBox>
 
-                <!-- Start Time -->
-                <Label text="Start Time" required="true"/>
+    <!-- End -->
+    <Label text="End" required="true" />
+    <HBox width="100%">
+        <DatePicker
+            id="dlgEndDate"
+            width="95%"
+            placeholder="Select End Date"
+            class="sapUiTinyMarginEnd" />
 
-                <TimePicker
-                    id="dlgStartTime"
-                    width="100%"
-                    displayFormat="HH:mm"
-                    valueFormat="HH:mm"
-                    placeholder="Select Start Time" />
+        <TimePicker
+            id="dlgEndTime"
+            width="95%"
+            displayFormat="HH:mm"
+            valueFormat="HH:mm"
+            placeholder="Select End Time" />
+    </HBox>
 
-                <!-- End Time -->
-                <Label text="End Time" required="true"/>
+    <!-- Description -->
+    <Label text="Description" />
+    <TextArea
+        id="dlgDesc"
+        rows="4"
+        width="100%"
+        placeholder="Enter Description" />
 
-                <TimePicker
-                    id="dlgEndTime"
-                    width="100%"
-                    displayFormat="HH:mm"
-                    valueFormat="HH:mm"
-                    placeholder="Select End Time" />
-
-                <!-- Description -->
-                <Label text="Description"/>
-
-                <TextArea
-                    id="dlgDesc"
-                    rows="4"
-                    width="100%"
-                    placeholder="Enter Description" />
-
-            </f:SimpleForm>
+</f:SimpleForm>
 
         </content>
 

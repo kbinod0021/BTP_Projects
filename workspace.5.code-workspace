@@ -1,0 +1,10 @@
+{
+    "folders": [
+        {
+            "path": "my-ui5-secure"
+        }
+    ],
+    "settings": {
+        "SAP HANA Database Explorer.ShowXsAdvancedConnections": true
+    }
+}

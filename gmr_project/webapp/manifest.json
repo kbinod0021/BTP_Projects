@@ -15,17 +15,15 @@
       "version": "1.24.0",
       "toolsId": "364753ca-29d0-42c5-9b2c-de3281b992c0"
     },
-    
-"dataSources": {
-  "mainService": {
-    "uri": "/odata/",
-    "type": "OData",
-    "settings": {
-      "odataVersion": "2.0"
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0"
+        }
+      }
     }
-  }
-}
-
   },
   "sap.ui": {
     "technology": "UI5",
@@ -50,9 +48,8 @@
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
-          "sap.viz": {},
-  "sap.ui.comp": {}
-
+        "sap.viz": {},
+        "sap.ui.comp": {}
       }
     },
     "contentDensities": {
@@ -60,14 +57,12 @@
       "cozy": true
     },
     "models": {
-      
- "": {
-    "dataSource": "mainService",
-    "settings": {
-      "defaultBindingMode": "TwoWay"
-    }
-  },
-
+      "": {
+        "dataSource": "mainService",
+        "settings": {
+          "defaultBindingMode": "TwoWay"
+        }
+      },
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
@@ -80,201 +75,214 @@
         {
           "uri": "css/style.css"
         }
-        
-      
       ]
     },
-   "routing": {
- "config": {
-   "routerClass": "sap.m.routing.Router",
-   "viewType": "XML",
-   "viewPath": "gmrproject.view",
-   "controlId": "appContainer",
-   "controlAggregation": "pages",
-   "async": true,
-   "transition": "slide"
- },
- "routes": [
-   {
-     "name": "Routemain",
-     "pattern": "Routemain",
-     "target": "Targetmain"
-   },
-   {
-     "name": "studio",
-     "pattern": "studio",
-     "target": [
-       "Targetmain",
-       "studio"
-     ]
-   },
-   {
-     "name": "subView1",
-     "pattern": "subView1",
-     "target": [
-       "Targetmain",
-       "subView1"
-     ]
-   },
-   {
-     "name": "subView2",
-     "pattern": "subView2",
-     "target": [
-       "Targetmain",
-       "subView2"
-     ]
-   },
-   {
-     "name": "input",
-     "pattern": "input",
-     "target": [
-       "Targetmain",
-       "input"
-     ]
-   },
-   {
-     "name": "output",
-     "pattern": "output",
-     "target": [
-       "Targetmain",
-       "output"
-     ]
-   },
-   {
-     "name": "onboard",
-     "pattern": "onboard",
-     "target": [
-       "Targetmain",
-       "onboard"
-     ]
-   },
-   {
-     "name": "pdf",
-     "pattern": "pdf",
-     "target": [
-       "Targetmain",
-       "pdf"
-     ]
-   },
-   {
-     "name": "smartTable",
-     "pattern": "smartTable",
-     "target": [
-       "Targetmain",
-       "smartTable"
-     ]
-   },
-   {
-     "name": "planningCalendar",
-     "pattern": "planningCalendar",
-     "target": [
-       "Targetmain",
-       "planningCalendar"
-     ]
-   },
-   {
-     "name": "multipleFile",
-     "pattern": "multipleFile",
-     "target": [
-       "Targetmain",
-       "multipleFile"
-     ]
-   },
-   {
-     "name": "apps",
-     "pattern": "apps",
-     "target": [
-       "Targetmain",
-       "apps"
-     ]
-   }
- ],
- "targets": {
-   "Targetmain": {
-     "viewName": "main",
-     "viewId": "main",
-     "controlId": "appContainer",
-     "controlAggregation": "pages"
-   },
-   "studio": {
-     "parent": "Targetmain",
-     "viewName": "Studio",
-     "viewId": "studio",
-     "controlId": "innerApp",
-     "controlAggregation": "pages"
-   },
-   "subView1": {
-     "parent": "Targetmain",
-     "viewName": "subView1",
-     "viewId": "subView1",
-     "controlId": "innerApp",
-     "controlAggregation": "pages"
-   },
-   "subView2": {
-     "parent": "Targetmain",
-     "viewName": "subView2",
-     "viewId": "subView2",
-     "controlId": "innerApp",
-     "controlAggregation": "pages"
-   },
-   "input": {
-     "parent": "Targetmain",
-     "viewName": "Input",
-     "viewId": "input",
-     "controlId": "innerApp",
-     "controlAggregation": "pages"
-   },
-   "output": {
-     "parent": "Targetmain",
-     "viewName": "Output",
-     "viewId": "output",
-     "controlId": "innerApp",
-     "controlAggregation": "pages"
-   },
-   "onboard": {
-     "parent": "Targetmain",
-     "viewName": "Onboard",
-     "viewId": "onboard",
-     "controlId": "innerApp",
-     "controlAggregation": "pages"
-   },
-   "pdf": {
-     "parent": "Targetmain",
-     "viewName": "PDF",
-     "viewId": "pdf",
-     "controlId": "dialogNavContainer",
-     "controlAggregation": "pages"
-   },
-   "smartTable": {
-     "parent": "Targetmain",
-     "viewName": "SmartTable",
-     "viewId": "smartTable",
-     "controlId": "dialogNavContainer",
-     "controlAggregation": "pages"
-   },
-   "planningCalendar": {
-     "parent": "Targetmain",
-     "viewName": "PlanningCalendar",
-     "viewId": "planningCalendar",
-     "controlId": "dialogNavContainer",
-     "controlAggregation": "pages"
-   },
-   "multipleFile": {
-     "parent": "Targetmain",
-     "viewName": "multipleFile",
-     "viewId": "multipleFile",
-     "controlId": "dialogNavContainer",
-     "controlAggregation": "pages"
-   },
-   "apps": {
-     "parent": "Targetmain",
-     "viewName": "Apps",
-     "viewId": "apps",
-     "controlId": "innerApp",
-     "controlAggregation": "pages"
-   }
- }
-},
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "XML",
+        "viewPath": "gmrproject.view",
+        "controlId": "appContainer",
+        "controlAggregation": "pages",
+        "async": true,
+        "transition": "slide"
+      },
+      "routes": [
+        {
+          "name": "Routemain",
+          "pattern": "Routemain",
+          "target": "Targetmain"
+        },
+        {
+          "name": "studio",
+          "pattern": "studio",
+          "target": [
+            "Targetmain",
+            "studio"
+          ]
+        },
+        {
+          "name": "subView1",
+          "pattern": "subView1",
+          "target": [
+            "Targetmain",
+            "subView1"
+          ]
+        },
+        {
+          "name": "subView2",
+          "pattern": "subView2",
+          "target": [
+            "Targetmain",
+            "subView2"
+          ]
+        },
+        {
+          "name": "input",
+          "pattern": "input",
+          "target": [
+            "Targetmain",
+            "input"
+          ]
+        },
+        {
+          "name": "output",
+          "pattern": "output",
+          "target": [
+            "Targetmain",
+            "output"
+          ]
+        },
+        {
+          "name": "onboard",
+          "pattern": "onboard",
+          "target": [
+            "Targetmain",
+            "onboard"
+          ]
+        },
+        {
+          "name": "CustomChart",
+          "pattern": "CustomChart",
+          "target": [
+            "Targetmain",
+            "CustomChart"
+          ]
+        },
+        {
+          "name": "pdf",
+          "pattern": "pdf",
+          "target": [
+            "Targetmain",
+            "pdf"
+          ]
+        },
+        {
+          "name": "smartTable",
+          "pattern": "smartTable",
+          "target": [
+            "Targetmain",
+            "smartTable"
+          ]
+        },
+        {
+          "name": "planningCalendar",
+          "pattern": "planningCalendar",
+          "target": [
+            "Targetmain",
+            "planningCalendar"
+          ]
+        },
+        {
+          "name": "multipleFile",
+          "pattern": "multipleFile",
+          "target": [
+            "Targetmain",
+            "multipleFile"
+          ]
+        },
+        {
+          "name": "apps",
+          "pattern": "apps",
+          "target": [
+            "Targetmain",
+            "apps"
+          ]
+        }
+      ],
+      "targets": {
+        "Targetmain": {
+          "viewName": "main",
+          "viewId": "main",
+          "controlId": "appContainer",
+          "controlAggregation": "pages"
+        },
+        "studio": {
+          "parent": "Targetmain",
+          "viewName": "Studio",
+          "viewId": "studio",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "subView1": {
+          "parent": "Targetmain",
+          "viewName": "subView1",
+          "viewId": "subView1",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "subView2": {
+          "parent": "Targetmain",
+          "viewName": "subView2",
+          "viewId": "subView2",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "input": {
+          "parent": "Targetmain",
+          "viewName": "Input",
+          "viewId": "input",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "output": {
+          "parent": "Targetmain",
+          "viewName": "Output",
+          "viewId": "output",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "onboard": {
+          "parent": "Targetmain",
+          "viewName": "Onboard",
+          "viewId": "onboard",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "CustomChart": {
+          "parent": "Targetmain",
+          "viewName": "CustomChart",
+          "viewId": "CustomChart",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "pdf": {
+          "parent": "Targetmain",
+          "viewName": "PDF",
+          "viewId": "pdf",
+          "controlId": "dialogNavContainer",
+          "controlAggregation": "pages"
+        },
+        "smartTable": {
+          "parent": "Targetmain",
+          "viewName": "SmartTable",
+          "viewId": "smartTable",
+          "controlId": "dialogNavContainer",
+          "controlAggregation": "pages"
+        },
+        "planningCalendar": {
+          "parent": "Targetmain",
+          "viewName": "PlanningCalendar",
+          "viewId": "planningCalendar",
+          "controlId": "dialogNavContainer",
+          "controlAggregation": "pages"
+        },
+        "multipleFile": {
+          "parent": "Targetmain",
+          "viewName": "multipleFile",
+          "viewId": "multipleFile",
+          "controlId": "dialogNavContainer",
+          "controlAggregation": "pages"
+        },
+        "apps": {
+          "parent": "Targetmain",
+          "viewName": "Apps",
+          "viewId": "apps",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        }
+      }
+    },
     "rootView": {
       "viewName": "gmrproject.view.App",
       "type": "XML",

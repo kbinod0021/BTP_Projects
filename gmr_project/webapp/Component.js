@@ -22,6 +22,15 @@ sap.ui.define([
             // set the device model
             this.setModel(models.createDeviceModel(), "device");
 
+
+
+            
+
+ 
+
+
+
+
             // enable routing
             this.getRouter().initialize();
             this.setModel(new sap.ui.model.json.JSONModel(models.createAppConfigData()), "appConfigModel");
@@ -29,6 +38,8 @@ sap.ui.define([
      this.getRouter().navTo("studio", {}, true); // true = replace history
 
      
+
+
             var oMockServer = new MockServer({
                 rootUri: "/odata/"
             });

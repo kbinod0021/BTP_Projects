@@ -102,10 +102,10 @@ sap.ui.define([
                         subMenus: []
                     },
                     {
-                        id: "onboardItem",
-                        route: "onboard",
+                        id: "onCustomChartItem",
+                        route: "CustomChart",
                         icon: "N",
-                        title: "Onboard New PPA",
+                        title: "Custom Chart",
                         subText: "documents",
                         badge: "0",
                         active: false,
@@ -250,7 +250,7 @@ sap.ui.define([
 
             }.bind(this));
             this.onOpenDialog();
-            this.submenuClick()
+            this.submenuClick();
         },
 
 

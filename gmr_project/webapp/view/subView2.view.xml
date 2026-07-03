@@ -4,6 +4,7 @@
     xmlns="sap.m"
     xmlns:table="sap.ui.table"
     displayBlock="true"
+    	xmlns:l="sap.ui.layout"
 >
     <HBox>
         <VBox>
@@ -70,4 +71,46 @@
             </VBox>
         </VBox>
     </HBox>
+    	<l:VerticalLayout width="360px">
+			<Tokenizer
+				id="tokenizerMultiLine"
+				class="sapUiTinyMarginBeginEnd"
+				width="100%"
+				tokenDelete=".onTokenDelete"
+				multiLine="true"
+				showClearAll="true"
+                tokens="{tokenModel>/countries}"
+                >
+                
+<tokens>
+        <Token
+            text="{tokenModel>text}"
+            key="{tokenModel>key}" />
+    </tokens>
+
+				<!-- <tokens>
+					<Token text="Andora" key="1" />
+					<Token text="Argentina" key="2" />
+					<Token text="Brazil" key="3" />
+					<Token text="Bulgaria" key="4" />
+					<Token text="Canada" key="5" />
+					<Token text="China" key="6" />
+					<Token text="Denmark" key="7" />
+					<Token text="Estonia" key="8" />
+					<Token text="The United Kingdom of Great Britain and Northern Ireland" key="9" />
+					<Token text="Finland" key="10" />
+					<Token text="Germany" key="11" />
+					<Token text="Hungary" key="12" />
+					<Token text="Ireland" key="13" />
+					<Token text="Norway" key="14" />
+					<Token text="Japan" key="15" />
+					<Token text="Korea" key="16" />
+					<Token text="Latvia" key="17" />
+					<Token text="Independent and Sovereign Republic of Kiribati" key="18" />
+					<Token text="Italy" key="19" />
+				</tokens> -->
+			</Tokenizer>
+		</l:VerticalLayout>
+        	<l:VerticalLayout id="idVerticalLayout" class="sapUiContentPadding" width="100%">
+	</l:VerticalLayout>
 </mvc:View>

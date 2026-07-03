@@ -1,9 +1,0 @@
-{
-    "actions": [
-        {
-            "id": "openReadmeFile",
-            "actionType": "FILE",
-            "uri": "file:///home/user/projects/cap/.gen/generation.log"
-        }
-    ]
-}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>App Title</title>
+    <style>
+        html, body, body > div, #container, #container-uiarea {
+            height: 100%;
+        }
+    </style>
+    
+<script>
+window["sap-ushell-config"] = {
+    ushell: {
+        services: {
+            NavTargetResolution: {
+                config: {
+                    enableClientSideTargetResolution: true
+                }
+            }
+        }
+    }
+};
+
+
+</script>
+
+<script 
+    src="https://sapui5.hana.ondemand.com/test-resources/sap/ushell/bootstrap/sandbox.js"
+    data-sap-ushell-config='{}'>
+</script>
+
+    <script
+        id="sap-ui-bootstrap"
+        src="resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_horizon"
+        data-sap-ui-resource-roots='{
+            "basicui5app": "./"
+        }'
+        data-sap-ui-on-init="module:sap/ui/core/ComponentSupport"
+        data-sap-ui-compat-version="edge"
+        data-sap-ui-async="true"
+        data-sap-ui-frame-options="trusted"
+    ></script>
+    
+
+</script>
+
+</head>
+<body class="sapUiBody sapUiSizeCompact" id="content">
+    <div
+        data-sap-ui-component
+        data-name="basicui5app"
+        data-id="container"
+        data-settings='{"id" : "basicui5app"}'
+        data-handle-validation="true"
+    ></div>
+</body>
+</html>

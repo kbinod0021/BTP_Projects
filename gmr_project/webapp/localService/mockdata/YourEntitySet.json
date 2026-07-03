@@ -3,12 +3,14 @@
     "ID": "1",
     "Name": "Binod",
     "City": "Noida",
-    "Age": "30"
+    "Age": "30",
+    "isEditable": false
   },
   {
     "ID": "2",
     "Name": "Rahul",
     "City": "Delhi",
-    "Age": "25"
+    "Age": "25",
+    "isEditable": false
   }
 ]
