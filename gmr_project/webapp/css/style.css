@@ -1,4 +1,12 @@
 /* BACKGROUND (MATCH IMAGE1) */
+
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.sapUiBody {
+    font-family: "Poppins", "72", Arial, sans-serif !important;
+} */
+
 .customHeader {
   padding: 10px 24px;
   background: linear-gradient(90deg,

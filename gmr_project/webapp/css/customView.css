@@ -1,0 +1,37 @@
+
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.sapUiBody {
+    font-family: "Poppins", "72", Arial, sans-serif !important;
+} */
+
+
+.sapMBarTitleAlignAuto .sapMBarPH {
+    justify-content: center !important;
+    margin-top: 10px !important;
+    border: 1px solid rosybrown !important;
+    background: darkgray !important;
+    color: white !important;
+}
+
+.errorText{
+    color:#bb0000;
+}
+
+.sapMIBar-CTX .sapMTitle {
+    font-weight: 600 !important;
+    /* color: var(--sapPageHeader_TextColor); */
+    text-shadow: none !important;
+    color: white !important;
+    font-size: 30px !important;
+}
+
+.main-section{
+    margin-top: 75px !important;
+    overflow: hidden !important;
+}
+
+
+.customFont {
+    font-family: 'Poppins', sans-serif !important;
+}

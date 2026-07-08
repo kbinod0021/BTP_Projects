@@ -8,11 +8,7 @@ sap.ui.define([
 		onInit: function () {
 
 
-			sap.ui.require([
-				"gmrproject/libs/chart.min"
-			], function () {
-				console.log(window.Chart);
-			});
+			
 
 
 
@@ -121,8 +117,8 @@ this.getView().setModel(oModel11, "chartData11");
 					datasets: [{
 						label: 'Monthly Sales',
 						data: oModelData.values,
-						backgroundColor: 'rgba(54, 162, 235, 0.2)',
-						borderColor: 'rgba(54, 162, 235, 1)',
+						backgroundColor: 'rgba(14, 168, 24, 0.2)',
+						borderColor: 'rgb(77, 162, 20)',
 						borderWidth: 1
 					}]
 				},

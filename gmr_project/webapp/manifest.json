@@ -142,6 +142,14 @@
           ]
         },
         {
+          "name": "CustomView",
+          "pattern": "CustomView",
+          "target": [
+            "Targetmain",
+            "CustomView"
+          ]
+        },
+        {
           "name": "CustomChart",
           "pattern": "CustomChart",
           "target": [
@@ -236,6 +244,13 @@
           "parent": "Targetmain",
           "viewName": "Onboard",
           "viewId": "onboard",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "CustomView": {
+          "parent": "Targetmain",
+          "viewName": "CustomView",
+          "viewId": "CustomView",
           "controlId": "innerApp",
           "controlAggregation": "pages"
         },

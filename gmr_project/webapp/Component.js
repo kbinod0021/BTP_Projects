@@ -24,9 +24,18 @@ sap.ui.define([
 
 
 
-            
 
- 
+            
+//  sap.ui.require(["sap/ui/dom/includeStylesheet"], function (includeStylesheet) {
+//                 includeStylesheet("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+//             });
+
+
+ sap.ui.require([
+				"gmrproject/libs/chart.min"
+			], function () {
+				console.log(window.Chart);
+			});
 
 
 

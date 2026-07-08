@@ -11,18 +11,21 @@
 
     <content>
         <core:HTML
-            id="chartHtml"
-            content="&lt;canvas id='myChart' width='100' height='50'&gt;&lt;/canvas&gt;" />
+    content="
+    &lt;div style='height:500px;width:100%'&gt;
+        &lt;canvas id='myChart'&gt;&lt;/canvas&gt;
+    &lt;/div&gt;"
+/>
     </content>
     <content>
         <core:HTML
             id="chartHtml1"
-            content="&lt;canvas id='myChart1' width='100' height='50'&gt;&lt;/canvas&gt;" />
+            content="&lt;canvas id='myChart1' style='height:500px;width:100%'&gt;&lt;/canvas&gt;" />
     </content>
     <content>
         <core:HTML
             id="chartHtml11"
-            content="&lt;canvas id='myChart11' width='100' height='50'&gt;&lt;/canvas&gt;" />
+            content="&lt;canvas id='myChart11' style='height:500px;width:100%'&gt;&lt;/canvas&gt;" />
     </content>
 
 </Page>

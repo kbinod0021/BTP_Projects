@@ -91,10 +91,10 @@ sap.ui.define([
                         subMenus: []
                     },
                     {
-                        id: "onboardItem",
-                        route: "onboard",
+                        id: "onCustomViewItem",
+                        route: "CustomView",
                         icon: "N",
-                        title: "Onboard New PPA",
+                        title: "Custom View",
                         subText: "documents",
                         badge: "0",
                         active: false,

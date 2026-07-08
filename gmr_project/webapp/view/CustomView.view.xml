@@ -1,0 +1,218 @@
+<mvc:View
+    controllerName="gmrproject.controller.CustomView"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    displayBlock="true"
+    height="100%"
+    busyIndicatorDelay="0"
+>
+    <Page
+        title="User Registration Form"
+        class="title_custom"
+    >
+        <content>
+            <VBox class="sapUiSmallMargin main-section">
+                <!-- Personal Information -->
+                <Title text="Personal Information" />
+
+
+                
+<Text
+    text="Hello SAPUI5"
+    class="customFont"/>
+
+
+                <Label text="Full Name" />
+                <Input
+                    id="inpName"
+                    placeholder="Enter Full Name"
+                />
+                <Text
+                    id="txtNameError"
+                    visible="false"
+                    class="sapUiTinyMarginTop errorText"
+                />
+
+                <Label text="Email" />
+                <Input
+                    id="inpEmail"
+                    type="Email"
+                    placeholder="Enter Email"
+                    liveChange="onEmailLiveChange"
+                />
+                <Text
+                    id="txtEmailError"
+                    visible="false"
+                    class="sapUiTinyMarginTop errorText"
+                />
+
+                <Label text="Password" />
+                <Input
+                    id="inpPassword"
+                    type="Password"
+                    placeholder="Enter Password"
+                    liveChange="onPasswordLiveChange"
+                />
+                <Text
+                    id="txtPasswordError"
+                    visible="false"
+                    class="sapUiTinyMarginTop errorText"
+                />
+
+                <Label text="Phone Number" />
+                <Input
+                    id="inpPhone"
+                    type="Tel"
+                    placeholder="Enter Phone Number"
+                />
+                <Text
+                    id="txtPhoneError"
+                    visible="false"
+                    class="sapUiTinyMarginTop errorText"
+                />
+
+                <Label text="Date of Birth" />
+                <DatePicker id="dpDOB" />
+                <Text
+                    id="txtDOBError"
+                    visible="false"
+                    class="sapUiTinyMarginTop errorText"
+                />
+
+                <Label text="Gender" />
+                <RadioButtonGroup id="rbgGender">
+                    <buttons>
+                        <RadioButton text="Male" />
+                        <RadioButton text="Female" />
+                        <RadioButton text="Other" />
+                    </buttons>
+                </RadioButtonGroup>
+                <Text
+                    id="txtGenderError"
+                    visible="false"
+                    class="sapUiTinyMarginTop errorText"
+                />
+
+                <Label text="Country" />
+                <Select id="selCountry">
+                    <items>
+                        <core:Item
+                            key="IN"
+                            text="India"
+                        />
+                        <core:Item
+                            key="US"
+                            text="USA"
+                        />
+                        <core:Item
+                            key="UK"
+                            text="United Kingdom"
+                        />
+                    </items>
+                </Select>
+                <Text
+                    id="txtCountryError"
+                    visible="false"
+                    class="sapUiTinyMarginTop errorText"
+                />
+
+                <Label text="Skills" />
+                <MultiComboBox id="mcbSkills">
+                    <items>
+                        <core:Item
+                            key="UI5"
+                            text="SAP UI5"
+                        />
+                        <core:Item
+                            key="ABAP"
+                            text="ABAP"
+                        />
+                        <core:Item
+                            key="Fiori"
+                            text="Fiori"
+                        />
+                        <core:Item
+                            key="BTP"
+                            text="SAP BTP"
+                        />
+                    </items>
+                </MultiComboBox>
+                <Text
+                    id="txtSkillsError"
+                    visible="false"
+                    class="sapUiTinyMarginTop errorText"
+                />
+
+                <Label text="Address" />
+                <TextArea
+                    id="txtAddress"
+                    rows="4"
+                    width="100%"
+                />
+                <Text
+                    id="txtAddressError"
+                    visible="false"
+                    class="sapUiTinyMarginTop errorText"
+                />
+
+                <!-- Preferences -->
+                <Title
+                    text="Preferences"
+                    class="sapUiMediumMarginTop"
+                />
+
+                <CheckBox text="Accept Terms and Conditions" />
+
+                <Switch
+                    state="true"
+                    customTextOn="Yes"
+                    customTextOff="No"
+                />
+
+                <Input
+                    id="inpPart"
+                    placeholder="Part Number / Name"
+                    showSuggestion="true"
+                    startSuggestion="2"
+                    suggest="onSuggestPart"
+                    suggestionItemSelected="onPartSelected"
+                    suggestionItems="{
+        path:'/parts'
+    }"
+                >
+                    <suggestionItems>
+                        <core:Item
+                            key="{key}"
+                            text="{partName}"
+                        />
+                    </suggestionItems>
+                </Input>
+
+                <!-- Submit -->
+                <HBox
+                    justifyContent="Center"
+                    class="sapUiMediumMarginTop"
+                >
+                    <Button
+                        text="Auto Populate"
+                        type="Accept"
+                        press="onAutoPopulate"
+                    />
+
+                    <Button
+                        text="Register"
+                        type="Emphasized"
+                        press="onRegister"
+                    />
+                    <Button
+                        text="Reset"
+                        type="Reject"
+                        class="sapUiTinyMarginBegin"
+                    />
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>
