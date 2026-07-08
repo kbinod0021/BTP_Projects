@@ -1,0 +1,1044 @@
+.mainContainer {
+    background: #f5f6f7;
+    padding: 1rem;
+    width: 100%;
+}
+
+/* HEADER */
+.headerBar {
+    background: linear-gradient(90deg, #1e2a38, #2c3e50);
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: white;
+}
+
+.logoBox {
+    width: 60px;
+    height: 60px;
+    background: #3b4b5c;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.headerTitles {
+    margin-left: 10px;
+    color: white;
+}
+
+.headerRight .infoItem {
+    margin-left: 25px;
+}
+
+.label {
+    font-size: 10px;
+    color: #cbd5e1;
+}
+
+.value {
+    font-weight: bold;
+}
+
+.valueGreen {
+    color: #4ade80;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.valueYellow {
+    color: #facc15;
+    font-weight: bold;
+    font-size: 16px;
+
+}
+
+/* BOARD */
+.boardHeader {
+    margin-top: 15px;
+}
+
+.badgeGrey {
+    margin-left: 10px;
+    padding: 2px 8px;
+    background: #e5e7eb;
+    border-radius: 12px;
+}
+
+/* ACTION BAR */
+.actionBar {
+    margin-top: 10px;
+}
+
+.tag {
+    padding: 4px 10px;
+    background: #ddd;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.tagBlue {
+    background: #bfdbfe;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.tagRed {
+    background: #fecaca;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.tagGreen {
+    background: #bbf7d0;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.tagGrey {
+    background: #e5e7eb;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+.tagOrange {
+    background: #fed7aa;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 5px;
+}
+
+/* SECTION */
+.sectionHeader {
+    margin-top: 20px;
+}
+
+/* TILES */
+.tileContainer {
+    margin-top: 15px;
+}
+
+.tileCard {
+    width: 300px;
+    padding: 15px;
+    border-radius: 14px;
+    margin: 10px;
+    background: white;
+}
+
+.tileCard.success {
+    border: 2px solid #86efac;
+}
+
+.tileCard.warning {
+    border: 2px solid #fdba74;
+}
+
+.tileIcon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: white;
+    font-weight: bold;
+}
+
+.tileIcon.green {
+    background: #166534;
+}
+
+.tileIcon.orange {
+    background: #ea580c;
+}
+
+.badgeGreen {
+    background: #22c55e;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: white;
+}
+
+.badgeOrange {
+    background: #fb923c;
+    padding: 4px 8px;
+    border-radius: 12px;
+    color: white;
+}
+
+.studio-hero {
+    font-size: 17px;
+    font-weight: 700;
+    color: #b8c9d8;
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.logo-text {
+    color: white !important;
+    width: 63px !important;
+    height: 62px !important;
+    border-radius: 14px !important;
+    background: rgba(255, 255, 255, .12) !important;
+    display: grid !important;
+    place-items: center !important;
+    font: 800 16px var(--ff-display) !important;
+    flex-shrink: 0 !important;
+    border: 1px solid rgba(255, 255, 255, .2) !important;
+}
+
+.header-text {
+    font-size: 22px;
+    line-height: 1.15;
+    font-weight: 700;
+    color: #fff;
+}
+
+.right-side-text {
+   color: #94a3b8 !important;
+    letter-spacing: .5px;
+    text-transform: uppercase !important;
+    margin-bottom: 3px !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+}
+
+.right-side-value {
+    text-align: left;
+    display: block;
+    /* font: 700 14px var(--ff-mono); */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+
+/* PAGE */
+.pageWrapper {
+       padding: 16px;
+    background: #fff !important;
+    font-family: "72", Arial;
+    /* background: var(--paper); */
+    border: 1px solid #dde3eb;
+    border-radius: 14px;
+    box-shadow: 0 1px 2px rgba(10, 25, 41, .06);
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+/* BOARD HEADER */
+.boardHeader {
+     align-items: center;
+    margin-bottom: 12px;
+    padding: 15px 0px;
+    border-bottom: 1px solid #dde3eb;
+    display: flex;
+    /* align-items: center; */
+    gap: 10px;
+}
+
+.boardIcon {
+    margin-right: 8px;
+    color: #334155;
+}
+
+.boardTitle {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.pillGrey {
+    margin-left: 10px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-size: 12px;
+    color: #475569;
+}
+
+/* SECTION */
+.sectionHeader {
+  margin-top: 10px;
+    margin-bottom: 14px;
+    padding: 20px 18px 17px;
+    background: #f9fafb;
+    border-top: 1px solid #dde3eb;
+    border-bottom: 1px solid #dde3eb;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 11px;
+}
+
+.sectionTitle {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+    letter-spacing: 0.5px;
+}
+
+.pillLight {
+    margin-left: 10px;
+    background: #e2e8f0;
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 12px;
+}
+
+/* GRID */
+.tileGrid {
+    gap: 18px;
+}
+
+/* TILE */
+.tile {
+    width: 372px;
+    padding: 16px;
+    border-radius: 16px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+     cursor: pointer;
+}
+
+/* BORDER COLORS */
+.tile.success {
+    border: 2px solid #86efac;
+}
+
+.tile.warning {
+    border: 2px solid #fbbf24;
+}
+
+/* ICON */
+.tileIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    color: white;
+    font-weight: 700;
+    text-align: center !important;
+    line-height: 48px;
+    font-size: 18px;
+}
+
+.tileIcon.green {
+    background: #166534;
+}
+
+.tileIcon.orange {
+    background: #d97706;
+}
+
+
+.tileIcon.purple {
+  
+       background: linear-gradient(135deg, #6a5cff, #8b7bff);
+
+}
+
+
+.tileIcon.Haryana {
+
+    background: #0e8a8a;
+   
+}
+
+.tileIcon.Maharashtra {
+   
+    background: #b25300;
+}
+
+
+/* TITLE + DESC */
+.tileTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.tileDesc {
+       font-size: 15px;
+    color: #8396a8;
+    line-height: 1.4;
+    flex: 1;
+    font-weight: 500;
+}
+
+/* BADGES */
+.badgeSuccess {
+    background: #166534;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 15px;
+}
+
+.badgeWarning {
+    background: #fed7aa;
+    color: #92400e;
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 15px;
+}
+
+/* CHIPS */
+.chip {
+    background: #e2e8f0;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+.chipWarning {
+    background: #fed7aa;
+    color: #92400e;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 14px;
+}
+
+
+/* ✅ HOVER EFFECT */
+
+
+.tile:hover {
+    box-shadow: 0 4px 16px rgba(34, 54, 77, .12);
+    transform: translateY(-1px);
+    border-color: var(--ink-3);
+}
+
+.tile.on {
+    border-color: #9fd9a9;
+    background: linear-gradient(180deg, #fff 50%, #f3fbf5 280%);
+}
+
+/* ✅ BORDER ENHANCE ON HOVER */
+.tile.success:hover {
+    border-color: #22c55e;
+}
+
+.tile.warning:hover {
+    border-color: #f97316;
+}
+
+/* ✅ OPTIONAL: Slight zoom for icon */
+.tile:hover .tileIcon {
+    transform: scale(1.08);
+    transition: 0.2s;
+}
+
+
+/*22-05-2026*/
+.contextItem {
+    padding: 16px !important;
+    border-radius: 16px !important;
+    margin: 10px 0 !important;
+    background: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+     cursor: pointer;
+}
+
+
+
+.sapMLIBFocusable:focus,
+.sapMTblCellFocusable:focus {
+    outline: none !important;
+}
+
+.activeMah {
+
+
+      background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #b25300 !important;
+}
+.activeBI {
+  
+
+    background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #8b7bff !important;
+}
+.activeGR {
+   
+
+     background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #166534 !important;
+}
+.activeHR {
+ 
+         background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #0e8a8a !important;
+}
+.activeTN {
+
+
+      background: #eaf2ff;
+    border: 1px solid #b6ccff;
+    border-left: 6px solid #ea580c !important;
+}
+
+/*25-05-2026*/
+
+ .bottomSection {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 11px;
+}
+
+/*26-05-2026 */
+
+/* ✅ F15 box */
+.f15Box {
+ background: linear-gradient(135deg, #f59e0b, #ea580c);
+    color: white;
+    font-weight: bold;
+    padding: 16px 16px;
+    border-radius: 10px;
+    margin-right: 12px;
+    font-size: 14px;
+}
+
+/* ✅ Title */
+.dialogTitle {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* ✅ Subtitle */
+.dialogSubTitle {
+color: #000;
+    line-height: 1.2;
+    font-size: 19px;
+    font-weight: 700;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    margin: 10px;
+}
+
+/* ✅ Group text spacing */
+.dialogTextBlock {
+  margin-left: 6px;
+}
+
+/* ✅ Chips */
+.chipBlue {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.chipGreen {
+  background: #dcfce7;
+  color: #15803d;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+.chipGray {
+  background: #e5e7eb;
+  color: #374151;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* ✅ Close button styling */
+.closeBtn {
+  border-radius: 8px;
+}
+
+.sapUiSizeCompact.sapMDialog .sapMDialogTitleGroup .sapMHeader-CTX, .sapUiSizeCompact .sapMDialog .sapMDialogTitleGroup .sapMHeader-CTX, .sapUiSizeCompact.sapMDialog .sapMDialogTitleGroup .sapMSubHeader-CTX, .sapUiSizeCompact .sapMDialog .sapMDialogTitleGroup .sapMSubHeader-CTX {
+    height: 8.5rem !important;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    box-sizing: border-box;
+}
+.sapUiSizeCompact .sapMBarLeft, .sapUiSizeCompact .sapMBarRight, .sapUiSizeCompact .sapMBarPH {
+    height: 6rem !important;
+    line-height: 2rem;
+}
+.headerBarForm15 {
+       background: linear-gradient(90deg, #dee0e4, #d9dde2);
+    padding: 1.5rem;
+    border-radius: 12px;
+    color: white;
+}
+
+.text-header{
+  font: 500 12px var(--ff-body);
+    color: #8396a8;
+    margin-top: 3px;
+    line-height: 1.4;
+}
+
+.headerBarForm15 {
+  gap: 12px; /* space between text and chips */
+}
+
+.text-header {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* ✅ container of tags */
+.tagContainer {
+  margin-left: 10px;
+}
+
+/* ✅ chip style */
+.tagtagContainer {
+  background: #e5e7eb;
+  color: #374151;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-right: 6px;
+  font-size: 12px;
+}
+
+/* ✅ green chip */
+.tagtagContainer.green {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+
+.modal-b {
+    /* padding: 18px 22px; */
+    overflow-y: auto;
+    flex: 1;
+}
+.alert {
+display: flex;
+    gap: 11px;
+    padding: 21px 19px;
+    border-radius: 11px;
+    background: #eaf4ff;
+    border-left: 6px solid #0070f2;
+    font-size: 14.5px;
+    color: #384a5f;
+    line-height: 1.5;
+    margin-bottom: 14px;
+    width: 100%;
+}
+.alert .ico {
+    font-size: 16px;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.alert-text{
+    font-size: 16px;
+    font-weight: 600;
+}
+.mainContainerForm15 {
+    background: #fff;
+    padding: 1rem;
+    width: 100%;
+}
+
+.bullet {
+  font-size: 16px;
+  color: #4b5563;
+  margin-top: 2px;
+}
+
+.alertTextBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.Weighted-text{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sectionHeaderform15 {
+    margin-top: 10px;
+    margin-bottom: 14px;
+    /* padding: 20px 18px 17px; */
+    /* background: #f9fafb; */
+    /* border-top: 1px solid #dde3eb; */
+    /* border-bottom: 1px solid #dde3eb; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 11px;
+}
+.num {
+       width: 28px;
+    height: 26px;
+    border-radius: 50%;
+    background: #5d36ff ;
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font: 700 11px var(--ff-mono);
+    flex-shrink: 0;
+}
+.mod-sec-header {
+font-size: 18px;
+    font-weight: 700;
+    flex: 1;
+    line-height: 1.2;
+}
+
+/* ✅ Card container */
+.card {
+background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 17px 13px;
+    gap: 12px;
+    margin: 6px;
+}
+
+/* ✅ Field group spacing */
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ✅ Large field (Source) */
+.fieldGroup.large {
+  width: 88%;
+}
+
+/* ✅ Small fields */
+.fieldGroup:not(.large) {
+  width: 12%;
+}
+
+/* ✅ Input main style */
+/* .inputField .sapMInputBaseInner {
+  border-radius: 10px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  min-height: 42px;
+box-sizing: border-box;
+} */
+
+
+
+.inputField{
+   height:auto !important;
+}
+.inputField .sapMInputBaseContentWrapper{
+   min-height:42px !important;
+   height:auto !important;
+   display:flex;
+   align-items:center;
+   box-sizing:border-box;
+}
+.inputField .sapMInputBaseInner{
+   border-radius:10px;
+   background:#f3f4f6;
+   border:1px solid #d1d5db;
+   height:auto !important;
+   min-height:42px;
+   padding:8px 11px !important;
+   line-height:20px !important;
+   box-sizing:border-box;
+}
+
+
+
+
+
+/* ✅ Smaller inputs */
+.inputField.small .sapMInputBaseInner {
+  text-align: center;
+}
+
+/* ✅ Label styling */
+.sapMLabel {
+ font-size: 15px;
+    color: #6b7280;
+    margin-bottom: 4px;
+}
+
+/* ✅ Delete container */
+.deleteContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* ✅ Delete button */
+.deleteBtn {
+  background: #fee2e2;
+  border-radius: 8px;
+  margin-top: 24px;
+}
+
+.deleteBtn .sapMBtnInner {
+  color: #ef4444;
+}
+.mono {
+    font-family: 'JetBrains Mono',ui-monospace,monospace;
+    font-weight: 600;
+    font-size: 12.5px;
+}
+
+.from15-input .sapMInputBaseInner {
+   padding: 6px 11px;
+    border: 1px solid #c2cad6;
+    border-radius: 7px;
+    font: 500 13px #c2cad6;
+    color: #1a2733;
+    background: #fff;
+    transition: 120ms cubic-bezier(.4, .2, .2, 1);
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+.add-row-btn {
+    height: 32px;
+    border: 1.5px dashed #c2cad6;
+    background: transparent;
+    border-radius: 7px;
+    font: 600 12px 'Inter',system-ui,sans-serif;
+    color: #8396a8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    transition: 120ms cubic-bezier(.4,.2,.2,1);
+    width: 100%;
+}
+
+/* ✅ Layout */
+.toleranceRow {
+  gap: 16px;
+}
+
+/* ✅ Field width */
+.tolField {
+  width: 32%;
+  position: relative;
+}
+
+/* ✅ Number input */
+.numberInput .sapMStepInputInner {
+  border-radius: 10px;
+  height: 40px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+}
+
+/* ✅ suffix inside right */
+.inputSuffix {
+  position: absolute;
+  right: 12px;
+  bottom: 10px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* ✅ purple tag */
+.tagPurple {
+  background: #ede9fe;
+  color: #6d28d9;
+  padding: 2px 8px;
+  border-radius: 8px;
+  margin-left: 8px;
+  font-size: 12px;
+}
+
+/* ✅ wrapper for positioning */
+.inputWrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* ✅ StepInput styling */
+.form15-input .sapMStepInputInner {
+  padding-right: 60px; /* ✅ space for suffix */
+  height: 40px;
+  border-radius: 10px;
+}
+
+/* ✅ suffix inside bottom-right */
+.inputSuffix {
+     position: absolute;
+    right: 0px;
+    top: 11px;
+    font-size: 12px;
+    color: #6b7280;
+    pointer-events: none;
+}
+
+
+
+/* ✅ Main card */
+.resultCard {
+  background: #e6f4ec;
+  border-left: 4px solid #166534;
+  border-radius: 10px;
+  padding: 16px;
+  gap: 12px;
+  margin-top: 39px;
+      margin-bottom: 24px;
+}
+
+/* ✅ Icon area */
+.iconWrapper {
+  margin-top: 2px;
+}
+
+/* ✅ Check icon */
+.checkIcon {
+  font-size: 16px;
+  color: #166534;
+  font-weight: bold;
+}
+
+/* ✅ Content spacing */
+.resultContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ✅ Labels */
+.labelText {
+  font-size: 14px;
+  color: #374151;
+}
+
+/* ✅ Bold values */
+.valueText {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+/* ✅ Indent bullet lines */
+.indent {
+  margin-top: 6px;
+}
+
+/* ✅ Footer line */
+.footerText {
+  font-size: 14px;
+  color: #374151;
+  margin-top: 6px;
+}
+
+
+
+/* ✅ Left side (Unsaved) */
+.footerLeft {
+  display: flex;
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ✅ Footer container */
+.footerBar {
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 14px 18px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ✅ Left tag */
+.unsavedTag {
+  background: #f3f4f6;
+  color: #6b7280;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* ✅ Right buttons */
+.footerRight {
+  display: flex;
+  gap: 10px;
+}
+
+/* ✅ Validate */
+.validateBtn {
+  border: 1px solid #f59e0b;
+  color: #f59e0b;
+  border-radius: 8px;
+}
+
+/* ✅ Save */
+.saveBtn {
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: white;
+}
+
+/* ✅ Dialog content layout */
+.sapMDialog .sapMDialogSection {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ✅ Keep wrapper full height */
+/* .sapMDialog .sapMVBox {
+  height: 100%;
+} */
+
+/* ✅ Footer always visible */
+.footerBar {
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+  padding: 14px 18px;
+
+  display: flex;
+  justify-content: space-between;
+
+  position: sticky;   /* ✅ key fix */
+  bottom: 0;
+  z-index: 10;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

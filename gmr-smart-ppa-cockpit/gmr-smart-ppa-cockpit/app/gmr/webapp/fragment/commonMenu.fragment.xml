@@ -1,0 +1,90 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    >
+
+    
+         <HBox
+        class="menuBar"
+        justifyContent="SpaceBetween"
+    >
+        <!-- ✅ LEFT MENU (ROW FIX) -->
+        <HBox class="menuLeft">
+            <!-- ITEM 1 -->
+            <HBox
+                id="menuContainer12"
+                items="{
+        path: 'menu>/menuItems',
+        filters: [
+            { path: 'isMainMenu', operator: 'EQ', value1: true }
+        ]
+    }"
+            >
+                <HBox
+                    class="menuItem"
+                    visible="true"
+                    
+                >
+                    <customData>
+                        <core:CustomData
+                            key="active"
+                            value="{menu>active}"
+                        />
+                    </customData>
+
+                    <customData>
+                        <core:CustomData
+                            key="id"
+                            value="{menu>id}"
+                        />
+                    </customData>
+
+                    <customData>
+                        <core:CustomData
+                            key="route"
+                            value="{menu>route}"
+                        />
+                    </customData>
+
+                    <Text
+                        text="{menu>icon}"
+                        class="iconCircle"
+                        visible="{= ${menu>icon} !== '' }"
+                    />
+
+                    <VBox>
+                        <Text
+                            text="{menu>title}"
+                            class="title"
+                        />
+                        <!-- <Text
+                            text="{menu>subText}"
+                            class="subText"
+                        /> -->
+                    </VBox>
+                </HBox>
+            </HBox>
+
+            <!-- ITEM 5 -->
+            <HBox
+                id="appsItem"
+                class="menuItem"
+            >
+                <customData>
+                    <core:CustomData
+                        key="route"
+                        value="more"
+                    />
+                </customData>
+                <Text
+                    id="plusIconBtn"
+                    text="+"
+                    tooltip="More Apps"
+                    class="plusIcon"
+                />
+            </HBox>
+        </HBox>
+    </HBox>
+    
+
+</core:FragmentDefinition>

@@ -1,0 +1,312 @@
+{
+  "_version": "1.86.0",
+  "sap.app": {
+    "id": "gmr",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:basic",
+      "version": "1.28.0",
+      "toolsId": "a38f2825-315b-4a67-85d7-f67b717aba4b"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/odata/v4/ppa/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": false,
+    "dependencies": {
+      "minUI5Version": "1.149.1",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "gmr.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+  "config": {
+    "routerClass": "sap.m.routing.Router",
+    "controlAggregation": "pages",
+    "controlId": "app",
+    "transition": "slide",
+    "type": "View",
+    "viewType": "XML",
+    "path": "gmr.view",
+    "viewPath": "gmr.view",
+    "async": true
+  },
+  "routes": [
+        {
+          "name": "main",
+          "pattern": "main",
+          "target": "Targetmain"
+        },
+        {
+          "name": "studio",
+          "pattern": "studio",
+          "target": [
+            "Targetmain",
+            "studio"
+          ]
+        },
+        {
+          "name": "subView1",
+          "pattern": "subView1",
+          "target": [
+            "Targetmain",
+            "subView1"
+          ]
+        },
+        {
+          "name": "subView2",
+          "pattern": "subView2",
+          "target": [
+            "Targetmain",
+            "subView2"
+          ]
+        },
+        {
+          "name": "input",
+          "pattern": "input",
+          "target": [
+            "Targetmain",
+            "input"
+          ]
+        },
+        {
+          "name": "output",
+          "pattern": "output",
+          "target": [
+            "Targetmain",
+            "output"
+          ]
+        },
+        {
+          "name": "onboard",
+          "pattern": "onboard",
+          "target": [
+            "Targetmain",
+            "onboard"
+          ]
+        },
+        {
+          "name": "CustomView",
+          "pattern": "CustomView",
+          "target": [
+            "Targetmain",
+            "CustomView"
+          ]
+        },
+        {
+          "name": "CustomChart",
+          "pattern": "CustomChart",
+          "target": [
+            "Targetmain",
+            "CustomChart"
+          ]
+        },
+        {
+          "name": "pdf",
+          "pattern": "pdf",
+          "target": [
+            "Targetmain",
+            "pdf"
+          ]
+        },
+        {
+          "name": "smartTable",
+          "pattern": "smartTable",
+          "target": [
+            "Targetmain",
+            "smartTable"
+          ]
+        },
+        {
+          "name": "planningCalendar",
+          "pattern": "planningCalendar",
+          "target": [
+            "Targetmain",
+            "planningCalendar"
+          ]
+        },
+        {
+          "name": "multipleFile",
+          "pattern": "multipleFile",
+          "target": [
+            "Targetmain",
+            "multipleFile"
+          ]
+        },
+        {
+          "name": "apps",
+          "pattern": "apps",
+          "target": [
+            "Targetmain",
+            "apps"
+          ]
+        }
+      ],
+      "targets": {
+        "Targetmain": {
+          "viewName": "main",
+          "viewId": "main",
+          "controlId": "appContainer",
+          "controlAggregation": "pages"
+        },
+        "studio": {
+          "parent": "Targetmain",
+          "viewName": "SD_PPA_Cockpit",
+          "viewId": "SD_PPA_Cockpit",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "subView1": {
+          "parent": "Targetmain",
+          "viewName": "subView1",
+          "viewId": "subView1",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "subView2": {
+          "parent": "Targetmain",
+          "viewName": "subView2",
+          "viewId": "subView2",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "input": {
+          "parent": "Targetmain",
+          "viewName": "inputCalculation",
+          "viewId": "inputCalculation",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "output": {
+          "parent": "Targetmain",
+          "viewName": "Output",
+          "viewId": "output",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "onboard": {
+          "parent": "Targetmain",
+          "viewName": "Onboard",
+          "viewId": "onboard",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "CustomView": {
+          "parent": "Targetmain",
+          "viewName": "CustomView",
+          "viewId": "CustomView",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "CustomChart": {
+          "parent": "Targetmain",
+          "viewName": "CustomChart",
+          "viewId": "CustomChart",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        },
+        "pdf": {
+          "parent": "Targetmain",
+          "viewName": "PDF",
+          "viewId": "pdf",
+          "controlId": "dialogNavContainer",
+          "controlAggregation": "pages"
+        },
+        "smartTable": {
+          "parent": "Targetmain",
+          "viewName": "SmartTable",
+          "viewId": "smartTable",
+          "controlId": "dialogNavContainer",
+          "controlAggregation": "pages"
+        },
+        "planningCalendar": {
+          "parent": "Targetmain",
+          "viewName": "PlanningCalendar",
+          "viewId": "planningCalendar",
+          "controlId": "dialogNavContainer",
+          "controlAggregation": "pages"
+        },
+        "multipleFile": {
+          "parent": "Targetmain",
+          "viewName": "multipleFile",
+          "viewId": "multipleFile",
+          "controlId": "dialogNavContainer",
+          "controlAggregation": "pages"
+        },
+        "apps": {
+          "parent": "Targetmain",
+          "viewName": "Apps",
+          "viewId": "apps",
+          "controlId": "innerApp",
+          "controlAggregation": "pages"
+        }
+      }
+},
+    "rootView": {
+      "viewName": "gmr.view.App",
+      "type": "XML",
+      "id": "App",
+      "async": true
+    }
+  }
+}

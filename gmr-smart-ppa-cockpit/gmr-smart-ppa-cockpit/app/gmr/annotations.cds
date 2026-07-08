@@ -1,0 +1,1 @@
+using PpaService as service from '../../srv/masterdata';

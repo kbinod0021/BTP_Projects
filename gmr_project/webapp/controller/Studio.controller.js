@@ -822,7 +822,7 @@ onCloseDialog: function () {
 
 onSaveCoal: function () {
     sap.m.MessageToast.show("Saved successfully");
-},
+}
 
 
 
