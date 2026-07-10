@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
     "folders": [
         {
@@ -8,3 +9,6 @@
         "SAP HANA Database Explorer.ShowXsAdvancedConnections": true
     }
 }
+=======
+{"folders":[{"path":"BTP_Projects-main (1)"}],"settings":{}}
+>>>>>>> 5bbe50b (project change)
